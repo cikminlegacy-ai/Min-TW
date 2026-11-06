@@ -1,0 +1,33 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: visible; }
+    #hk-flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+    #hk-card {
+      position: absolute; left: 90px; right: 90px; top: 190px;
+      background: #0a2a7a; border: 10px solid #ffc700; border-radius: 34px;
+      padding: 34px 20px 40px; text-align: center; opacity: 0;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 8px rgba(10,42,122,.35);
+      font-family: "Montserrat", sans-serif; font-weight: 900; color: #ffc700;
+    }
+    #hk-l1 { font-size: 96px; line-height: 1; letter-spacing: -0.01em; }
+    #hk-l2 { font-size: 200px; line-height: 0.95; letter-spacing: -0.03em; margin-top: 8px;
+      text-shadow: 0 0 40px rgba(255,199,0,.45); }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div id="hk-flash" class="clip" data-start="0" data-duration="0.4" data-layout-ignore></div>
+    <div id="hk-card" class="clip" data-start="0" data-duration="3.05">
+      <div id="hk-l1">TELCO BAGI</div>
+      <div id="hk-l2">41% ?</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hk-flash", { opacity: 0.55 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 0.02);
+    tl.fromTo("#hk-card", { opacity: 0, scale: 2.1, rotation: -8 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.3, ease: "expo.out" }, 0.04);
+    tl.fromTo("#hk-l2", { scale: 0.3 }, { scale: 1, duration: 0.4, ease: "back.out(3)" }, 0.16);
+    tl.fromTo("#hk-card", { x: 0 }, { x: 0, keyframes: { x: [0, -14, 12, -8, 5, 0] }, duration: 0.3, ease: "none" }, 0.34);
+    tl.fromTo("#hk-l2", { scale: 1 }, { scale: 1.1, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, 1.4);
+    tl.to("#hk-card", { opacity: 0, scale: 0.8, filter: "blur(10px)", duration: 0.2, ease: "power3.in" }, 2.8);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

@@ -1,0 +1,845 @@
+{
+ "total": 47.933,
+ "segments": [
+  {
+   "src_in": 0.346,
+   "src_out": 2.067,
+   "t": 0.0,
+   "dur": 1.721,
+   "label": "hook"
+  },
+  {
+   "src_in": 2.747,
+   "src_out": 5.885,
+   "t": 1.721,
+   "dur": 3.138,
+   "label": "hook"
+  },
+  {
+   "src_in": 6.626,
+   "src_out": 9.0,
+   "t": 4.859,
+   "dur": 2.374,
+   "label": "hook"
+  },
+  {
+   "src_in": 12.3,
+   "src_out": 14.432,
+   "t": 7.233,
+   "dur": 2.132,
+   "label": "iklan"
+  },
+  {
+   "src_in": 15.345,
+   "src_out": 18.954,
+   "t": 9.365,
+   "dur": 3.609,
+   "label": "iklan"
+  },
+  {
+   "src_in": 22.227,
+   "src_out": 26.225,
+   "t": 12.974,
+   "dur": 3.998,
+   "label": "affiliate"
+  },
+  {
+   "src_in": 27.267,
+   "src_out": 28.352,
+   "t": 16.972,
+   "dur": 1.085,
+   "label": "affiliate"
+  },
+  {
+   "src_in": 28.855,
+   "src_out": 30.042,
+   "t": 18.057,
+   "dur": 1.186,
+   "label": "affiliate"
+  },
+  {
+   "src_in": 31.472,
+   "src_out": 32.345,
+   "t": 19.243,
+   "dur": 0.873,
+   "label": "affiliate"
+  },
+  {
+   "src_in": 34.28,
+   "src_out": 35.215,
+   "t": 20.116,
+   "dur": 0.935,
+   "label": "pusing"
+  },
+  {
+   "src_in": 36.172,
+   "src_out": 37.51,
+   "t": 21.051,
+   "dur": 1.338,
+   "label": "pusing"
+  },
+  {
+   "src_in": 37.874,
+   "src_out": 38.904,
+   "t": 22.39,
+   "dur": 1.031,
+   "label": "pusing"
+  },
+  {
+   "src_in": 44.54,
+   "src_out": 45.6,
+   "t": 23.421,
+   "dur": 1.06,
+   "label": "grab"
+  },
+  {
+   "src_in": 47.8,
+   "src_out": 49.62,
+   "t": 24.481,
+   "dur": 1.82,
+   "label": "grab"
+  },
+  {
+   "src_in": 50.8,
+   "src_out": 52.9,
+   "t": 26.301,
+   "dur": 2.1,
+   "label": "grab"
+  },
+  {
+   "src_in": 54.5,
+   "src_out": 55.47,
+   "t": 28.401,
+   "dur": 0.97,
+   "label": "telco-sama"
+  },
+  {
+   "src_in": 59.74,
+   "src_out": 61.98,
+   "t": 29.371,
+   "dur": 2.24,
+   "label": "16tahun"
+  },
+  {
+   "src_in": 63.1,
+   "src_out": 63.991,
+   "t": 31.611,
+   "dur": 0.891,
+   "label": "guna-cerita"
+  },
+  {
+   "src_in": 64.439,
+   "src_out": 65.512,
+   "t": 32.501,
+   "dur": 1.073,
+   "label": "guna-cerita"
+  },
+  {
+   "src_in": 66.578,
+   "src_out": 68.556,
+   "t": 33.574,
+   "dur": 1.977,
+   "label": "guna-cerita"
+  },
+  {
+   "src_in": 69.36,
+   "src_out": 71.58,
+   "t": 35.551,
+   "dur": 2.22,
+   "label": "tak-jual"
+  },
+  {
+   "src_in": 72.36,
+   "src_out": 73.923,
+   "t": 37.771,
+   "dur": 1.563,
+   "label": "faham"
+  },
+  {
+   "src_in": 74.755,
+   "src_out": 75.531,
+   "t": 39.335,
+   "dur": 0.776,
+   "label": "faham"
+  },
+  {
+   "src_in": 75.647,
+   "src_out": 76.855,
+   "t": 40.111,
+   "dur": 1.208,
+   "label": "faham"
+  },
+  {
+   "src_in": 77.435,
+   "src_out": 78.98,
+   "t": 41.319,
+   "dur": 1.545,
+   "label": "faham"
+  },
+  {
+   "src_in": 80.178,
+   "src_out": 82.189,
+   "t": 42.864,
+   "dur": 2.011,
+   "label": "follow"
+  },
+  {
+   "src_in": 82.555,
+   "src_out": 83.399,
+   "t": 44.875,
+   "dur": 0.843,
+   "label": "follow"
+  },
+  {
+   "src_in": 84.16,
+   "src_out": 84.646,
+   "t": 45.719,
+   "dur": 0.486,
+   "label": "nanti"
+  },
+  {
+   "src_in": 84.972,
+   "src_out": 86.7,
+   "t": 46.205,
+   "dur": 1.728,
+   "label": "nanti"
+  }
+ ],
+ "words": [
+  {
+   "text": "Abang",
+   "start": 0.0,
+   "end": 0.394
+  },
+  {
+   "text": "akak,",
+   "start": 0.394,
+   "end": 0.634
+  },
+  {
+   "text": "kenapa",
+   "start": 0.714,
+   "end": 1.074
+  },
+  {
+   "text": "telco",
+   "start": 1.074,
+   "end": 1.434
+  },
+  {
+   "text": "ni",
+   "start": 1.434,
+   "end": 1.721
+  },
+  {
+   "text": "sanggup",
+   "start": 1.814,
+   "end": 2.314
+  },
+  {
+   "text": "bagi",
+   "start": 2.314,
+   "end": 2.674
+  },
+  {
+   "text": "keuntungan",
+   "start": 2.674,
+   "end": 3.294
+  },
+  {
+   "text": "41",
+   "start": 3.294,
+   "end": 3.854
+  },
+  {
+   "text": "%",
+   "start": 3.854,
+   "end": 4.234
+  },
+  {
+   "text": "kat",
+   "start": 4.234,
+   "end": 4.394
+  },
+  {
+   "text": "kita",
+   "start": 4.394,
+   "end": 4.859
+  },
+  {
+   "text": "sebab",
+   "start": 4.859,
+   "end": 5.393
+  },
+  {
+   "text": "dia",
+   "start": 5.393,
+   "end": 5.633
+  },
+  {
+   "text": "tak",
+   "start": 5.633,
+   "end": 5.853
+  },
+  {
+   "text": "nak",
+   "start": 5.853,
+   "end": 6.153
+  },
+  {
+   "text": "utamakan",
+   "start": 6.153,
+   "end": 6.753
+  },
+  {
+   "text": "artis?",
+   "start": 6.753,
+   "end": 7.233
+  },
+  {
+   "text": "telco",
+   "start": 7.333,
+   "end": 7.533
+  },
+  {
+   "text": "besar,",
+   "start": 7.533,
+   "end": 8.033
+  },
+  {
+   "text": "kalau",
+   "start": 8.193,
+   "end": 8.353
+  },
+  {
+   "text": "dia",
+   "start": 8.353,
+   "end": 8.533
+  },
+  {
+   "text": "nak",
+   "start": 8.533,
+   "end": 8.673
+  },
+  {
+   "text": "buat",
+   "start": 8.673,
+   "end": 8.833
+  },
+  {
+   "text": "iklan,",
+   "start": 8.833,
+   "end": 9.365
+  },
+  {
+   "text": "kat",
+   "start": 9.52,
+   "end": 9.66
+  },
+  {
+   "text": "TV,",
+   "start": 9.66,
+   "end": 10.1
+  },
+  {
+   "text": "kat",
+   "start": 10.32,
+   "end": 10.5
+  },
+  {
+   "text": "billboard,",
+   "start": 10.5,
+   "end": 11.04
+  },
+  {
+   "text": "dia",
+   "start": 11.24,
+   "end": 11.34
+  },
+  {
+   "text": "kena",
+   "start": 11.34,
+   "end": 11.58
+  },
+  {
+   "text": "bayar",
+   "start": 11.58,
+   "end": 11.86
+  },
+  {
+   "text": "sampai",
+   "start": 11.86,
+   "end": 12.16
+  },
+  {
+   "text": "100",
+   "start": 12.16,
+   "end": 12.46
+  },
+  {
+   "text": ",000.",
+   "start": 12.46,
+   "end": 12.974
+  },
+  {
+   "text": "Tak",
+   "start": 12.974,
+   "end": 13.207
+  },
+  {
+   "text": "bayar",
+   "start": 13.207,
+   "end": 13.507
+  },
+  {
+   "text": "artis",
+   "start": 13.507,
+   "end": 14.027
+  },
+  {
+   "text": "tapi",
+   "start": 14.027,
+   "end": 14.447
+  },
+  {
+   "text": "dia",
+   "start": 14.447,
+   "end": 14.787
+  },
+  {
+   "text": "share",
+   "start": 14.787,
+   "end": 15.007
+  },
+  {
+   "text": "keuntungan",
+   "start": 15.007,
+   "end": 15.587
+  },
+  {
+   "text": "41",
+   "start": 15.587,
+   "end": 16.147
+  },
+  {
+   "text": "%",
+   "start": 16.147,
+   "end": 16.647
+  },
+  {
+   "text": "dia",
+   "start": 16.647,
+   "end": 16.972
+  },
+  {
+   "text": "kat",
+   "start": 16.985,
+   "end": 17.285
+  },
+  {
+   "text": "hampir",
+   "start": 17.285,
+   "end": 18.057
+  },
+  {
+   "text": "3",
+   "start": 18.062,
+   "end": 18.582
+  },
+  {
+   "text": "juta",
+   "start": 18.582,
+   "end": 19.244
+  },
+  {
+   "text": "affiliate",
+   "start": 19.243,
+   "end": 19.811
+  },
+  {
+   "text": "dia.",
+   "start": 19.811,
+   "end": 20.116
+  },
+  {
+   "text": "duit",
+   "start": 20.176,
+   "end": 20.256
+  },
+  {
+   "text": "ilan",
+   "start": 20.256,
+   "end": 20.616
+  },
+  {
+   "text": "tu,",
+   "start": 20.616,
+   "end": 21.051
+  },
+  {
+   "text": "dia",
+   "start": 21.099,
+   "end": 21.399
+  },
+  {
+   "text": "pusing",
+   "start": 21.399,
+   "end": 21.979
+  },
+  {
+   "text": "balik",
+   "start": 21.979,
+   "end": 22.389
+  },
+  {
+   "text": "bagi",
+   "start": 22.39,
+   "end": 22.916
+  },
+  {
+   "text": "kat",
+   "start": 22.916,
+   "end": 23.036
+  },
+  {
+   "text": "kita.",
+   "start": 23.036,
+   "end": 23.42
+  },
+  {
+   "text": "Sama",
+   "start": 23.461,
+   "end": 23.821
+  },
+  {
+   "text": "macam",
+   "start": 23.821,
+   "end": 24.121
+  },
+  {
+   "text": "Grab.",
+   "start": 24.121,
+   "end": 24.441
+  },
+  {
+   "text": "Grab",
+   "start": 24.721,
+   "end": 24.981
+  },
+  {
+   "text": "bagi",
+   "start": 24.981,
+   "end": 25.361
+  },
+  {
+   "text": "duit",
+   "start": 25.361,
+   "end": 25.581
+  },
+  {
+   "text": "kat",
+   "start": 25.581,
+   "end": 25.741
+  },
+  {
+   "text": "kita.",
+   "start": 25.741,
+   "end": 26.301
+  },
+  {
+   "text": "kita",
+   "start": 26.341,
+   "end": 26.801
+  },
+  {
+   "text": "ajak",
+   "start": 26.801,
+   "end": 27.161
+  },
+  {
+   "text": "kawan",
+   "start": 27.161,
+   "end": 27.621
+  },
+  {
+   "text": "guna",
+   "start": 27.621,
+   "end": 28.041
+  },
+  {
+   "text": "Grab.",
+   "start": 28.041,
+   "end": 28.391
+  },
+  {
+   "text": "Telco",
+   "start": 28.441,
+   "end": 28.601
+  },
+  {
+   "text": "pun",
+   "start": 28.601,
+   "end": 28.821
+  },
+  {
+   "text": "sama,",
+   "start": 28.821,
+   "end": 29.261
+  },
+  {
+   "text": "Dah",
+   "start": 29.411,
+   "end": 29.511
+  },
+  {
+   "text": "16",
+   "start": 29.511,
+   "end": 29.911
+  },
+  {
+   "text": "tahun",
+   "start": 29.911,
+   "end": 30.311
+  },
+  {
+   "text": "pun",
+   "start": 30.311,
+   "end": 30.591
+  },
+  {
+   "text": "buat",
+   "start": 30.591,
+   "end": 30.891
+  },
+  {
+   "text": "benda",
+   "start": 30.891,
+   "end": 31.171
+  },
+  {
+   "text": "sama.",
+   "start": 31.171,
+   "end": 31.611
+  },
+  {
+   "text": "Kita",
+   "start": 31.651,
+   "end": 31.971
+  },
+  {
+   "text": "guna,",
+   "start": 31.971,
+   "end": 32.502
+  },
+  {
+   "text": "kita",
+   "start": 32.642,
+   "end": 33.002
+  },
+  {
+   "text": "cerita.",
+   "start": 33.002,
+   "end": 33.574
+  },
+  {
+   "text": "Dia",
+   "start": 33.636,
+   "end": 33.856
+  },
+  {
+   "text": "bagi",
+   "start": 33.856,
+   "end": 34.176
+  },
+  {
+   "text": "keuntungan",
+   "start": 34.176,
+   "end": 34.956
+  },
+  {
+   "text": "sebahagian.",
+   "start": 34.956,
+   "end": 35.552
+  },
+  {
+   "text": "Dia",
+   "start": 35.591,
+   "end": 35.771
+  },
+  {
+   "text": "tak",
+   "start": 35.771,
+   "end": 35.951
+  },
+  {
+   "text": "jual",
+   "start": 35.951,
+   "end": 36.171
+  },
+  {
+   "text": "apa",
+   "start": 36.171,
+   "end": 36.491
+  },
+  {
+   "text": "-apa",
+   "start": 36.491,
+   "end": 36.671
+  },
+  {
+   "text": "pun",
+   "start": 36.671,
+   "end": 36.911
+  },
+  {
+   "text": "dalam",
+   "start": 36.911,
+   "end": 37.171
+  },
+  {
+   "text": "video",
+   "start": 37.171,
+   "end": 37.451
+  },
+  {
+   "text": "ni.",
+   "start": 37.451,
+   "end": 37.771
+  },
+  {
+   "text": "Saya",
+   "start": 37.811,
+   "end": 38.311
+  },
+  {
+   "text": "cuma",
+   "start": 38.311,
+   "end": 38.651
+  },
+  {
+   "text": "nak",
+   "start": 38.651,
+   "end": 38.831
+  },
+  {
+   "text": "bagi,",
+   "start": 38.831,
+   "end": 39.334
+  },
+  {
+   "text": "abang",
+   "start": 39.64,
+   "end": 39.82
+  },
+  {
+   "text": "akak",
+   "start": 39.82,
+   "end": 40.111
+  },
+  {
+   "text": "faham",
+   "start": 40.111,
+   "end": 40.824
+  },
+  {
+   "text": "dulu",
+   "start": 40.824,
+   "end": 41.319
+  },
+  {
+   "text": "sistem",
+   "start": 41.319,
+   "end": 41.904
+  },
+  {
+   "text": "dia",
+   "start": 41.904,
+   "end": 42.344
+  },
+  {
+   "text": "macam",
+   "start": 42.344,
+   "end": 42.664
+  },
+  {
+   "text": "mana.",
+   "start": 42.664,
+   "end": 42.864
+  },
+  {
+   "text": "Kalau",
+   "start": 42.864,
+   "end": 43.266
+  },
+  {
+   "text": "abang",
+   "start": 43.266,
+   "end": 43.626
+  },
+  {
+   "text": "akak",
+   "start": 43.626,
+   "end": 43.826
+  },
+  {
+   "text": "nak",
+   "start": 43.826,
+   "end": 44.066
+  },
+  {
+   "text": "faham",
+   "start": 44.066,
+   "end": 44.406
+  },
+  {
+   "text": "lagi,",
+   "start": 44.406,
+   "end": 44.875
+  },
+  {
+   "text": "follow",
+   "start": 45.0,
+   "end": 45.2
+  },
+  {
+   "text": "saya.",
+   "start": 45.2,
+   "end": 45.719
+  },
+  {
+   "text": "Nanti",
+   "start": 45.759,
+   "end": 46.205
+  },
+  {
+   "text": "saya",
+   "start": 46.205,
+   "end": 46.473
+  },
+  {
+   "text": "cerita",
+   "start": 46.473,
+   "end": 46.893
+  },
+  {
+   "text": "lagi",
+   "start": 46.893,
+   "end": 47.213
+  },
+  {
+   "text": "kat",
+   "start": 47.213,
+   "end": 47.413
+  },
+  {
+   "text": "video",
+   "start": 47.413,
+   "end": 47.893
+  },
+  {
+   "text": "selanjutnya.",
+   "start": 47.893,
+   "end": 47.913
+  }
+ ]
+}

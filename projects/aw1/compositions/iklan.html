@@ -1,0 +1,92 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    .full { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    .chip { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+    .chip span { display: inline-block; padding: 18px 38px; border-radius: 22px; font-weight: 900; font-size: 72px; }
+    #ik-chip { top: 290px; }
+    #ik-chip span { background: #ffc700; color: #0a2a7a; }
+
+    /* TV */
+    #ik-tvbg { position: absolute; inset: 0; background: #0a2a7a; }
+    #ik-tvshade { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(10,42,122,.1), rgba(4,14,46,.85)); }
+    #ik-tv { position: absolute; left: 70px; top: 470px; width: 940px; opacity: 0; }
+    #ik-tvbox { position: relative; width: 940px; height: 560px; background: #111; border-radius: 34px; padding: 26px;
+      box-shadow: 0 40px 90px rgba(0,0,0,.6), inset 0 0 0 4px #333; }
+    #ik-tvscreen { position: relative; width: 100%; height: 100%; border-radius: 14px; overflow: hidden; background: #000; }
+    #ik-tvscreen video { width: 100%; height: 100%; object-fit: cover; }
+    #ik-tvlive { position: absolute; left: 22px; top: 18px; background: #e5252a; color: #fff; font-weight: 900; font-size: 34px; padding: 6px 16px; border-radius: 8px; }
+    #ik-tvstand { width: 260px; height: 26px; margin: 0 auto; background: #222; border-radius: 0 0 20px 20px; }
+    #ik-tvlabel { top: 330px; }
+    #ik-tvlabel span { background: #fff; color: #0a2a7a; }
+
+    /* Billboard */
+    #ik-bbshade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0) 45%, rgba(0,0,0,.45)); }
+    #ik-bb { position: absolute; left: 80px; top: 250px; width: 920px; opacity: 0; }
+    #ik-bbface { height: 470px; background: #0a2a7a; border: 14px solid #ffc700; border-radius: 10px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+    #ik-bbface .t1 { color: #fff; font-weight: 900; font-size: 64px; }
+    #ik-bbface .t2 { color: #ffc700; font-weight: 900; font-size: 130px; line-height: 1; }
+    #ik-bbpoles { display: flex; justify-content: space-around; }
+    #ik-bbpoles i { display: block; width: 34px; height: 260px; background: linear-gradient(90deg, #333, #777, #333); }
+
+    /* RM100,000 */
+    #ik-rmshade { position: absolute; inset: 0; background: rgba(6,18,58,.72); }
+    #ik-rm { position: absolute; left: 0; right: 0; top: 640px; text-align: center; opacity: 0; }
+    #ik-rmlabel { color: #fff; font-weight: 900; font-size: 64px; letter-spacing: .04em; }
+    #ik-rmnum { color: #ffc700; font-weight: 900; font-size: 168px; line-height: 1.05; letter-spacing: -0.03em;
+      text-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 50px rgba(255,199,0,.35); }
+  </style>
+  <div id="root" data-composition-id="iklan" data-width="1080" data-height="1920">
+    <div id="ik-chip" class="chip clip" data-start="0.07" data-duration="1.45"><span>TELCO BESAR</span></div>
+
+    <!-- TV ad -->
+    <div id="ik-tvbg" class="clip" data-start="1.567" data-duration="1.453"></div>
+    <video id="ik-tvbgv" class="full clip" data-start="1.567" data-duration="1.453" src="assets/broll/blue-abstract.mp4" muted playsinline></video>
+    <div id="ik-tvshade" class="clip" data-start="1.567" data-duration="1.453"></div>
+    <div id="ik-tvlabel" class="chip clip" data-start="1.567" data-duration="1.453"><span>IKLAN TV</span></div>
+    <div id="ik-tv">
+      <div id="ik-tvbox"><div id="ik-tvscreen">
+        <video id="ik-tvvid" class="clip" data-start="1.567" data-duration="1.453" data-media-start="2" src="assets/broll/family.mp4" muted playsinline></video>
+        <div id="ik-tvlive">IKLAN</div>
+      </div></div>
+      <div id="ik-tvstand"></div>
+    </div>
+
+    <!-- Billboard on the highway -->
+    <video id="ik-traffic" class="full clip" data-start="3.02" data-duration="1.28" data-media-start="4" src="assets/broll/traffic.mp4" muted playsinline></video>
+    <div id="ik-bbshade" class="clip" data-start="3.02" data-duration="1.28"></div>
+    <div id="ik-bb">
+      <div id="ik-bbface"><div class="t1">IKLAN BILLBOARD</div><div class="t2">TELCO</div></div>
+      <div id="ik-bbpoles"><i></i><i></i></div>
+    </div>
+
+    <!-- RM100,000+ -->
+    <video id="ik-count" class="full clip" data-start="4.3" data-duration="1.44" data-media-start="3" src="assets/broll/counting.mp4" muted playsinline></video>
+    <div id="ik-rmshade" class="clip" data-start="4.3" data-duration="1.44"></div>
+    <div id="ik-rm" class="clip" data-start="4.3" data-duration="1.44">
+      <div id="ik-rmlabel">KOS SEKALI IKLAN</div>
+      <div id="ik-rmnum">RM100,000+</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ik-chip", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 0.08);
+    tl.to("#ik-chip", { opacity: 0, duration: 0.12 }, 1.38);
+    // TV
+    tl.fromTo("#ik-tv", { opacity: 0, scale: 0.6, y: 120 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.57);
+    tl.fromTo("#ik-tvlabel", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 1.7);
+    tl.set("#ik-tv", { opacity: 0 }, 3.02);
+    // Billboard drops in
+    tl.fromTo("#ik-bb", { opacity: 0, y: -760 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 3.03);
+    tl.fromTo("#ik-traffic", { scale: 1.15 }, { scale: 1.0, duration: 1.28, ease: "power2.out" }, 3.02);
+    tl.set("#ik-bb", { opacity: 0 }, 4.3);
+    // RM100,000+
+    tl.fromTo("#ik-rm", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 4.32);
+    const n = { v: 0 };
+    tl.fromTo(n, { v: 0 }, { v: 100000, duration: 0.55, ease: "power2.out",
+      onUpdate: () => { document.querySelector("#ik-rmnum").textContent = "RM" + (Math.round(n.v / 1000) * 1000).toLocaleString("en-US") + (n.v >= 99999 ? "+" : ""); } }, 4.4);
+    tl.fromTo("#ik-rmnum", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "expo.out" }, 4.93);
+    window.__timelines["iklan"] = tl;
+  </script>
+</template>

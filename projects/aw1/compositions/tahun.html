@@ -1,0 +1,43 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    #th-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #1645b8 0%, #0a2a7a 50%, #041445 100%); }
+    #th-card { position: absolute; left: 190px; top: 200px; width: 700px; height: 394px; border-radius: 26px; overflow: hidden; border: 8px solid #fff;
+      box-shadow: 0 30px 70px rgba(0,0,0,.5); opacity: 0; }
+    #th-card video { width: 100%; height: 100%; object-fit: cover; }
+    #th-title { position: absolute; left: 0; right: 0; top: 650px; text-align: center; opacity: 0; }
+    #th-title .a { color: #fff; font-weight: 900; font-size: 86px; line-height: 1; }
+    #th-title .b { color: #ffc700; font-weight: 900; font-size: 190px; line-height: 0.95; letter-spacing: -0.03em; text-shadow: 0 0 50px rgba(255,199,0,.4); }
+    #th-line { position: absolute; left: 120px; top: 1060px; width: 840px; height: 14px; border-radius: 7px; background: rgba(255,255,255,.2); }
+    #th-fill { position: absolute; left: 0; top: 0; height: 14px; width: 840px; border-radius: 7px; background: #ffc700; transform-origin: 0 50%; }
+    #th-dot { position: absolute; left: -22px; top: -22px; width: 58px; height: 58px; border-radius: 50%; background: #ffc700; border: 8px solid #fff; }
+    .yr { position: absolute; top: 1100px; color: #fff; font-weight: 900; font-size: 54px; opacity: 0; }
+    #th-y0 { left: 80px; } #th-y1 { left: 870px; color: #ffc700; }
+    #th-now { position: absolute; left: 0; top: 960px; width: 200px; text-align: center; color: #fff; font-weight: 900; font-size: 48px; }
+  </style>
+  <div id="root" data-composition-id="tahun" data-width="1080" data-height="1920">
+    <div id="th-bg" class="clip" data-start="0" data-duration="2.24"></div>
+    <div id="th-card"><video id="th-cal" class="clip" data-start="0" data-duration="2.24" data-media-start="2" src="assets/broll/calendar.mp4" muted playsinline></video></div>
+    <div id="th-title" class="clip" data-start="0" data-duration="2.24"><div class="a">DAH</div><div class="b">16 TAHUN</div></div>
+    <div id="th-line" class="clip" data-start="0" data-duration="2.24" data-layout-allow-overflow>
+      <div id="th-fill"></div><div id="th-dot"></div>
+    </div>
+    <div id="th-now" class="clip" data-start="0.2" data-duration="2.04" data-layout-allow-overflow>2009</div>
+    <div id="th-y0" class="yr clip" data-start="0" data-duration="2.24">2009</div>
+    <div id="th-y1" class="yr clip" data-start="0" data-duration="2.24">2025</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#th-card", { opacity: 0, y: -200, rotation: -4 }, { opacity: 1, y: 0, rotation: -2, duration: 0.35, ease: "expo.out" }, 0.0);
+    tl.fromTo("#th-title", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2.2)" }, 0.12);
+    tl.fromTo(".yr", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, stagger: 0.1, ease: "power3.out" }, 0.25);
+    tl.fromTo("#th-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power2.inOut" }, 0.4);
+    tl.fromTo("#th-dot", { x: 0 }, { x: 840, duration: 1.4, ease: "power2.inOut" }, 0.4);
+    tl.fromTo("#th-now", { x: 20 }, { x: 860, duration: 1.4, ease: "power2.inOut" }, 0.4);
+    const y = { v: 2009 };
+    tl.fromTo(y, { v: 2009 }, { v: 2025, duration: 1.4, ease: "power2.inOut",
+      onUpdate: () => { document.querySelector("#th-now").textContent = String(Math.round(y.v)); } }, 0.4);
+    tl.fromTo("#th-dot", { scale: 1 }, { scale: 1.35, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 1.8);
+    window.__timelines["tahun"] = tl;
+  </script>
+</template>

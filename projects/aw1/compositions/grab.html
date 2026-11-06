@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    #gb-chip { position: absolute; left: 0; right: 0; top: 290px; text-align: center; opacity: 0; }
+    #gb-chip span { display: inline-block; padding: 18px 38px; border-radius: 22px; background: #007a33; color: #fff; font-weight: 900; font-size: 72px;
+      border: 6px solid #fff; }
+    #gb-bg { position: absolute; inset: 0; background: linear-gradient(180deg, #00b14f 0%, #00843b 100%); }
+    #gb-bg::after { content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 40px, rgba(255,255,255,0) 40px 80px); }
+    #gb-card { position: absolute; left: 40px; top: 330px; width: 1000px; height: 562px; border-radius: 30px; overflow: hidden; border: 8px solid #fff;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45); opacity: 0; }
+    #gb-card video { width: 100%; height: 100%; object-fit: cover; }
+    #gb-carl { position: absolute; left: 0; right: 0; top: 940px; text-align: center; opacity: 0; }
+    #gb-carl span { display: inline-block; padding: 16px 36px; border-radius: 20px; background: #fff; color: #00843b; font-weight: 900; font-size: 68px; }
+    /* phone */
+    #gb-phone { position: absolute; left: 290px; top: 170px; width: 500px; height: 960px; border-radius: 64px; background: #0d0d0d; padding: 20px;
+      box-shadow: 0 40px 90px rgba(0,0,0,.5); opacity: 0; }
+    #gb-screen { width: 100%; height: 100%; border-radius: 46px; overflow: hidden; background: #f3f6f4; position: relative; }
+    #gb-head { height: 230px; background: #00b14f; color: #fff; padding: 70px 34px 0; }
+    #gb-head .brand { font-weight: 900; font-size: 58px; letter-spacing: -0.02em; }
+    #gb-head .sub { font-weight: 700; font-size: 28px; opacity: .9; }
+    #gb-offer { margin: -40px 26px 0; background: #fff; border-radius: 28px; padding: 30px 26px; box-shadow: 0 10px 30px rgba(0,0,0,.12); text-align: center; }
+    #gb-offer .q { color: #1a1a1a; font-weight: 800; font-size: 36px; line-height: 1.15; }
+    #gb-offer .rm { color: #00b14f; font-weight: 900; font-size: 110px; line-height: 1.05; }
+    #gb-btn { margin: 30px 26px 0; height: 104px; border-radius: 52px; background: #00b14f; color: #fff; font-weight: 900; font-size: 40px;
+      display: flex; align-items: center; justify-content: center; }
+    #gb-friends { display: flex; justify-content: center; gap: 18px; margin-top: 40px; }
+    #gb-friends i { width: 92px; height: 92px; border-radius: 50%; background: #cfe9d9; border: 5px solid #00b14f; opacity: 0; position: relative; }
+    #gb-friends i::after { content: "✓"; position: absolute; right: -8px; bottom: -8px; width: 40px; height: 40px; border-radius: 50%; background: #ffc700;
+      color: #0a2a7a; font-style: normal; font-weight: 900; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+  </style>
+  <div id="root" data-composition-id="grab" data-width="1080" data-height="1920">
+    <div id="gb-chip" class="clip" data-start="0.05" data-duration="1.01"><span>SAMA MACAM GRAB</span></div>
+
+    <div id="gb-bg" class="clip" data-start="1.06" data-duration="3.92"></div>
+    <div id="gb-card"><video id="gb-car" class="clip" data-start="1.06" data-duration="1.82" data-media-start="3" src="assets/broll/driver.mp4" muted playsinline></video></div>
+    <div id="gb-carl" class="clip" data-start="1.06" data-duration="1.82"><span>KERETA GRAB</span></div>
+
+    <div id="gb-phone" class="clip" data-start="2.88" data-duration="2.1">
+      <div id="gb-screen">
+        <div id="gb-head"><div class="brand">Grab</div><div class="sub">Ajak kawan</div></div>
+        <div id="gb-offer"><div class="q">Kawan guna,<br/>kita dapat</div><div class="rm">RM</div></div>
+        <div id="gb-btn">Kongsi kod</div>
+        <div id="gb-friends"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#gb-chip", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 0.06);
+    tl.fromTo("#gb-card", { opacity: 0, x: -900, rotation: -6 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.38, ease: "expo.out" }, 1.06);
+    tl.fromTo("#gb-car", { scale: 1.2 }, { scale: 1.0, duration: 1.82, ease: "power1.out" }, 1.06);
+    tl.fromTo("#gb-carl", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 1.3);
+    tl.set("#gb-card", { opacity: 0 }, 2.88);
+    tl.fromTo("#gb-phone", { opacity: 0, y: 900, rotation: 8 }, { opacity: 1, y: 0, rotation: -2, duration: 0.42, ease: "expo.out" }, 2.88);
+    tl.fromTo("#gb-btn", { scale: 1 }, { scale: 0.9, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, 3.78);
+    tl.fromTo("#gb-friends i", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", stagger: 0.12 }, 3.95);
+    window.__timelines["grab"] = tl;
+  </script>
+</template>

@@ -1,0 +1,27 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    #gn-bg { position: absolute; inset: 0; background: linear-gradient(180deg, #0a2a7a 0%, #06194d 100%); }
+    .card { position: absolute; left: 40px; top: 330px; width: 1000px; height: 562px; border-radius: 30px; overflow: hidden; border: 8px solid #fff;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5); opacity: 0; }
+    .card video { width: 100%; height: 100%; object-fit: cover; }
+    .lbl { position: absolute; left: 0; right: 0; top: 940px; text-align: center; opacity: 0; }
+    .lbl span { display: inline-block; padding: 16px 38px; border-radius: 22px; background: #ffc700; color: #0a2a7a; font-weight: 900; font-size: 76px; }
+  </style>
+  <div id="root" data-composition-id="guna" data-width="1080" data-height="1920">
+    <div id="gn-bg" class="clip" data-start="0" data-duration="1.963"></div>
+    <div id="gn-c1" class="card"><video id="gn-v1" class="clip" data-start="0" data-duration="0.89" data-media-start="9" src="assets/broll/phones.mp4" muted playsinline></video></div>
+    <div id="gn-l1" class="lbl clip" data-start="0" data-duration="0.89"><span>KITA GUNA</span></div>
+    <div id="gn-c2" class="card"><video id="gn-v2" class="clip" data-start="0.89" data-duration="1.073" data-media-start="2" src="assets/broll/chat.mp4" muted playsinline></video></div>
+    <div id="gn-l2" class="lbl clip" data-start="0.89" data-duration="1.073"><span>KITA CERITA</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#gn-c1", { opacity: 0, scale: 0.7, rotation: -5 }, { opacity: 1, scale: 1, rotation: -1.5, duration: 0.3, ease: "expo.out" }, 0);
+    tl.fromTo("#gn-l1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)" }, 0.08);
+    tl.set("#gn-c1", { opacity: 0 }, 0.89);
+    tl.fromTo("#gn-c2", { opacity: 0, x: 900, rotation: 6 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.3, ease: "expo.out" }, 0.89);
+    tl.fromTo("#gn-l2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)" }, 0.97);
+    window.__timelines["guna"] = tl;
+  </script>
+</template>

@@ -1,0 +1,8 @@
+# large media: re-created by /edit-video from the Drive folder
+projects/*/assets/video/
+projects/*/assets/broll/
+projects/*/out/
+projects/*/.hyperframes/
+node_modules/
+*.MOV
+preview/

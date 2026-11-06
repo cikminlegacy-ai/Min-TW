@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Montserrat", sans-serif; }
+    .full { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; }
+    /* ARTIS X */
+    #ar-shade { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(10,42,122,.25), rgba(2,6,24,.85)); }
+    #ar-name { position: absolute; left: 0; right: 0; top: 560px; text-align: center; opacity: 0; }
+    #ar-name .k { color: #ffc700; font-weight: 900; font-size: 56px; letter-spacing: .3em; }
+    #ar-name .t { color: #fff; font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -0.02em;
+      text-shadow: 0 0 60px rgba(255,255,255,.35); }
+    #ar-x { position: absolute; left: 340px; top: 515px; width: 400px; height: 400px; opacity: 0; }
+    #ar-x i { position: absolute; left: 10px; top: 170px; width: 380px; height: 56px; background: #e5252a; border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+    #ar-x i:first-child { transform: rotate(45deg); }
+    #ar-x i:last-child { transform: rotate(-45deg); }
+    /* ORANG BIASA check */
+    #ar-bg2 { position: absolute; inset: 0; background: linear-gradient(180deg, #0a2a7a 0%, #06194d 100%); }
+    #ar-card { position: absolute; left: 40px; top: 300px; width: 1000px; height: 562px; border-radius: 30px; overflow: hidden;
+      border: 8px solid #fff; box-shadow: 0 30px 80px rgba(0,0,0,.55); opacity: 0; }
+    #ar-card video { width: 100%; height: 100%; object-fit: cover; }
+    #ar-ok { position: absolute; left: 0; right: 0; top: 905px; text-align: center; opacity: 0; }
+    #ar-ok span { display: inline-flex; align-items: center; gap: 22px; padding: 16px 38px; border-radius: 22px; background: #fff;
+      color: #0a2a7a; font-weight: 900; font-size: 70px; }
+    #ar-ok b { display: inline-flex; width: 74px; height: 74px; border-radius: 50%; background: #1fbf5b; color: #fff; align-items: center; justify-content: center; font-size: 52px; }
+    #ar-41 { position: absolute; right: 70px; top: 200px; width: 290px; height: 290px; border-radius: 50%; background: #ffc700; color: #0a2a7a;
+      display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 116px; letter-spacing: -0.04em;
+      border: 10px solid #0a2a7a; box-shadow: 0 20px 50px rgba(0,0,0,.5); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="artis" data-width="1080" data-height="1920">
+    <video id="ar-bokeh" class="full clip" data-start="0" data-duration="1.98" data-media-start="4" src="assets/broll/bokeh.mp4" muted playsinline></video>
+    <div id="ar-shade" class="clip" data-start="0" data-duration="1.98"></div>
+    <div id="ar-name" class="clip" data-start="0" data-duration="1.98"><div class="k">BAYAR</div><div class="t">ARTIS</div></div>
+    <div id="ar-x" class="clip" data-start="0.4" data-duration="1.58" data-layout-allow-overlap><i></i><i></i></div>
+
+    <div id="ar-bg2" class="clip" data-start="1.98" data-duration="2.02"></div>
+    <div id="ar-card"><video id="ar-people" class="clip" data-start="1.98" data-duration="2.02" data-media-start="1" src="assets/broll/phones.mp4" muted playsinline></video></div>
+    <div id="ar-ok" class="clip" data-start="1.98" data-duration="2.02"><span>ORANG BIASA <b>✓</b></span></div>
+    <div id="ar-41" class="clip" data-start="2.55" data-duration="1.45" data-layout-allow-overlap>41%</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ar-bokeh", { scale: 1.2 }, { scale: 1.05, duration: 1.98, ease: "power1.out" }, 0);
+    tl.fromTo("#ar-name", { opacity: 0, filter: "blur(10px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.2, ease: "power4.out" }, 0.02);
+    tl.fromTo("#ar-x", { opacity: 0, scale: 2.6, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.22, ease: "expo.out" }, 0.45);
+    tl.to("#ar-name", { keyframes: { x: [0, -16, 14, -8, 0] }, duration: 0.24, ease: "none" }, 0.62);
+    // orang biasa
+    tl.fromTo("#ar-card", { opacity: 0, x: 900, rotation: 6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.38, ease: "expo.out" }, 1.98);
+    tl.fromTo("#ar-ok", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 2.18);
+    tl.fromTo("#ar-41", { opacity: 0, scale: 0.2, rotation: -40 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.36, ease: "back.out(2.6)" }, 2.6);
+    tl.set("#ar-card", { opacity: 0 }, 4.0);
+    window.__timelines["artis"] = tl;
+  </script>
+</template>
