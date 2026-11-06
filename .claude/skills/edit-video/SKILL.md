@@ -1,70 +1,70 @@
 ---
 name: edit-video
-description: Edit a Muhaimin TikTok talking-head video in the saved theme "MUHAIMIN - TIKTOK AWARENESS NAIK FOLLOWERS" (9:16, hook 3 saat, jump cuts, B-roll, subtitle kuning, lo-fi 10%) with HyperFrames. Use when the user types /edit-video followed by a Google Drive link (and optionally a HOOK LOCK, script or per-line edit notes).
+description: Edit Muhaimin's talking-head videos for TikTok / Instagram Reels / YouTube Shorts (9:16, 1080x1920) with HyperFrames, following his saved 9-point structure (transcribe first, animation that never covers the face, premium SFX, TikTok+IG safe zone, ducked background music, cut repeats/pauses, strongest hook, preview before render, a NEW design every video). Use when the user types /edit-video followed by a Google Drive / video link (optionally a HOOK LOCK, script or notes).
 ---
 
-# /edit-video — Tema Muhaimin (TikTok awareness, naik followers)
+# /edit-video — Muhaimin short-form editor
 
-The user sends `/edit-video <google drive folder link>` and maybe a hook / script / notes.
-Do the whole edit in the theme below and **stop at a preview** — never render the final MP4
-until the user approves the preview (theme rule). Reply to the user in Bahasa Melayu (casual, "aku/kau" ok).
+The user sends `/edit-video <link>` (+ maybe hook / script / notes). Do the whole edit and **stop at a preview**.
+Never render until the user says "render"/"ok". Reply in Bahasa Melayu (casual, "aku/kau").
+Do not ask the user to repeat their requirements — they are saved here.
 
-Read `theme.md` (in this folder) first: it is the user's rule book, verbatim. Everything below is how to execute it.
-The first finished project is `projects/aw1` (see its `EDIT-NOTES.md`) — copy its scene files and look as the starting point.
+**Read first, every time (all in this folder):**
+1. `rules.md` — the user's 9-point structure. Binding for every video.
+2. `design-log.md` — what past videos looked like. Rule 9: the new design must differ (≥5 of 8 dimensions vs the last video, no repeated combination). Add an entry after rendering.
+3. `theme.md` — the "TikTok awareness / naik followers" series brief (45–50 s, educate only, never sell, honest close-up ending). Apply when the video is that kind of content or the user mentions it. Its blue/yellow palette was AW1's design — do NOT reuse it by default (rule 9 wins).
 
-## 0. Setup (every new session — the container is fresh)
+Reference build: `projects/aw1` (+ `EDIT-NOTES.md`) — reuse its *mechanics* (camera punch per jump cut, scene-per-beat, caption generator, honest blur), not its look.
 
-```bash
-pip install gdown faster-whisper            # Drive download + Malay transcription
-npm i -g hyperframes@0.9.19 || true          # or always use: npx hyperframes@0.9.19
-npx hyperframes skills                       # installs /hyperframes, /media-use ... skills (then read /hyperframes SKILL.md)
-export HYPERFRAMES_TELEMETRY=0
-```
-Scripts live in `.claude/skills/edit-video/scripts/` (call them by absolute path).
+## 0. Tools (installed by the Default environment's setup script)
+
+Check, and install anything missing: `node -v` (22+), `ffmpeg`, `ffprobe`, `yt-dlp`, `gdown`, `python3 -c "import faster_whisper"`,
+`ls ~/.claude/skills/{hyperframes,media-use,video-use}`, `ls ~/Developer/remotion-starter`. Missing → run the same steps manually:
+`pip install gdown faster-whisper yt-dlp`; `git clone https://github.com/browser-use/video-use ~/Developer/video-use && (cd ~/Developer/video-use && uv sync) && ln -sfn ~/Developer/video-use ~/.claude/skills/video-use`;
+`npx -y hyperframes@0.9.19 skills`; `npx hyperframes browser ensure`. Always `export HYPERFRAMES_TELEMETRY=0`.
+Read the `/hyperframes` skill (contract) before writing compositions. Remotion (`~/Developer/remotion-starter`) is available but HyperFrames is the default engine.
 
 ## 1. Download
 
-```bash
-S=<scratchpad>; mkdir -p $S/src && cd $S/src && gdown --folder "<drive link>"
-```
-Folder convention from the user: the talking-head `*.MOV` at top, `BAHAN/` = B-roll stock clips,
-`BG/` = background / extra B-roll. Make a contact sheet of every clip (ffmpeg `fps=4/dur,scale=320:-2,tile=4x1`) and LOOK at it to map clips to script lines.
-Note any clip with a stock watermark (iStock `_adpp_is` previews) and tell the user.
+- Drive: `cd <scratchpad>/src && gdown --folder "<link>"` (single file: `gdown "<link>" --fuzzy`).
+- YouTube/TikTok/IG reference: `yt-dlp -o "<scratchpad>/ref/%(id)s.%(ext)s" "<url>"`.
+- Folder convention: talking-head `*.MOV` at top, `BAHAN/` = B-roll, `BG/` = backgrounds/extra B-roll.
+- Contact-sheet every clip (`fps=4/dur,scale=320:-2,tile=4x1`) and LOOK at it. Flag stock watermarks (iStock `_adpp_is` previews).
 
-## 2. Transcribe + plan cuts
+## 2. Transcribe FIRST (rule 1)
 
-- Audio: `ffmpeg -i TW.MOV -vn -ac 1 -ar 16000 audio.wav`
-- `python3 scripts/transcribe.py audio.wav medium` → `transcript.json` (word timestamps, Malay, with a domain prompt — edit the prompt words for the new topic).
+- ElevenLabs if a key is configured (proxy injects it; `~/Developer/video-use/.env` holds a placeholder):
+  `cd ~/Developer/video-use && uv run python helpers/transcribe.py <video> --edit-dir <scratchpad>/edit --language ms` then `pack_transcripts.py`. It costs credits — fine, the user asked for transcription. On 401/no key → fall back.
+- Whisper fallback: `ffmpeg -i <video> -vn -ac 1 -ar 16000 audio.wav && python3 scripts/transcribe.py audio.wav medium` → `transcript.json` (edit the domain prompt words in the script for the topic).
+- Read the whole transcript; mark hook candidates, numbers/facts, brands, comparisons, CTA, repeats.
+
+## 3. Cut (rule 6) and hook (rule 7)
+
 - Silences: `ffmpeg -i audio.wav -af silencedetect=n=-38dB:d=0.22 -f null - 2>&1 | grep -oE 'silence_(start|end): [0-9.]+' | awk '{print $2}' | paste - - > silences.txt`
-- Write `keep.json` = ordered `[src_start, src_end, "label"]` ranges of sentences to KEEP. Drop: greetings/intro, "sebenarnya macam ni", "jadi", "eh/aa/hmm", repeated words ("Dulu, ... Dulu,"), weakest sentence(s) until total is **45–50 s**. Check exact cut points with an RMS energy scan (find the dB minimum between two words).
-- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` → removes every pause > 0.18 s inside kept ranges, prints total + remapped words.
-- Check frames at segment boundaries for looking down / fiddling with cap or phone → cut those too.
+- `keep.json` = ordered `[src_start, src_end, "label"]`. Put the strongest hook line FIRST even if it was said later (cold open). Drop intro/salam, fillers, repeated takes (keep the best), looking-down/fiddling moments. Find exact cut points with an RMS dB-minimum scan between words.
+- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (removes pauses > 0.18 s; prints total). Target per rules.md.
+- `python3 scripts/build_talk.py "<src>" cuts.json talk.mp4` → 1440x2560/30fps, HDR→SDR tonemap + bt709 tags, voice cleaned + −14 LUFS. Extract `voice.m4a` (`-vn -c:a copy`); videos stay muted, voice is its own `<audio>`.
 
-## 3. Build the talking-head clip
+## 4. Design (rule 9) — decide before building
 
-`python3 scripts/build_talk.py "<TW.MOV>" cuts.json talk.mp4` (1440x2560, 30 fps, gop 15).
-iPhone footage is HDR HLG: the script tonemaps (hable) to SDR and writes bt709 tags — if tags stay bt2020/arib the browser double-tonemaps. Voice is cleaned + loudnorm -14 LUFS.
-Extract `voice.m4a` from it (`-vn -c:a copy`) — videos are muted in the composition, voice is its own `<audio>`.
+Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook card, transitions, grade, music genre, SFX style — checked against `design-log.md`. Browse `npx hyperframes catalog --tag caption-style --json`, `--tag transition`, and the frame presets in `~/.claude/skills/hyperframes/assets/frame-presets/`.
 
-## 4. HyperFrames project
+## 5. Build (HyperFrames)
 
 `cd projects && npx hyperframes init <name> --example blank --resolution portrait --non-interactive --skip-skills --skill=hyperframes`
-then follow the `projects/aw1` structure:
+- Camera: `#cam` wrapper with transform-origin on the face; `tl.set` a new scale (1.0–1.38) on EVERY jump cut → pattern interrupt every ~2 s.
+- Animations only where they add meaning (rule 2). **Never cover the face**: snapshot each beat; put graphics above the head (push `#cam` y down), on the opposite side, or as full-screen cutaways.
+- Safe zone (rule 4): all text inside x 60–940, y 220–1330; captions ~1150–1300.
+- Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE the generated CSS to this video's design (font, colours, highlight).
+- Grade via `npx hyperframes media-treatment ... --grading '<json>' --apply` (never CSS filters); `grade-compare` 3–4 candidates first.
+- Music (rule 5): new genre each video (Openverse → Jamendo works; Freesound/Wikimedia blocked). Duck under voice with a volume lane, e.g. `data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.14},{"t":0.3,"v":0.05},...]}]}'` built from word timings (0.05 while speaking, ~0.14 in gaps/cutaways), then optionally `node ~/.claude/skills/media-use/audio/scripts/carve.mjs --comp index.html`. Credit CC-BY tracks.
+- SFX (rule 3): one per visible action, rotate variants, layer for big moments, peak 1 frame after the visual; `data-duration` = file length.
 
-- `index.html`: `#cam` wrapper (transform-origin on the face) holding `#talk` (0 → start of honest part), `#talk-bg` + `#talk-fg` (honest part; bg blurred via media-treatment `effects.blur 0.7`, fg sharp with a radial CSS mask = "background blur"), `#honest-tint` vignette; one scene host per beat; captions host (z 20); voice, music, SFX `<audio>`s.
-- Camera: `tl.set("#cam",{scale,y})` on EVERY jump-cut time (alternate 1.0–1.38) → hides cuts + gives the 2-second pattern interrupt. Hook: `fromTo scale 1.55→1.2` in 0.38 s expo.out, `y` pushed down so the hook card sits ABOVE the head (card must never cover the face/mouth).
-- Hook card (compositions/hook.html): yellow `#FFC700` text on royal blue `#0A2A7A`, 10 px yellow border, top ≈190 px, slam-in scale 2.1→1 + shake, white flash, exits at 2.8 s. SFX at 0: whoosh-cinematic + pop (vol 1.6) + impact-bass.
-- B-roll beats: landscape stock is low-res → put it in a rounded white-bordered card (1000x562) over a brand-colour ground, with a label chip; only HD clips go full-bleed. Big-number cards: count-up via a proxy object tween + onUpdate text. Keep the band 1150–1330 px free for captions.
-- Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html --honest-from <sec> --fix 'wrong=>right' --kw 41% --kw JUTA ...` (Montserrat 900, 84 px, white + black stroke, keywords yellow, groups ≤3 words, active word pops; after `--honest-from` the active word gets a yellow highlight box). Fix whisper mistakes with `--fix`.
-- Grade (premium + lighting) — always through the CLI, never CSS filters:
-  `npx hyperframes media-treatment --project . --file index.html --selector '#talk' --grading '{"adjust":{"exposure":0.12,"contrast":0.14,"highlights":-0.12,"shadows":0.1,"blacks":-0.06,"temperature":0.07,"vibrance":0.18,"saturation":0.04},"details":{"vignette":0.22}}' --apply`
-  (same for `#talk-fg`; `#talk-bg` adds `"effects":{"blur":0.7}`). Use `grade-compare` if the lighting is different.
-- Music: lo-fi bed at `data-volume="0.1"`, start at its strongest bar (`data-media-start`), fades. CC0/CC-BY sources via Openverse (Jamendo works; Freesound previews and Wikimedia return 403/429 here). Current track: "Lofy" by macouno, Jamendo, CC BY 3.0 — credit it in the caption.
-- SFX: bundled Pixabay set in `~/.claude/skills/media-use/audio/assets/sfx` (whoosh, whoosh-short, whoosh-cinematic, pop, impact-bass-1/2, riser, sparkle, click-soft). One per visible action, rotate whoosh variants, durations = file length.
-- Ending (honest part): no B-roll, close-up, background blur, yellow highlight subs, a small "+ FOLLOW" pill on "follow saya". Never a sales CTA.
+## 6. Verify → PREVIEW (rule 8)
 
-## 5. Verify, then PREVIEW (no render)
+`npm run check` → 0 errors. `npx hyperframes snapshot --at <every beat> -o /home/user/Min-TW/preview/<name>` → read the sheets; fix any face overlap, safe-zone breach, text collisions.
+`npx hyperframes preview --background` → `report_preview_port`; send contact sheets (SendUserFile) + beat table (time / line / visual) + anything the user must decide (watermarks, music credit). Commit + push.
 
-`npm run check` → 0 errors. `npx hyperframes snapshot --at <every beat> -o <dir>` → read the contact sheets, fix overlaps (face covered, X covering text, pills on captions).
-`npx hyperframes preview --background` then `report_preview_port` the port, send the contact sheets to the user, list the edit decisions + timestamps. Commit + push the project (media is git-ignored).
-Only after "ok/approve": `npx hyperframes render -q delivery -o out/<name>.mp4`, check `npx hyperframes audio out/<name>.mp4 --json`, send the file.
+## 7. Render (only after approval)
+
+`HYPERFRAMES_RENDER_DETACHED=1 npx hyperframes render -q delivery -w 4 -o out/<name>.mp4` in the background (CPU-only: ~50 min for 48 s with blur layers — warn the user). Then `ffmpeg -af ebur128=peak=true` (target −14 LUFS, ≤ −1 dBTP), spot-check frames, copy to `/home/user/Min-TW/preview/`, SendUserFile, add the `design-log.md` entry, commit + push.
