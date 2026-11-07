@@ -69,3 +69,4 @@ Gabungan paling selamat untuk dua-dua app:
     - Seram / misteri (+ inspirasi) → **Cinzel** 700/900 (serif poster filem seram klasik; emas untuk bahagian inspirasi). Dipakai di SERAM1.
   - Subtitle video beremosi boleh kekal Nunito supaya senang baca; font emosi dipakai pada headline/kad/ayat kunci.
   - Font bukan-bundled: download .woff2 (Google Fonts, lesen OFL) ke `assets/fonts/` dan tulis @font-face dalam setiap fail yang guna (lint `font_family_without_font_face`).
+- Mix check: after render, measure the speech part vs voice.m4a; impacts/booms add a lot — keep SFX ~0.3–0.45 under a single voice (SERAM1 first mix was -10.4 LUFS).
