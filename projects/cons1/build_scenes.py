@@ -81,7 +81,7 @@ scene("penat", '''
 ''', '''
     <video id="pn-v" class="full clip" data-start="0" data-duration="1.22" data-media-start="3" src="assets/broll/tired.mp4" muted playsinline></video>
     <div class="shade clip" data-start="0" data-duration="1.22"></div>
-    <div id="pn-s" class="stamp clip" data-start="0" data-duration="1.22">PENAT!</div>''',
+    <div id="pn-s" data-layout-allow-occlusion class="stamp clip" data-start="0" data-duration="1.22">PENAT!</div>''',
 whip("#pn-v", 0) + '\n' + stamp_in("#pn-s", 0.06, -8) +
 '\n    tl.to("#pn-s", { keyframes: { x: [0, -12, 10, -6, 0] }, duration: 0.25, ease: "none" }, 0.3);')
 
@@ -124,7 +124,7 @@ js = ['''    tl.fromTo("#mn-board", { opacity: 0, y: 300 }, { opacity: 1, y: 0, 
     tl.set(["#mn-k6", "#mn-k7", "#mn-k8"], { scale: 0 }, 0);''']
 for i, t in enumerate(ticks):
     js.append(f'    tl.fromTo("#mn-k{i}", {{ scale: 0, rotation: -90 }}, {{ scale: 1, rotation: 0, duration: 0.25, ease: "back.out(3)" }}, {t});')
-    js.append(f'    tl.fromTo("#mn-i{i} .tx", {{ color: "#9a9182" }}, {{ color: "#17140F", duration: 0.12 }}, {t});')
+    js.append(f'    tl.fromTo("#mn-i{i} .tx", {{ color: "#7d7464" }}, {{ color: "#17140F", duration: 0.12 }}, {t});')
     js.append(f'    tl.set("#mn-cnt", {{ textContent: "{i+1}/9" }}, {t});' if False else '')
 scene("menu", '''
     #mn-bg { position:absolute; inset:0; background:#1E7A46; }
@@ -135,7 +135,7 @@ scene("menu", '''
     #mn-head { display:flex; justify-content:space-between; align-items:center; font-family:"Archivo Black", sans-serif; font-size:40px; color:#E23B2E; }
     #mn-head .mono { font-size:28px; color:#17140F; }
     #mn-grid { display:grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, 54px); column-gap:24px; margin-top:12px; }
-    #mn-grid .it { display:flex; align-items:center; gap:12px; font-weight:800; font-size:27px; color:#9a9182; }
+    #mn-grid .it { display:flex; align-items:center; gap:12px; font-weight:800; font-size:27px; color:#7d7464; }
     #mn-grid .tick { width:40px; height:40px; font-size:24px; flex:none; }
 ''', f'''
     <div id="mn-bg" class="clip" data-start="0" data-duration="9.355"></div>
