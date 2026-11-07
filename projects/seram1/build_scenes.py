@@ -39,7 +39,7 @@ scene("hook", '''
     <div id="hk-k" class="kick clip" data-start="0" data-duration="2.74">AKU PERNAH TIDUR DI</div>
     <div id="hk-t" class="ttl clip" data-start="1.8" data-duration="1.85" style="opacity:1">{letters("BILIK MAYAT", "L")}</div>
     <div id="hk-l1" class="line clip" data-start="1.8" data-duration="1.85"></div>
-    <div id="hk-y" class="kick rust clip" data-start="2.74" data-duration="0.91">13 TAHUN</div>
+    <div id="hk-y" class="kick rust clip" data-start="2.74" data-duration="0.91">13 TAHUN TAK DIGUNA</div>
     <div id="hk-fl" class="black clip" data-start="0" data-duration="0.3" data-layout-ignore></div>''', '''
 ''' + flicker("#hk-fl", 0) + '''
     tl.fromTo("#hk-k", { opacity: 0, scaleX: 1.25 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.08);
