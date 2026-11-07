@@ -38,6 +38,8 @@ background blur, nampak jujur, subtitle highlight kuning.
 
 ## STYLE
 
+- Font: Nunito + Montserrat (rules.md §10).
+
 - Format 9:16 (1080x1920), subtitle word-by-word bold putih, keyword nombor/angka dalam KUNING.
 - Setiap 2 saat mesti ada pattern interrupt: zoom, pop text, B-Roll.
 - Hook kuat, color grade premium, adjust lighting.

@@ -1,6 +1,7 @@
 # Design log — setiap video MESTI beza dari yang sebelum
 
 Baca sebelum design video baru. Tambah entri selepas setiap render. Jangan ulang kombinasi.
+**Mulai 2026-11-07: font tetap Nunito + Montserrat** (rules.md §10) — kecuali video beremosi. Kolum Font hanya rekod; variasi dikira pada 7 dimensi lain.
 
 | # | Video | Palet | Font | Subtitle | Hook / kad | Transition | Grade | Muzik | SFX |
 |---|---|---|---|---|---|---|---|---|---|
@@ -9,7 +10,7 @@ Baca sebelum design video baru. Tambah entri selepas setiap render. Jangan ulang
 
 ## Idea untuk video seterusnya (pilih yang belum dipakai)
 - Palet: hitam + neon hijau; krim + merah bata (editorial); ungu gelap + oren; putih bersih + biru elektrik; hijau zamrud + emas.
-- Font: Archivo Black, League Gothic, Oswald, Poppins 800, Outfit 800, Playfair Display (editorial).
+- Font: Nunito + Montserrat (tetap). Video beremosi sahaja: lihat rules.md §10.
 - Subtitle: satu perkataan besar di tengah (karaoke); kotak hitam separuh lutsinar; gradient fill; perkataan aktif membesar + warna; huruf kecil gaya "podcast".
 - Hook: split-screen nombor gergasi; teks di belakang kepala (cutout); headline akhbar; notifikasi phone; papan tanda "?" berpusing.
 - Transition: whip pan blur; zoom-through; colour flood; iris; glitch; slide bertindan (stack cards).

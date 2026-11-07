@@ -47,7 +47,8 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 
 ## 4. Design (rule 9) — decide before building
 
-Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook card, transitions, grade, music genre, SFX style — checked against `design-log.md`. Browse `npx hyperframes catalog --tag caption-style --json`, `--tag transition`, and the frame presets in `~/.claude/skills/hyperframes/assets/frame-presets/`.
+Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook card, transitions, grade, music genre, SFX style — checked against `design-log.md`.
+**Fonts (rule 10): always Nunito + Montserrat** (Montserrat 800–900 headlines/hook/cards/numbers, Nunito 800–900 subtitles/labels). Only an emotional script (sad, touching, struggle, nostalgia, gratitude, deep motivation) gets an emotion-matched display font from rules.md §10 — state the emotion and the reason in DESIGN.md. Fonts are not a rule-9 variety dimension; vary the other 7. Browse `npx hyperframes catalog --tag caption-style --json`, `--tag transition`, and the frame presets in `~/.claude/skills/hyperframes/assets/frame-presets/`.
 
 ## 5. Build (HyperFrames)
 
@@ -55,7 +56,7 @@ Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook c
 - Camera: `#cam` wrapper with transform-origin on the face; `tl.set` a new scale (1.0–1.38) on EVERY jump cut → pattern interrupt every ~2 s.
 - Animations only where they add meaning (rule 2). **Never cover the face**: snapshot each beat; put graphics above the head (push `#cam` y down), on the opposite side, or as full-screen cutaways.
 - Safe zone (rule 4): all text inside x 60–940, y 220–1330; captions ~1150–1300.
-- Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE the generated CSS to this video's design (font, colours, highlight).
+- Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE via `--css <file>` (Nunito/Montserrat per rule 10; colours, highlight via `--karaoke --hl bg,fg --kwcolor`).
 - Grade via `npx hyperframes media-treatment ... --grading '<json>' --apply` (never CSS filters); `grade-compare` 3–4 candidates first.
 - Music (rule 5): new genre each video (Openverse → Jamendo works; Freesound/Wikimedia blocked). Duck under voice with a volume lane, e.g. `data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.14},{"t":0.3,"v":0.05},...]}]}'` built from word timings (0.05 while speaking, ~0.14 in gaps/cutaways), then optionally `node ~/.claude/skills/media-use/audio/scripts/carve.mjs --comp index.html`. Credit CC-BY tracks.
 - SFX (rule 3): one per visible action, rotate variants, layer for big moments, peak 1 frame after the visual; `data-duration` = file length.

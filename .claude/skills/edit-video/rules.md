@@ -49,6 +49,22 @@ Gabungan paling selamat untuk dua-dua app:
 - Render hanya bila user cakap "render"/"ok".
 
 ## 9. DESIGN — TAK SAMA DENGAN VIDEO SEBELUM
-- Baca `design-log.md` dulu. Pilih design BARU: palet warna, font, gaya subtitle, gaya kad/hook, jenis transition, grade, genre muzik, gaya SFX — sekurang-kurangnya 5 daripada 8 mesti beza daripada video terakhir, dan tiada kombinasi berulang dari mana-mana video lepas.
+- Baca `design-log.md` dulu. Pilih design BARU: palet warna, gaya subtitle, gaya kad/hook, jenis transition, grade, genre muzik, gaya SFX — sekurang-kurangnya 5 daripada 7 mesti beza daripada video terakhir, dan tiada kombinasi berulang dari mana-mana video lepas.
+- Font TAK termasuk dalam kiraan variasi — font ikut Peraturan 10.
 - Ikut kreativiti: gaya boleh diambil dari `npx hyperframes catalog` (caption-style, transition), `assets/frame-presets` dalam skill hyperframes, atau cipta sendiri.
 - Selepas render, TAMBAH entri baru dalam `design-log.md`.
+
+## 10. FONT (ditetapkan user, 2026-11-07)
+- **Font utama setiap video: Nunito + Montserrat** (dua-dua bundled dalam HyperFrames, tak perlu @font-face).
+  - Montserrat (800–900): headline, hook, kad, stamp, nombor besar.
+  - Nunito (800–900): subtitle dan teks badan/label. Nunito lebih bulat & mesra.
+  - Boleh tukar peranan (contoh subtitle Montserrat) — tapi JANGAN guna font lain untuk video biasa.
+- **KECUALI video beremosi** (sedih, sebak, kisah susah/perjuangan, rindu, syukur, motivasi mendalam, nostalgia, kisah keluarga):
+  - Baca skrip dulu, tentukan emosi utama, pilih font yang sentuh emosi tu. Tulis pilihan + sebab dalam DESIGN.md.
+  - Panduan:
+    - Sedih / sebak / kehilangan / rindu → serif lembut: **Playfair Display** (italic untuk ayat kunci) atau **EB Garamond**.
+    - Kisah peribadi / surat / nostalgia → tulisan tangan: **Caveat** atau **Kalam** (perlu fail font dalam `assets/fonts/` + @font-face).
+    - Bangkit / motivasi / perjuangan → tinggi & kuat: **League Gothic** atau **Oswald**.
+    - Syukur / tenang / spiritual → **Lora** atau **Cormorant Garamond** (perlu @font-face).
+  - Subtitle video beremosi boleh kekal Nunito supaya senang baca; font emosi dipakai pada headline/kad/ayat kunci.
+  - Font bukan-bundled: download .woff2 (Google Fonts, lesen OFL) ke `assets/fonts/` dan tulis @font-face dalam setiap fail yang guna (lint `font_family_without_font_face`).
