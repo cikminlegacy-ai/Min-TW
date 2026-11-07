@@ -116,8 +116,8 @@ scene("tools", '''
     tl.fromTo("#tl-w", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0.38);''' + '\n' + pop_in("#tl-sub", 0.6))
 
 # 7 MENU — split: face panel top, 9-tools board below
-items = ["KONTEN SIAP", "BLUEPRINT 31K", "40 HARI STORY", "40 HARI WALL POST", "HANDLE REJECTION", "Q&amp;A", "TESTIMONI", "LIVE", "POSTER"]
-ticks = [0.05, 1.08, 2.75, 4.6, 6.83, 7.96]
+items = ["BLUEPRINT 31K", "40 HARI STORY", "40 HARI WALL POST", "HANDLE REJECTION", "Q&amp;A", "TONEWOW", "TESTIMONI", "LIVE", "POSTER"]
+ticks = [1.08, 2.75, 4.6, 6.83, 7.96, 8.74]
 rows = "\n".join(f'        <div class="it" id="mn-i{i}"><span class="tick" id="mn-k{i}">✓</span><span class="tx">{t}</span></div>' for i, t in enumerate(items))
 js = ['''    tl.fromTo("#mn-board", { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.34, ease: "expo.out" }, 0);
     tl.fromTo("#mn-cam", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0);
@@ -138,10 +138,10 @@ scene("menu", '''
     #mn-grid .it { display:flex; align-items:center; gap:12px; font-weight:800; font-size:27px; color:#9a9182; }
     #mn-grid .tick { width:40px; height:40px; font-size:24px; flex:none; }
 ''', f'''
-    <div id="mn-bg" class="clip" data-start="0" data-duration="8.7"></div>
-    <div id="mn-cam"><video id="mn-talk" class="clip" data-start="0" data-duration="8.7" data-media-start="21.01" src="assets/video/talk.mp4" muted playsinline style="transform: translate(-20px, -110px) scale(1.42);"></video></div>
+    <div id="mn-bg" class="clip" data-start="0" data-duration="9.355"></div>
+    <div id="mn-cam"><video id="mn-talk" class="clip" data-start="0" data-duration="9.355" data-media-start="21.01" src="assets/video/talk.mp4" muted playsinline style="transform: translate(-20px, -110px) scale(1.42);"></video></div>
     <div id="mn-board">
-      <div id="mn-head"><span>MENU · 9 TOOLS</span><span class="mono">DAH SIAP ✓</span></div>
+      <div id="mn-head"><span>MENU · 9 TOOLS</span><span class="mono">KONTEN DAH SIAP ✓</span></div>
       <div id="mn-grid">
 {rows}
       </div>
