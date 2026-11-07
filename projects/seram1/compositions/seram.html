@@ -1,0 +1,33 @@
+<template>
+  <style>
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }
+
+
+    #sr-t { top:228px; font-size:150px; letter-spacing:.06em; color:#E0605C; z-index:2; }
+    #sr-red { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(158,42,43,0) 40%, rgba(110,10,12,.55) 100%); opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="seram" data-width="1080" data-height="1920">
+
+    <div id="sr-red" class="clip" data-start="0" data-duration="1.06" data-layout-ignore></div>
+    <div id="sr-t" class="ttl rust clip" data-start="0.08" data-duration="0.98">SERAM</div>
+    <div id="sr-fl" class="black clip" data-start="0" data-duration="0.26" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sr-fl", { opacity: 0 }, { keyframes: { opacity: [0, 0.92, 0.15, 0.85, 0] }, duration: 0.26, ease: "none" }, 0);
+    tl.fromTo("#sr-red", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.05);
+    tl.fromTo("#sr-t", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "expo.out" }, 0.1);
+    tl.to("#sr-t", { keyframes: { x: [0, -6, 5, -4, 3, 0], y: [0, 3, -2, 2, -1, 0] }, duration: 0.5, ease: "none" }, 0.26);
+    window.__timelines["seram"] = tl;
+  </script>
+</template>

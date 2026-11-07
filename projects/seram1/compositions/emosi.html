@@ -1,0 +1,31 @@
+<template>
+  <style>
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }
+
+
+    #em-k { top:228px; font-size:30px; }
+    #em-t { top:270px; font-size:100px; }
+
+  </style>
+  <div id="root" data-composition-id="emosi" data-width="1080" data-height="1920">
+
+    <div id="em-k" class="kick clip" data-start="0.2" data-duration="2.86">SEBUAH KISAH</div>
+    <div id="em-t" class="ttl clip" data-start="2.2" data-duration="0.86">PENUH EMOSI</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#em-k", { opacity: 0 }, { opacity: 0.85, duration: 0.6, ease: "power1.out" }, 0.25);
+    tl.fromTo("#em-t", { opacity: 0, scale: 1.12, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.24);
+    window.__timelines["emosi"] = tl;
+  </script>
+</template>

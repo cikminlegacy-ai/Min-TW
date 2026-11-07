@@ -26,7 +26,7 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 
 ## 1. Download
 
-- Drive: `cd <scratchpad>/src && gdown --folder "<link>"` (single file: `gdown "<link>" --fuzzy`).
+- Drive: `cd <scratchpad>/src && gdown --folder "<link>"` (single file: `gdown "https://drive.google.com/uc?id=<FILE_ID>"` — this gdown has no --fuzzy).
 - YouTube/TikTok/IG reference: `yt-dlp -o "<scratchpad>/ref/%(id)s.%(ext)s" "<url>"`.
 - Folder convention: talking-head `*.MOV` at top, `BAHAN/` = B-roll, `BG/` = backgrounds/extra B-roll.
 - Contact-sheet every clip (`fps=4/dur,scale=320:-2,tile=4x1`) and LOOK at it. Flag stock watermarks (iStock `_adpp_is` previews).
@@ -36,6 +36,8 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 - ElevenLabs if a key is configured (proxy injects it; `~/Developer/video-use/.env` holds a placeholder):
   `cd ~/Developer/video-use && uv run python helpers/transcribe.py <video> --edit-dir <scratchpad>/edit --language ms` then `pack_transcripts.py`. It costs credits — fine, the user asked for transcription. On 401/no key → fall back.
 - Whisper fallback: `ffmpeg -i <video> -vn -ac 1 -ar 16000 audio.wav && python3 scripts/transcribe.py audio.wav medium` → `transcript.json` (edit the domain prompt words in the script for the topic).
+- Noisy room (fan/AC) and ffmpeg silencedetect misses pauses → `python3 scripts/silences.py audio.wav > silences.txt` (energy-based).
+- Footage may contain the user talking TO YOU ("Claude, …", "cuba zoom in", "okay tu information yang lepas"): those are directions, not content — follow them, cut them out, and list what you cut in the preview message.
 - Read the whole transcript; mark hook candidates, numbers/facts, brands, comparisons, CTA, repeats.
 
 ## 3. Cut (rule 6) and hook (rule 7)

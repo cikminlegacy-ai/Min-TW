@@ -1,0 +1,34 @@
+<template>
+  <style>
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }
+
+
+    #in-glow { position:absolute; inset:0; background:radial-gradient(ellipse 900px 700px at 50% 20%, rgba(224,168,75,.55), rgba(224,168,75,0) 70%); mix-blend-mode:screen; opacity:0; }
+    #in-k { top:228px; font-size:30px; color:#E0A84B; }
+    #in-t { top:266px; font-size:108px; color:#E0A84B; text-shadow:0 0 40px rgba(224,168,75,.55), 0 0 80px rgba(0,0,0,.6); }
+
+  </style>
+  <div id="root" data-composition-id="inspirasi" data-width="1080" data-height="1920">
+
+    <div id="in-glow" class="clip" data-start="0" data-duration="1.19" data-layout-ignore></div>
+    <div id="in-k" class="kick clip" data-start="0" data-duration="1.19">TAPI ADA</div>
+    <div id="in-t" class="ttl clip" data-start="0.15" data-duration="1.04">INSPIRASI</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#in-glow", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.inOut" }, 0.0);
+    tl.fromTo("#in-k", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.02);
+    tl.fromTo("#in-t", { opacity: 0, y: 24, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 0.2);
+    window.__timelines["inspirasi"] = tl;
+  </script>
+</template>

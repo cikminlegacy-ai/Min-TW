@@ -17,7 +17,7 @@ while i < len(args):
     elif args[i] == "--kw": kws.add(args[i+1].upper()); i += 2
     elif args[i] == "--css": css_file = args[i+1]; i += 2
     elif args[i] == "--karaoke": honest = -1; i += 1
-    elif args[i] == "--hl": hl_bg, hl_fg = args[i+1].split(","); i += 2
+    elif args[i] == "--hl": hl_bg, hl_fg = args[i+1].rsplit(",", 1); i += 2
     elif args[i] == "--kwcolor": kw_color = args[i+1]; i += 2
     else: i += 1
 W = json.load(open(cuts))["words"]

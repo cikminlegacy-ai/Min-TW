@@ -1,0 +1,7 @@
+    #root { position:absolute; inset:0; pointer-events:none; }
+    #root .cgroup { position:absolute; left:60px; width:880px; top:1190px; text-align:center;
+      font-family:"Nunito", sans-serif; font-weight:800; font-size:74px; line-height:1.1; letter-spacing:.01em;
+      color:#E9E4D8; overflow:visible; opacity:0;
+      text-shadow:0 0 18px rgba(0,0,0,.85), 0 4px 10px rgba(0,0,0,.7); }
+    #root .w { display:inline-block; opacity:0; padding:0 8px; }
+    #root .w.kw { color:#C2413F; }

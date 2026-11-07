@@ -1,0 +1,42 @@
+<template>
+  <style>
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }
+
+
+    #hk-k { top:228px; font-size:32px; }
+    #hk-t { top:262px; font-size:100px; letter-spacing:.03em; white-space:nowrap; }
+    #hk-t .L { display:inline-block; opacity:0; }
+    #hk-y { top:222px; font-size:32px; font-family:"Cinzel", serif; font-weight:700; letter-spacing:.2em; }
+    #hk-l1 { left:250px; width:580px; top:374px; }
+
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+
+    <div id="hk-k" class="kick clip" data-start="0" data-duration="2.74">AKU PERNAH TIDUR DI</div>
+    <div id="hk-t" class="ttl clip" data-start="1.8" data-duration="1.85" style="opacity:1"><span class="L">B</span><span class="L">I</span><span class="L">L</span><span class="L">I</span><span class="L">K</span><span class="L">&nbsp;</span><span class="L">M</span><span class="L">A</span><span class="L">Y</span><span class="L">A</span><span class="L">T</span></div>
+    <div id="hk-l1" class="line clip" data-start="1.8" data-duration="1.85"></div>
+    <div id="hk-y" class="kick rust clip" data-start="2.74" data-duration="0.91">13 TAHUN</div>
+    <div id="hk-fl" class="black clip" data-start="0" data-duration="0.3" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#hk-fl", { opacity: 0 }, { keyframes: { opacity: [0, 0.92, 0.15, 0.85, 0] }, duration: 0.26, ease: "none" }, 0);
+    tl.fromTo("#hk-k", { opacity: 0, scaleX: 1.25 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.08);
+    tl.fromTo("#hk-t .L", { opacity: 0, y: 14, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.16, ease: "power2.out", stagger: 0.045 }, 1.82);
+    tl.fromTo("#hk-l1", { opacity: 0, scaleX: 0 }, { opacity: 0.8, scaleX: 1, duration: 0.4, ease: "power3.out" }, 2.2);
+    tl.to("#hk-k", { opacity: 0, duration: 0.12 }, 2.62);
+    tl.fromTo("#hk-y", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, 2.78);
+    tl.to(["#hk-t", "#hk-l1", "#hk-y"], { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, 3.45);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

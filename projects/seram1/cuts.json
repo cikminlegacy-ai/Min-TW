@@ -1,0 +1,257 @@
+{
+ "total": 13.44,
+ "segments": [
+  {
+   "src_in": 24.66,
+   "src_out": 25.17,
+   "t": 0.0,
+   "dur": 0.51,
+   "label": "hook"
+  },
+  {
+   "src_in": 26.31,
+   "src_out": 29.45,
+   "t": 0.51,
+   "dur": 3.14,
+   "label": "hook"
+  },
+  {
+   "src_in": 30.43,
+   "src_out": 30.66,
+   "t": 3.65,
+   "dur": 0.23,
+   "label": "yang"
+  },
+  {
+   "src_in": 36.57,
+   "src_out": 37.5,
+   "t": 3.88,
+   "dur": 0.93,
+   "label": "surau"
+  },
+  {
+   "src_in": 0.97,
+   "src_out": 1.79,
+   "t": 4.81,
+   "dur": 0.82,
+   "label": "emosi"
+  },
+  {
+   "src_in": 2.23,
+   "src_out": 4.47,
+   "t": 5.63,
+   "dur": 2.24,
+   "label": "emosi"
+  },
+  {
+   "src_in": 5.63,
+   "src_out": 6.69,
+   "t": 7.87,
+   "dur": 1.06,
+   "label": "emosi"
+  },
+  {
+   "src_in": 6.93,
+   "src_out": 8.12,
+   "t": 8.93,
+   "dur": 1.19,
+   "label": "emosi"
+  },
+  {
+   "src_in": 38.55,
+   "src_out": 38.95,
+   "t": 10.12,
+   "dur": 0.4,
+   "label": "next"
+  },
+  {
+   "src_in": 39.07,
+   "src_out": 41.99,
+   "t": 10.52,
+   "dur": 2.92,
+   "label": "next"
+  }
+ ],
+ "words": [
+  {
+   "text": "aku",
+   "start": 0.12,
+   "end": 0.51
+  },
+  {
+   "text": "pernah",
+   "start": 0.62,
+   "end": 1.0
+  },
+  {
+   "text": "tidur",
+   "start": 1.0,
+   "end": 1.56
+  },
+  {
+   "text": "dekat",
+   "start": 1.56,
+   "end": 1.84
+  },
+  {
+   "text": "bilik",
+   "start": 1.84,
+   "end": 2.24
+  },
+  {
+   "text": "mayat",
+   "start": 2.24,
+   "end": 2.52
+  },
+  {
+   "text": "yang",
+   "start": 2.52,
+   "end": 2.78
+  },
+  {
+   "text": "13",
+   "start": 2.78,
+   "end": 3.04
+  },
+  {
+   "text": "tahun.",
+   "start": 3.04,
+   "end": 3.6
+  },
+  {
+   "text": "Yang",
+   "start": 3.65,
+   "end": 3.86
+  },
+  {
+   "text": "Orang",
+   "start": 3.88,
+   "end": 4.03
+  },
+  {
+   "text": "surau",
+   "start": 4.03,
+   "end": 4.35
+  },
+  {
+   "text": "guna.",
+   "start": 4.35,
+   "end": 4.73
+  },
+  {
+   "text": "cerita",
+   "start": 4.81,
+   "end": 5.1
+  },
+  {
+   "text": "ni",
+   "start": 5.1,
+   "end": 5.26
+  },
+  {
+   "text": "berkaitan",
+   "start": 5.26,
+   "end": 5.63
+  },
+  {
+   "text": "dengan",
+   "start": 6.0,
+   "end": 6.18
+  },
+  {
+   "text": "cerita",
+   "start": 6.18,
+   "end": 7.06
+  },
+  {
+   "text": "penuh",
+   "start": 7.06,
+   "end": 7.24
+  },
+  {
+   "text": "emosi.",
+   "start": 7.24,
+   "end": 7.6
+  },
+  {
+   "text": "Ada",
+   "start": 7.87,
+   "end": 7.98
+  },
+  {
+   "text": "seram",
+   "start": 7.98,
+   "end": 8.5
+  },
+  {
+   "text": "dia,",
+   "start": 8.5,
+   "end": 8.64
+  },
+  {
+   "text": "tapi",
+   "start": 8.74,
+   "end": 8.93
+  },
+  {
+   "text": "ada",
+   "start": 8.93,
+   "end": 9.12
+  },
+  {
+   "text": "inspirasi.",
+   "start": 9.12,
+   "end": 10.1
+  },
+  {
+   "text": "So,",
+   "start": 10.12,
+   "end": 10.21
+  },
+  {
+   "text": "benda",
+   "start": 10.33,
+   "end": 10.52
+  },
+  {
+   "text": "ni",
+   "start": 11.03,
+   "end": 11.23
+  },
+  {
+   "text": "aku",
+   "start": 11.23,
+   "end": 11.39
+  },
+  {
+   "text": "akan",
+   "start": 11.39,
+   "end": 11.53
+  },
+  {
+   "text": "cerita",
+   "start": 11.53,
+   "end": 12.03
+  },
+  {
+   "text": "dekat",
+   "start": 12.03,
+   "end": 12.21
+  },
+  {
+   "text": "dalam",
+   "start": 12.21,
+   "end": 12.53
+  },
+  {
+   "text": "next",
+   "start": 12.53,
+   "end": 13.15
+  },
+  {
+   "text": "video.",
+   "start": 13.15,
+   "end": 13.41
+  }
+ ]
+}

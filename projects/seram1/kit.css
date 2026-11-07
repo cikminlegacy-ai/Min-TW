@@ -1,0 +1,10 @@
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }

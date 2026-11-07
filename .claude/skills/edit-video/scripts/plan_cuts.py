@@ -39,4 +39,5 @@ for w in words:
             mw.append({"text": w["w"].strip(), "start": round(max(w["s"], sg["src_in"]) + off, 3),
                        "end": round(min(w["e"], sg["src_out"]) + off, 3)})
             break
+mw.sort(key=lambda w: w["start"])
 json.dump({"total": round(t, 3), "segments": out, "words": mw}, sys.stdout, ensure_ascii=False, indent=1)

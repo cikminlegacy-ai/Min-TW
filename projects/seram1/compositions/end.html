@@ -1,0 +1,41 @@
+<template>
+  <style>
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-700.ttf") format("truetype"); font-weight:700; }
+    @font-face { font-family:"Cinzel"; src:url("assets/fonts/cinzel-900.ttf") format("truetype"); font-weight:900; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .ttl { position:absolute; left:60px; width:880px; text-align:center; font-family:"Cinzel", serif; font-weight:900; color:#E9E4D8;
+      text-shadow:0 0 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); line-height:1; opacity:0; }
+    .kick { position:absolute; left:60px; width:880px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      letter-spacing:.35em; color:#E9E4D8; opacity:0; text-shadow:0 0 16px rgba(0,0,0,.9); }
+    .rust { color:#C2413F; } .gold { color:#E0A84B; }
+    .line { position:absolute; height:3px; background:#E9E4D8; opacity:0; transform-origin:50% 50%; }
+    .black { position:absolute; inset:0; background:#07080A; }
+
+
+    #ed-bg { position:absolute; inset:0; z-index:0; background:radial-gradient(ellipse at 50% 45%, #1a1410 0%, #07080A 70%); }
+    #ed-t { z-index:2; top:640px; font-size:104px; letter-spacing:.06em; }
+    #ed-p { top:800px; font-size:50px; color:#E0A84B; font-family:"Cinzel", serif; font-weight:700; letter-spacing:.4em; }
+    #ed-l { left:300px; width:480px; top:770px; background:#E0A84B; }
+    #ed-f { position:absolute; left:350px; top:930px; padding:16px 40px 18px; border-radius:999px; background:#E9E4D8; color:#07080A;
+      font-family:"Nunito", sans-serif; font-weight:900; font-size:46px; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="end" data-width="1080" data-height="1920">
+
+    <div id="ed-bg" class="clip" data-start="0" data-duration="2.96"></div>
+    <div id="ed-t" data-layout-allow-occlusion class="ttl clip" data-start="0.1" data-duration="2.86">BERSAMBUNG…</div>
+    <div id="ed-l" class="line clip" data-start="0.1" data-duration="2.86"></div>
+    <div id="ed-p" class="kick clip" data-start="0.5" data-duration="2.46">PART 2</div>
+    <div id="ed-f" class="clip" data-start="0.9" data-duration="2.06">+ FOLLOW</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#ed-bg", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.inOut" }, 0);
+    tl.fromTo("#ed-t", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 0.12);
+    tl.fromTo("#ed-l", { opacity: 0, scaleX: 0 }, { opacity: 0.9, scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.35);
+    tl.fromTo("#ed-p", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.55);
+    tl.fromTo("#ed-f", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2.2)" }, 0.92);
+    window.__timelines["end"] = tl;
+  </script>
+</template>
