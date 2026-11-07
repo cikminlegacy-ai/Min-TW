@@ -1,0 +1,48 @@
+<template>
+  <style>
+    /* CONS1 shared kit (copied into every scene) */
+    #root { position:absolute; inset:0; overflow:hidden; font-family:"Poppins", sans-serif; }
+    .full { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(23,20,15,.55) 0%, rgba(23,20,15,.05) 40%, rgba(23,20,15,.15) 60%, rgba(23,20,15,.6) 100%); }
+    .ground { position:absolute; inset:0; background:#1E7A46;
+      background-image: radial-gradient(rgba(255,243,220,.10) 2px, transparent 2.5px); background-size: 34px 34px; }
+    .ticket { position:absolute; background:#FFF3DC; color:#17140F; border-radius:14px; padding:22px 34px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      -webkit-mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat;
+              mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat; }
+    .mono { font-family:"Space Mono", monospace; font-weight:700; letter-spacing:.06em; }
+    .rule { border-top:4px dashed rgba(23,20,15,.35); margin:12px 0; }
+    .stamp { position:absolute; font-family:"Archivo Black", sans-serif; color:#E23B2E; border:9px solid #E23B2E; border-radius:16px;
+      padding:6px 26px 10px; background:rgba(255,243,220,.94); line-height:1; text-align:center; box-shadow:0 14px 40px rgba(0,0,0,.4); }
+    .pill { position:absolute; font-weight:800; border-radius:999px; padding:12px 34px 14px; line-height:1.05; box-shadow:0 12px 34px rgba(0,0,0,.4); }
+    .pol { position:absolute; background:#FFF3DC; padding:18px 18px 76px; border-radius:6px; box-shadow:0 26px 70px rgba(0,0,0,.5); }
+    .pol .ph { width:100%; height:100%; overflow:hidden; background:#000; position:relative; }
+    .pol video { width:100%; height:100%; object-fit:cover; display:block; }
+    .pol .cap { position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:"Space Mono", monospace; font-weight:700; font-size:38px; color:#17140F; }
+    .tick { display:inline-flex; width:46px; height:46px; border-radius:50%; background:#1E7A46; color:#FFF3DC; align-items:center; justify-content:center; font-size:30px; font-weight:800; }
+
+
+    #tl-flood { position:absolute; inset:0; background:#E23B2E; transform-origin:50% 100%; }
+    #tl-9 { position:absolute; left:0; right:140px; top:250px; text-align:center; font-family:"Archivo Black", sans-serif; font-size:560px; line-height:1; color:#FFF3DC; opacity:0;
+      text-shadow:0 20px 0 rgba(23,20,15,.25); }
+    #tl-w { position:absolute; left:0; right:140px; top:800px; text-align:center; font-family:"Archivo Black", sans-serif; font-size:170px; line-height:1; color:#17140F; opacity:0; }
+    #tl-sub { left:250px; top:1010px; background:#17140F; color:#FFB547; font-size:36px; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="tools" data-width="1080" data-height="1920">
+
+    <div id="tl-flood" class="clip" data-start="0" data-duration="1.71"></div>
+    <div id="tl-9" class="clip" data-start="0" data-duration="1.71">9</div>
+    <div id="tl-w" class="clip" data-start="0" data-duration="1.71">TOOLS</div>
+    <div id="tl-sub" class="pill mono clip" data-start="0" data-duration="1.71">UNTUK TEAM SAYA</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#tl-flood", { scaleY: 0 }, { scaleY: 1, duration: 0.24, ease: "power2.inOut" }, 0);
+    tl.fromTo("#tl-9", { opacity: 0, scale: 2.2, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "expo.out" }, 0.16);
+    tl.fromTo("#tl-w", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out" }, 0.38);
+    tl.fromTo("#tl-sub", { opacity: 0, scale: 0.4, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(2.2)" }, 0.6);
+    window.__timelines["tools"] = tl;
+  </script>
+</template>

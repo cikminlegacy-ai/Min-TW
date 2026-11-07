@@ -8,12 +8,17 @@ usage: build_captions.py cuts.json OUT.html [--honest-from SEC] [--fix 'a=>b' ..
 import json, sys, re, html
 args = sys.argv[1:]
 cuts, out = args[0], args[1]
-honest = 1e9; fixes = {}; kws = set()
+honest = 1e9; fixes = {}; kws = set(); css_file = None
+hl_bg, hl_fg, kw_color = "#FFC700", "#0A2A7A", "#FFC700"
 i = 2
 while i < len(args):
     if args[i] == "--honest-from": honest = float(args[i+1]); i += 2
     elif args[i] == "--fix": a, b = args[i+1].split("=>"); fixes[a.lower()] = b; i += 2
     elif args[i] == "--kw": kws.add(args[i+1].upper()); i += 2
+    elif args[i] == "--css": css_file = args[i+1]; i += 2
+    elif args[i] == "--karaoke": honest = -1; i += 1
+    elif args[i] == "--hl": hl_bg, hl_fg = args[i+1].split(","); i += 2
+    elif args[i] == "--kwcolor": kw_color = args[i+1]; i += 2
     else: i += 1
 W = json.load(open(cuts))["words"]
 # merge split tokens
@@ -62,9 +67,10 @@ for sel, s, e, hon, kw in js:
         tl.append(f'tl.fromTo("{sel}",{{opacity:0.0,scale:0.8}},{{opacity:1,scale:1.12,duration:0.1,ease:"power3.out"}},{s:.3f});')
         tl.append(f'tl.to("{sel}",{{scale:1,duration:0.12,ease:"power2.out"}},{s+0.1:.3f});')
         if hon:
-            tl.append(f'tl.set("{sel}",{{backgroundColor:"#FFC700",color:"#0A2A7A",webkitTextStrokeWidth:0,textShadow:"none"}},{s:.3f});')
-            base = "#FFC700" if kw else "#ffffff"
-            tl.append(f'tl.set("{sel}",{{backgroundColor:"rgba(0,0,0,0)",color:"{base}",webkitTextStrokeWidth:3,textShadow:"0 0 2px #000, 0 4px 0 rgba(0,0,0,.85), 0 8px 24px rgba(0,0,0,.55)"}},{e:.3f});')
+            tl.append(f'tl.set("{sel}",{{backgroundColor:"{hl_bg}",color:"{hl_fg}"}},{s:.3f});')
+            base = kw_color if kw else "#ffffff"
+            tl.append(f'tl.set("{sel}",{{backgroundColor:"rgba(0,0,0,0)",color:"{base}"}},{e:.3f});')
+style_override = open(css_file).read() if css_file else None
 doc = f'''<template>
   <style>
     #root {{ position:absolute; inset:0; pointer-events:none; }}
@@ -86,5 +92,7 @@ doc = f'''<template>
   </script>
 </template>
 '''
+if style_override:
+    doc = re.sub(r"<style>.*?</style>", "<style>\n" + style_override.replace("\\", "\\\\") + "\n  </style>", doc, count=1, flags=re.S)
 open(out, "w").write(doc)
 print(f"{len(groups)} groups, {len(words)} words -> {out}")

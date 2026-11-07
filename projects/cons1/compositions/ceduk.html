@@ -1,0 +1,45 @@
+<template>
+  <style>
+    /* CONS1 shared kit (copied into every scene) */
+    #root { position:absolute; inset:0; overflow:hidden; font-family:"Poppins", sans-serif; }
+    .full { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(23,20,15,.55) 0%, rgba(23,20,15,.05) 40%, rgba(23,20,15,.15) 60%, rgba(23,20,15,.6) 100%); }
+    .ground { position:absolute; inset:0; background:#1E7A46;
+      background-image: radial-gradient(rgba(255,243,220,.10) 2px, transparent 2.5px); background-size: 34px 34px; }
+    .ticket { position:absolute; background:#FFF3DC; color:#17140F; border-radius:14px; padding:22px 34px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      -webkit-mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat;
+              mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat; }
+    .mono { font-family:"Space Mono", monospace; font-weight:700; letter-spacing:.06em; }
+    .rule { border-top:4px dashed rgba(23,20,15,.35); margin:12px 0; }
+    .stamp { position:absolute; font-family:"Archivo Black", sans-serif; color:#E23B2E; border:9px solid #E23B2E; border-radius:16px;
+      padding:6px 26px 10px; background:rgba(255,243,220,.94); line-height:1; text-align:center; box-shadow:0 14px 40px rgba(0,0,0,.4); }
+    .pill { position:absolute; font-weight:800; border-radius:999px; padding:12px 34px 14px; line-height:1.05; box-shadow:0 12px 34px rgba(0,0,0,.4); }
+    .pol { position:absolute; background:#FFF3DC; padding:18px 18px 76px; border-radius:6px; box-shadow:0 26px 70px rgba(0,0,0,.5); }
+    .pol .ph { width:100%; height:100%; overflow:hidden; background:#000; position:relative; }
+    .pol video { width:100%; height:100%; object-fit:cover; display:block; }
+    .pol .cap { position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:"Space Mono", monospace; font-weight:700; font-size:38px; color:#17140F; }
+    .tick { display:inline-flex; width:46px; height:46px; border-radius:50%; background:#1E7A46; color:#FFF3DC; align-items:center; justify-content:center; font-size:30px; font-weight:800; }
+
+
+    #cd-p1 { left:90px; top:380px; width:840px; height:560px; opacity:0; }
+    #cd-p2 { left:110px; top:560px; width:840px; height:560px; opacity:0; }
+    #cd-sen { z-index:5; left:400px; top:236px; background:#FFB547; color:#17140F; font-family:"Archivo Black", sans-serif; font-size:66px; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="ceduk" data-width="1080" data-height="1920">
+
+    <div id="cd-ground" class="ground clip" data-start="0" data-duration="2.72"></div>
+    <div id="cd-p1" class="pol"><div class="ph"><video id="cd-v1" class="clip" data-start="0" data-duration="2.72" data-media-start="2" src="assets/broll/stall.mp4" muted playsinline></video></div><div class="cap">LAUK DAH SIAP</div></div>
+    <div id="cd-p2" class="pol"><div class="ph"><video id="cd-v2" class="clip" data-start="0.94" data-duration="1.78" data-media-start="0.5" src="assets/broll/scoop.mp4" muted playsinline></video></div><div class="cap">TINGGAL CEDOK JE</div></div>
+    <div id="cd-sen" data-layout-allow-occlusion class="pill clip" data-start="2.1" data-duration="0.6">SENANG KAN?</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#cd-p1", { opacity: 0, y: 500, rotation: 10 }, { opacity: 1, y: 0, rotation: -4, duration: 0.4, ease: "expo.out" }, 0.0);
+    tl.fromTo("#cd-p2", { opacity: 0, x: 900, rotation: 14 }, { opacity: 1, x: 0, rotation: 3, duration: 0.36, ease: "expo.out" }, 0.94);
+    tl.fromTo("#cd-sen", { opacity: 0, scale: 0.3, rotation: -20 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.3, ease: "back.out(2.6)" }, 2.14);
+    window.__timelines["ceduk"] = tl;
+  </script>
+</template>

@@ -1,0 +1,52 @@
+<template>
+  <style>
+    /* CONS1 shared kit (copied into every scene) */
+    #root { position:absolute; inset:0; overflow:hidden; font-family:"Poppins", sans-serif; }
+    .full { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(23,20,15,.55) 0%, rgba(23,20,15,.05) 40%, rgba(23,20,15,.15) 60%, rgba(23,20,15,.6) 100%); }
+    .ground { position:absolute; inset:0; background:#1E7A46;
+      background-image: radial-gradient(rgba(255,243,220,.10) 2px, transparent 2.5px); background-size: 34px 34px; }
+    .ticket { position:absolute; background:#FFF3DC; color:#17140F; border-radius:14px; padding:22px 34px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      -webkit-mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat;
+              mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat; }
+    .mono { font-family:"Space Mono", monospace; font-weight:700; letter-spacing:.06em; }
+    .rule { border-top:4px dashed rgba(23,20,15,.35); margin:12px 0; }
+    .stamp { position:absolute; font-family:"Archivo Black", sans-serif; color:#E23B2E; border:9px solid #E23B2E; border-radius:16px;
+      padding:6px 26px 10px; background:rgba(255,243,220,.94); line-height:1; text-align:center; box-shadow:0 14px 40px rgba(0,0,0,.4); }
+    .pill { position:absolute; font-weight:800; border-radius:999px; padding:12px 34px 14px; line-height:1.05; box-shadow:0 12px 34px rgba(0,0,0,.4); }
+    .pol { position:absolute; background:#FFF3DC; padding:18px 18px 76px; border-radius:6px; box-shadow:0 26px 70px rgba(0,0,0,.5); }
+    .pol .ph { width:100%; height:100%; overflow:hidden; background:#000; position:relative; }
+    .pol video { width:100%; height:100%; object-fit:cover; display:block; }
+    .pol .cap { position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:"Space Mono", monospace; font-weight:700; font-size:38px; color:#17140F; }
+    .tick { display:inline-flex; width:46px; height:46px; border-radius:50%; background:#1E7A46; color:#FFF3DC; align-items:center; justify-content:center; font-size:30px; font-weight:800; }
+
+
+  </style>
+  <div id="root" data-composition-id="masak" data-width="1080" data-height="1920">
+    <video id="ms-v0" class="full clip" data-start="0.0" data-duration="1.03" data-media-start="0" src="assets/broll/rice.mp4" muted playsinline></video>
+    <div id="ms-s0" class="stamp clip" data-start="0.0" data-duration="1.03" style="left:100px; top:300px; font-size:76px;">MASAK NASI</div>
+    <div id="ms-n0" class="pill mono clip" data-start="0.0" data-duration="1.03" style="left:90px; top:1040px; background:#17140F; color:#FFB547; font-size:34px;">01 / 04</div>
+    <video id="ms-v1" class="full clip" data-start="1.03" data-duration="1.04" data-media-start="1" src="assets/broll/sambal.mp4" muted playsinline></video>
+    <div id="ms-s1" class="stamp clip" data-start="1.03" data-duration="1.04" style="left:150px; top:340px; font-size:76px;">MASAK SAMBAL</div>
+    <div id="ms-n1" class="pill mono clip" data-start="1.03" data-duration="1.04" style="left:90px; top:1040px; background:#17140F; color:#FFB547; font-size:34px;">02 / 04</div>
+    <video id="ms-v2" class="full clip" data-start="2.07" data-duration="1.22" data-media-start="0" src="assets/broll/egg.mp4" muted playsinline></video>
+    <div id="ms-s2" class="stamp clip" data-start="2.07" data-duration="1.22" style="left:100px; top:300px; font-size:76px;">GORENG TELUR</div>
+    <div id="ms-n2" class="pill mono clip" data-start="2.07" data-duration="1.22" style="left:90px; top:1040px; background:#17140F; color:#FFB547; font-size:34px;">03 / 04</div>
+    <video id="ms-v3" class="full clip" data-start="3.29" data-duration="1.27" data-media-start="0" src="assets/broll/cucumber.mp4" muted playsinline></video>
+    <div id="ms-s3" class="stamp clip" data-start="3.29" data-duration="1.27" style="left:150px; top:340px; font-size:76px;">POTONG TIMUN</div>
+    <div id="ms-n3" class="pill mono clip" data-start="3.29" data-duration="1.27" style="left:90px; top:1040px; background:#17140F; color:#FFB547; font-size:34px;">04 / 04</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ms-v0", { x: 260, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 0.0);
+    tl.fromTo("#ms-s0", { opacity: 0, scale: 2.4, rotation: -15 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.24, ease: "expo.out" }, 0.08);
+    tl.fromTo("#ms-v1", { x: 260, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 1.03);
+    tl.fromTo("#ms-s1", { opacity: 0, scale: 2.4, rotation: 12 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.24, ease: "expo.out" }, 1.11);
+    tl.fromTo("#ms-v2", { x: 260, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 2.07);
+    tl.fromTo("#ms-s2", { opacity: 0, scale: 2.4, rotation: -15 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.24, ease: "expo.out" }, 2.15);
+    tl.fromTo("#ms-v3", { x: 260, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 3.29);
+    tl.fromTo("#ms-s3", { opacity: 0, scale: 2.4, rotation: 12 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.24, ease: "expo.out" }, 3.37);
+    window.__timelines["masak"] = tl;
+  </script>
+</template>

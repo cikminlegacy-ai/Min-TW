@@ -1,0 +1,7 @@
+    #root { position:absolute; inset:0; pointer-events:none; }
+    #root .cgroup { position:absolute; left:60px; width:880px; top:1180px; text-align:center;
+      font-family:"Poppins", sans-serif; font-weight:800; font-size:76px; line-height:1.12; letter-spacing:-0.01em;
+      color:#fff; overflow:visible; opacity:0;
+      text-shadow:0 3px 0 rgba(23,20,15,.55), 0 8px 26px rgba(0,0,0,.55); }
+    #root .w { display:inline-block; opacity:0; padding:2px 14px 6px; margin:0 -4px; border-radius:18px; }
+    #root .w.kw { color:#FFB547; }

@@ -4,7 +4,7 @@ m = WhisperModel(sys.argv[2] if len(sys.argv)>2 else "small", device="cpu", comp
 import numpy as np, wave
 wf=wave.open(sys.argv[1]); a=np.frombuffer(wf.readframes(wf.getnframes()),dtype=np.int16).astype(np.float32)/32768
 segs, info = m.transcribe(a, language="ms", word_timestamps=True, vad_filter=False,
-  initial_prompt="Abang akak, telco, affiliate, 41%, Grab, billboard, iklan, artis, 3 juta, 16 tahun.")
+  initial_prompt=sys.argv[3] if len(sys.argv)>3 else "Abang akak, saya nak cerita.")
 out=[]
 for s in segs:
     out.append({"start":s.start,"end":s.end,"text":s.text,"words":[{"w":w.word,"s":w.start,"e":w.end} for w in s.words]})

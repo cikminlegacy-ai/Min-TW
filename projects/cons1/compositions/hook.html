@@ -1,0 +1,49 @@
+<template>
+  <style>
+    /* CONS1 shared kit (copied into every scene) */
+    #root { position:absolute; inset:0; overflow:hidden; font-family:"Poppins", sans-serif; }
+    .full { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(23,20,15,.55) 0%, rgba(23,20,15,.05) 40%, rgba(23,20,15,.15) 60%, rgba(23,20,15,.6) 100%); }
+    .ground { position:absolute; inset:0; background:#1E7A46;
+      background-image: radial-gradient(rgba(255,243,220,.10) 2px, transparent 2.5px); background-size: 34px 34px; }
+    .ticket { position:absolute; background:#FFF3DC; color:#17140F; border-radius:14px; padding:22px 34px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      -webkit-mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat;
+              mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat; }
+    .mono { font-family:"Space Mono", monospace; font-weight:700; letter-spacing:.06em; }
+    .rule { border-top:4px dashed rgba(23,20,15,.35); margin:12px 0; }
+    .stamp { position:absolute; font-family:"Archivo Black", sans-serif; color:#E23B2E; border:9px solid #E23B2E; border-radius:16px;
+      padding:6px 26px 10px; background:rgba(255,243,220,.94); line-height:1; text-align:center; box-shadow:0 14px 40px rgba(0,0,0,.4); }
+    .pill { position:absolute; font-weight:800; border-radius:999px; padding:12px 34px 14px; line-height:1.05; box-shadow:0 12px 34px rgba(0,0,0,.4); }
+    .pol { position:absolute; background:#FFF3DC; padding:18px 18px 76px; border-radius:6px; box-shadow:0 26px 70px rgba(0,0,0,.5); }
+    .pol .ph { width:100%; height:100%; overflow:hidden; background:#000; position:relative; }
+    .pol video { width:100%; height:100%; object-fit:cover; display:block; }
+    .pol .cap { position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:"Space Mono", monospace; font-weight:700; font-size:38px; color:#17140F; }
+    .tick { display:inline-flex; width:46px; height:46px; border-radius:50%; background:#1E7A46; color:#FFF3DC; align-items:center; justify-content:center; font-size:30px; font-weight:800; }
+
+
+    #hk-t { left:110px; width:820px; top:236px; text-align:center; opacity:0; }
+    #hk-t .lab { font-size:30px; color:#E23B2E; }
+    #hk-t .h1 { font-family:"Archivo Black", sans-serif; font-size:104px; line-height:.95; color:#E23B2E; letter-spacing:-.01em; }
+    #hk-t .h2 { font-size:44px; color:#17140F; }
+
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+
+    <div id="hk-t" class="ticket clip" data-start="0" data-duration="3.02">
+      <div class="lab mono">ORDER #01 · PASAR PAGI</div>
+      <div class="rule"></div>
+      <div class="h1">MAKCIK<br/>NASI LEMAK</div>
+      <div class="rule"></div>
+      <div class="h2 mono">BANGUN 3:00 PAGI?</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#hk-t", { opacity: 0, y: -420, rotation: -14 }, { opacity: 1, y: 0, rotation: -3, duration: 0.34, ease: "back.out(1.6)" }, 0.04);
+    tl.to("#hk-t", { keyframes: { rotation: [-3, -5, -2, -3] }, duration: 0.3, ease: "none" }, 0.38);
+    tl.to("#hk-t", { x: -1200, filter: "blur(16px)", duration: 0.22, ease: "power3.in" }, 2.8);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

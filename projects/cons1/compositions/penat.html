@@ -1,0 +1,41 @@
+<template>
+  <style>
+    /* CONS1 shared kit (copied into every scene) */
+    #root { position:absolute; inset:0; overflow:hidden; font-family:"Poppins", sans-serif; }
+    .full { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(23,20,15,.55) 0%, rgba(23,20,15,.05) 40%, rgba(23,20,15,.15) 60%, rgba(23,20,15,.6) 100%); }
+    .ground { position:absolute; inset:0; background:#1E7A46;
+      background-image: radial-gradient(rgba(255,243,220,.10) 2px, transparent 2.5px); background-size: 34px 34px; }
+    .ticket { position:absolute; background:#FFF3DC; color:#17140F; border-radius:14px; padding:22px 34px 26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      -webkit-mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat;
+              mask: radial-gradient(circle 12px at 0 50%, transparent 98%, #000) left/51% 100% no-repeat, radial-gradient(circle 12px at 100% 50%, transparent 98%, #000) right/51% 100% no-repeat; }
+    .mono { font-family:"Space Mono", monospace; font-weight:700; letter-spacing:.06em; }
+    .rule { border-top:4px dashed rgba(23,20,15,.35); margin:12px 0; }
+    .stamp { position:absolute; font-family:"Archivo Black", sans-serif; color:#E23B2E; border:9px solid #E23B2E; border-radius:16px;
+      padding:6px 26px 10px; background:rgba(255,243,220,.94); line-height:1; text-align:center; box-shadow:0 14px 40px rgba(0,0,0,.4); }
+    .pill { position:absolute; font-weight:800; border-radius:999px; padding:12px 34px 14px; line-height:1.05; box-shadow:0 12px 34px rgba(0,0,0,.4); }
+    .pol { position:absolute; background:#FFF3DC; padding:18px 18px 76px; border-radius:6px; box-shadow:0 26px 70px rgba(0,0,0,.5); }
+    .pol .ph { width:100%; height:100%; overflow:hidden; background:#000; position:relative; }
+    .pol video { width:100%; height:100%; object-fit:cover; display:block; }
+    .pol .cap { position:absolute; left:0; right:0; bottom:16px; text-align:center; font-family:"Space Mono", monospace; font-weight:700; font-size:38px; color:#17140F; }
+    .tick { display:inline-flex; width:46px; height:46px; border-radius:50%; background:#1E7A46; color:#FFF3DC; align-items:center; justify-content:center; font-size:30px; font-weight:800; }
+
+
+    #pn-s { left:180px; top:420px; font-size:150px; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="penat" data-width="1080" data-height="1920">
+
+    <video id="pn-v" class="full clip" data-start="0" data-duration="1.22" data-media-start="3" src="assets/broll/tired.mp4" muted playsinline></video>
+    <div class="shade clip" data-start="0" data-duration="1.22"></div>
+    <div id="pn-s" class="stamp clip" data-start="0" data-duration="1.22">PENAT!</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#pn-v", { x: 260, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.28, ease: "power3.out" }, 0);
+    tl.fromTo("#pn-s", { opacity: 0, scale: 2.4, rotation: -24 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.24, ease: "expo.out" }, 0.06);
+    tl.to("#pn-s", { keyframes: { x: [0, -12, 10, -6, 0] }, duration: 0.25, ease: "none" }, 0.3);
+    window.__timelines["penat"] = tl;
+  </script>
+</template>
