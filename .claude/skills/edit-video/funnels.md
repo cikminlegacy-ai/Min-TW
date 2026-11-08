@@ -41,9 +41,25 @@ Stop bila rasa "eh ni aku lah". Scroll bila rasa kena jual. → **Relate dulu, b
 - Hook: "Aku baru perasan, selama ni aku topup, tak pernah dapat apa-apa balik."
 - JANGAN: cerita sedih meleret, 10 benefit, video 60s.
 
-## FUNNEL 4 — STORYTELLING BRANDING · 45–75s (90s kalau sangat kuat)
+## FUNNEL 4 — STORYTELLING BRANDING · TIADA had durasi (kemas kini 2026-11-08)
+Life journey Muhaimin tak terikat masa — boleh lebih 90s. JANGAN potong cerita semata-mata nak pendekkan; potong hanya ulang, tersasul, jeda mati.
+Struktur babak di bawah = panduan susunan, bukan had saat.
 - Babak 1 (0–15) "Dulu aku…" susah yang real · Babak 2 (15–40) titik jatuh: silap, malu, sedar · Babak 3 (40–60) apa belajar — flex mindset, bukan flex kaya · 60–75 open loop ke video next.
 - Edit: cinematic, shot 3–5s. Flashback gambar/video/screenshot lama; grade gelap untuk babak dulu, cerah untuk sekarang. **Muzik naik turun** (sedih slow → bangkit naik sikit; jangan satu track flat). **Diam 1.5s lepas ayat paling pedih**, pandang kamera. B-roll emosi (tangan kira duit, bilik sewa, motor lama, dapur kosong). Voiceover perlahan masa emosi.
+- **TUGAS UTAMA EDITOR DI FUNNEL 4: tampung intonasi.** Muhaimin selalu BACA skrip, jadi suara kadang mendatar. Edit yang bawa emosi, bukan suara sahaja:
+  - Petakan emosi setiap ayat dulu (DESIGN.md): tenang → susah → pedih → sedar → bangkit → harapan. Setiap peralihan emosi = perubahan vibe.
+  - **Muzik ikut babak**, bukan satu track flat: piano/strings perlahan masa susah, hampir senyap masa pedih, naik (beat masuk / strings bangkit) masa sedar & bangkit, hangat masa harapan. Crossfade antara cue, atau satu track yang dipotong pada bar yang sesuai.
+  - **Bunyi suasana** (ambience) bawah suara: hujan, kipas, bunyi LRT, motor lalu, pasar — ikut tempat dalam cerita. Kecil, sebagai latar.
+  - **Penekanan visual pada perkataan kunci** (angka, tempat, perasaan): punch-in perlahan, teks emosi besar (font emosi rules.md §10), kadang satu perkataan sahaja di skrin.
+  - **Ruang bernafas**: tambah diam 1–1.5s selepas ayat berat (boleh panjangkan dengan freeze/slow push walaupun dia tak berhenti), muzik turun masa tu.
+  - **Grade ikut babak**: dulu = gelap, sejuk, desaturate; sekarang = cerah, hangat.
+  - **Rentak**: shot panjang & perlahan masa sedih; cut lebih rapat masa bangkit.
+- **Supaya penonton rasa DEKAT, bukan jauh:**
+  - Framing close & hangat (muka dekat, pandang kamera), bukan wide yang dingin.
+  - Subtitle bahasa borak, ikut cara dia cakap — jangan "betulkan" jadi formal.
+  - Teks on-screen tanya terus penonton masa momen relate ("Kau pernah rasa macam ni?").
+  - B-roll benda biasa orang B40 rasa (bilik sewa, dapur, LRT, duit syiling) — bukan B-roll cantik/mewah.
+  - Elak grafik terlalu korporat/berkilat masa babak susah; simpan "polish" untuk babak bangkit.
 - Hook: "Dulu aku pernah kira duit syiling nak isi minyak RM10." / "Masa aku duduk bilik sewa RM400, aku belajar satu benda yang ubah hidup aku."
 - JANGAN: cerita untuk nampak hebat (cerita untuk nampak manusia), tunjuk kereta mewah.
 

@@ -39,7 +39,7 @@ Gabungan paling selamat untuk dua-dua app:
 - Buang ayat ulang (ambil take terbaik), false start, filler ("eh, aa, hmm, ok so, sebenarnya kan, jadi"), salam/intro panjang.
 - Jump cut setiap pause > 0.3 s (simpan ~0.15 s nafas). Fade audio 12–30 ms setiap cut.
 - Buang bahagian pandang bawah / betulkan rambut-topi-tudung / pegang phone.
-- Sasaran durasi ikut FUNNEL (funnels.md): Awareness 35–55s, Consider 30–45s, Hardsell 25–35s (max 40), Storytelling 45–75s (90s kalau kuat). Kalau lebih, buang bahagian paling lemah.
+- Sasaran durasi ikut FUNNEL (funnels.md): Awareness 35–55s, Consider 30–45s, Hardsell 25–35s (max 40), Storytelling TIADA had (boleh >90s). Kalau lebih, buang bahagian paling lemah.
 - Funnel 2 & 4: JANGAN potong pause yang disengajakan (1s lepas poin / 1.5s lepas ayat pedih).
 
 ## 7. HOOK
