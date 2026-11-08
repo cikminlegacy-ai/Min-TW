@@ -1,15 +1,17 @@
 ---
 name: edit-video
-description: Edit Muhaimin's talking-head videos for TikTok / Instagram Reels / YouTube Shorts (9:16, 1080x1920) with HyperFrames, following his saved 9-point structure (transcribe first, animation that never covers the face, premium SFX, TikTok+IG safe zone, ducked background music, cut repeats/pauses, strongest hook, preview before render, a NEW design every video). Use when the user types /edit-video followed by a Google Drive / video link (optionally a HOOK LOCK, script or notes).
+description: Editor + script doctor + strategist for Muhaimin (B40 KL audience, 4-funnel playbook). Edit Muhaimin's talking-head videos for TikTok / Instagram Reels / YouTube Shorts (9:16, 1080x1920) with HyperFrames, following his saved 9-point structure (transcribe first, animation that never covers the face, premium SFX, TikTok+IG safe zone, ducked background music, cut repeats/pauses, strongest hook, preview before render, a NEW design every video). Use when the user types /edit-video followed by a Google Drive / video link (optionally a HOOK LOCK, script or notes).
 ---
 
 # /edit-video — Muhaimin short-form editor
 
 The user sends `/edit-video <link>` (+ maybe hook / script / notes). Do the whole edit and **stop at a preview**.
 Never render until the user says "render"/"ok". Reply in Bahasa Melayu (casual, "aku/kau").
-Do not ask the user to repeat their requirements — they are saved here.
+Do not ask the user to repeat their requirements — they are saved here. Do not ask many questions: make the most logical assumption and continue.
+Input can be footage (do the full edit), or only a script/idea (then deliver the funnels.md written output — detect funnel, 3 hooks, second-by-second timeline, exact on-screen text, music/SFX/B-roll, caption + 5 hashtags, What's Next CTA — no build).
 
 **Read first, every time (all in this folder):**
+0. `funnels.md` — Muhaimin's strategy playbook (role, B40 KL audience, 2026 algorithm, golden rules, 4 funnels, CTA & analogy banks, the 9 required outputs). **Highest priority**: the detected funnel decides duration, structure, pacing, music, text tone and CTA, and overrides the generic durations/pacing in rules.md and theme.md.
 1. `rules.md` — the user's 9-point structure. Binding for every video.
 2. `design-log.md` — what past videos looked like. Rule 9: the new design must differ (≥5 of 8 dimensions vs the last video, no repeated combination). Add an entry after rendering.
 3. `theme.md` — the "TikTok awareness / naik followers" series brief (45–50 s, educate only, never sell, honest close-up ending). Apply when the video is that kind of content or the user mentions it. Its blue/yellow palette was AW1's design — do NOT reuse it by default (rule 9 wins).
@@ -38,6 +40,7 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 - Whisper fallback: `ffmpeg -i <video> -vn -ac 1 -ar 16000 audio.wav && python3 scripts/transcribe.py audio.wav medium` → `transcript.json` (edit the domain prompt words in the script for the topic).
 - Noisy room (fan/AC) and ffmpeg silencedetect misses pauses → `python3 scripts/silences.py audio.wav > silences.txt` (energy-based).
 - Footage may contain the user talking TO YOU ("Claude, …", "cuba zoom in", "okay tu information yang lepas"): those are directions, not content — follow them, cut them out, and list what you cut in the preview message.
+- **Detect the funnel** (funnels.md) from the transcript before cutting; it sets the target duration and what to keep (e.g. funnel 2 keeps 1 s pauses after key points; funnel 4 keeps a 1.5 s silence after the most painful line).
 - Read the whole transcript; mark hook candidates, numbers/facts, brands, comparisons, CTA, repeats.
 
 ## 3. Cut (rule 6) and hook (rule 7)
@@ -66,7 +69,7 @@ Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook c
 ## 6. Verify → PREVIEW (rule 8)
 
 `npm run check` → 0 errors. `npx hyperframes snapshot --at <every beat> -o /home/user/Min-TW/preview/<name>` → read the sheets; fix any face overlap, safe-zone breach, text collisions.
-`npx hyperframes preview --background` → `report_preview_port`; send contact sheets (SendUserFile) + beat table (time / line / visual) + anything the user must decide (watermarks, music credit). Commit + push.
+`npx hyperframes preview --background` → `report_preview_port`; send contact sheets (SendUserFile) + the funnels.md output in Malay rojak: "Aku detect ni funnel X, betul tak?", what was cut to fit the funnel duration, 3 new hook options (isu Malaysia + sakit B40 + ingin tahu), the second-by-second timeline as built, exact on-screen text, music/SFX/B-roll used, caption + 5 hashtags, the What's Next CTA, and a short "skrip tambah rakam" when the footage lacks a line the funnel needs (never fake his voice). Plus anything to decide (watermarks, music credit). Commit + push.
 
 ## 7. Render (only after approval)
 

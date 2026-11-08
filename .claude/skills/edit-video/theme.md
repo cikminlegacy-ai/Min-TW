@@ -1,5 +1,7 @@
 # TEMA: MUHAIMIN - TIKTOK AWARENESS NAIK FOLLOWERS
 
+> Ini = FUNNEL 1 (Awareness) dalam `funnels.md`. Kalau bercanggah, funnels.md menang (contoh durasi 35–55s, B-roll bandar Malaysia sahaja).
+
 (Teks asal daripada Muhaimin. Ini peraturan tetap untuk setiap video `/edit-video`.)
 
 ## [PERATURAN PERTAMA - BUANG HAL TAK PENTING]
