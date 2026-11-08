@@ -1,5 +1,7 @@
 # STRUKTUR EDIT TETAP (dari Muhaimin — guna untuk SETIAP video, jangan tanya lagi)
 
+> Strategi (funnel, audiens, hook, CTA) ada dalam `funnels.md` — itu didahulukan. Fail ni = peraturan teknikal edit.
+
 Format: TikTok / Instagram Reels / YouTube Shorts — **9:16 menegak, 1080x1920, 30 fps**.
 (User tulis "16:9, 1080x1920" — 1080x1920 ialah 9:16 menegak. Guna 9:16 kecuali user minta lain.)
 
