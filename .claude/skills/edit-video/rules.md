@@ -89,6 +89,6 @@ Gabungan paling selamat untuk dua-dua app:
 - Mix check: after render, measure the speech part vs voice.m4a; impacts/booms add a lot — keep SFX ~0.3–0.45 under a single voice (SERAM1 first mix was -10.4 LUFS).
 
 ## 11. FAIL AKHIR UNTUK PHONE (ditetapkan user, 2026-11-11)
-- Fail yang dihantar kepada user: **1080x1920, saiz 100–150 MB** (sasaran ~125 MB), boleh muat turun & simpan terus dalam phone.
+- Fail yang dihantar kepada user: **1080x1920, saiz BAWAH 100 MB** (sasaran ~90 MB). Dikemas kini 2026-11-11: phone user gagal simpan fail 120 MB, fail 88 MB berjaya. Jangan lebih 95 MB.
 - Selepas render: `scripts/deliver.sh out/<render>.mp4 out/<name>-final-1080p.mp4` (2-pass, bitrate dikira ikut durasi, loudnorm −14 LUFS). Hantar fail INI sahaja (SendUserFile, display "attach").
 - Fail render asal (boleh ratusan MB) disimpan dalam `out/` sahaja; hantar hanya kalau user minta.

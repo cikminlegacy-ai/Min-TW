@@ -1,8 +1,8 @@
 #!/bin/bash
-# Phone delivery copy (user rule 2026-11-11): 1080x1920, 100–150 MB (target 125 MB), -14 LUFS, saves on a phone.
+# Phone delivery copy (user rule 2026-11-11, updated): 1080x1920, UNDER 100 MB (target 90 MB) — the user's phone could not save 120 MB, 88 MB worked. -14 LUFS.
 # usage: deliver.sh <rendered.mp4> <out.mp4> [target_MB]
 set -e
-IN="$1"; OUT="$2"; MB="${3:-125}"
+IN="$1"; OUT="$2"; MB="${3:-90}"
 DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$IN")
 A=192   # audio kbps
 # total kbit = MB*8*1000 (decimal MB, ~4% container headroom)
