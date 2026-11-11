@@ -21,6 +21,20 @@ Transcribe dulu sebelum apa-apa, supaya tahu mana nak letak animation, motion gr
 - Puncak SFX jatuh 1 frame selepas visual (`npx hyperframes audio <file> --json`). SFX 3–6 dB atas muzik, tak tenggelamkan suara.
 - Sumber: HeyGen catalog (kalau signed in) → Openverse CC0 → bundled `media-use/audio/assets/sfx`.
 
+## 3B. SOUND DESIGN JALAN CERITA (ditetapkan user, 2026-11-11) — WAJIB setiap video
+SFX bukan hiasan transisi je — SFX **hidupkan cerita** supaya audiens tak bosan dan "nampak" apa yang diceritakan.
+- **Dengar transcript, bukan tengok grafik:** setiap ayat yang sebut benda/tempat/aksi yang ada bunyi → letak bunyinya.
+  Contoh: "pintu" → pintu berkeriut; "malam" → cengkerik/burung hantu; "air/mandi" → air mengalir/titis; "ular" → desis;
+  "lari/jalan" → tapak kaki; "takut/berdebar" → degupan jantung; "hujan/angin" → hujan/angin; "LRT/motor" → bunyi kenderaan; "duit syiling" → syiling jatuh.
+- **3 lapisan bunyi:**
+  1. **Ambience** (latar tempat, panjang, perlahan ~0.15–0.3): bilik malam, kampung, bandar, surau, hujan — tukar bila cerita tukar tempat/masa.
+  2. **Bunyi cerita** (spot, ikut perkataan): pintu, tapak kaki, air, ular, jantung — puncak 1 frame selepas perkataan disebut.
+  3. **Bunyi edit** (whoosh, impact, riser, pop): untuk teks/transisi — sederhana, jangan tenggelamkan lapisan 1–2.
+- **Rentak anti-bosan:** sekurang-kurangnya satu "bunyi cerita" atau perubahan ambience setiap 4–6 saat; bunyi besar (impact/jantung/sunyi tiba-tiba) di klimaks; **diam total 0.5–1.5s** sebelum ayat paling seram/pedih supaya ia menghentak.
+- **Suara tetap raja:** semua lapisan duck bawah suara; selepas render ukur bahagian bercakap vs voice.m4a (sasaran mix −14 LUFS, suara jelas ≥ 4 dB atas yang lain).
+- **Sumber bunyi:** `sfx/google-sound-library.txt` (1,160 bunyi Google Sound Library, **CC BY 4.0** — kredit "Sound effects: Google Sound Library (CC BY 4.0)" dalam caption) → muat turun dengan curl dari URL dalam senarai. Bundled Pixabay (`~/.claude/skills/media-use/audio/assets/sfx`) untuk bunyi edit. Freesound & Wikimedia disekat (403/429) — jangan cuba pintas.
+- Tulis **peta bunyi** (masa → perkataan → bunyi → lapisan) dalam DESIGN.md dan masukkan dalam mesej preview.
+
 ## 4. SAFE ZONE TikTok + IG Reels (1080x1920)
 Gabungan paling selamat untuk dua-dua app:
 - Atas: kosong 0–220 px (status bar, tab "Following/For You", IG header).

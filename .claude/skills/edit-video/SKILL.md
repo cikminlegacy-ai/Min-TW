@@ -64,7 +64,7 @@ Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook c
 - Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE via `--css <file>` (Nunito/Montserrat per rule 10; colours, highlight via `--karaoke --hl bg,fg --kwcolor`).
 - Grade via `npx hyperframes media-treatment ... --grading '<json>' --apply` (never CSS filters); `grade-compare` 3–4 candidates first.
 - Music (rule 5): new genre each video (Openverse → Jamendo works; Freesound/Wikimedia blocked). Duck under voice with a volume lane, e.g. `data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.14},{"t":0.3,"v":0.05},...]}]}'` built from word timings (0.05 while speaking, ~0.14 in gaps/cutaways), then optionally `node ~/.claude/skills/media-use/audio/scripts/carve.mjs --comp index.html`. Credit CC-BY tracks.
-- SFX (rule 3): one per visible action, rotate variants, layer for big moments, peak 1 frame after the visual; `data-duration` = file length.
+- SFX (rule 3 + **rule 3B story sound design**): build a sound map from the transcript — ambience per place/time, a story sound on every word that has a sound (pintu, air, malam, ular, tapak kaki, jantung…), edit sounds for text/transitions, a story sound or ambience change every 4–6 s, total silence 0.5–1.5 s before the scariest/most painful line. Source story sounds from `sfx/google-sound-library.txt` (CC BY 4.0; `curl -o assets/sfx/<name>.ogg <url>`), edit sounds from bundled Pixabay. Peak 1 frame after the word; `data-duration` = file length; everything ducked under the voice.
 
 ## 6. Verify → PREVIEW (rule 8)
 
