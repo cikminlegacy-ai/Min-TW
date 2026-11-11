@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Energy-based pause finder for noisy rooms (fans, AC) where ffmpeg silencedetect misses pauses.
 usage: silences.py audio.wav [speech_db] > silences.txt   (16 kHz mono wav; lines "start end")
-A 20 ms frame is 'quiet' when RMS < speech_db (default: noise floor + 9 dB, max -24).
+A 20 ms frame is "quiet" when RMS < speech_db (default: noise floor + 9 dB, max -24).
+Very quiet rooms (noise floor below -50 dB): pass about floor+13 (e.g. -46). Check soft/whispered lines survive (RMS scan) — -40 cut a quiet "kau faham-faham je lah" in PB1.
 Single loud frames inside a pause are tolerated (median filter), pauses >= 0.22 s are printed."""
 import sys, wave, numpy as np
 wf = wave.open(sys.argv[1]); sr = wf.getframerate()

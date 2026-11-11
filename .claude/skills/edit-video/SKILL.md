@@ -47,7 +47,9 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 
 - Silences: `ffmpeg -i audio.wav -af silencedetect=n=-38dB:d=0.22 -f null - 2>&1 | grep -oE 'silence_(start|end): [0-9.]+' | awk '{print $2}' | paste - - > silences.txt`
 - `keep.json` = ordered `[src_start, src_end, "label"]`. Put the strongest hook line FIRST even if it was said later (cold open). Drop intro/salam, fillers, repeated takes (keep the best), looking-down/fiddling moments. Find exact cut points with an RMS dB-minimum scan between words.
-- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (removes pauses > 0.18 s; prints total). Target per rules.md.
+- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (removes pauses > 0.18 s; prints total). Target per rules.md/funnel.
+- **Deliberate silence** (funnel 2 pause, funnel 4 silence after a painful/scary line): add a 4th value to that keep entry, e.g. `[58.48, 62.36, "tak-mampu", 1.2]` → build_talk freezes the last frame + silence for 1.2 s; animate a slow push-in over it in the root timeline.
+- Long source (10 min): build_talk takes ~20–40 min on CPU (4K HDR decode). Start it early in the background and write design/scenes meanwhile.
 - `python3 scripts/build_talk.py "<src>" cuts.json talk.mp4` → 1440x2560/30fps, HDR→SDR tonemap + bt709 tags, voice cleaned + −14 LUFS. Extract `voice.m4a` (`-vn -c:a copy`); videos stay muted, voice is its own `<audio>`.
 
 ## 4. Design (rule 9) — decide before building
@@ -64,7 +66,7 @@ Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook c
 - Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE via `--css <file>` (Nunito/Montserrat per rule 10; colours, highlight via `--karaoke --hl bg,fg --kwcolor`).
 - Grade via `npx hyperframes media-treatment ... --grading '<json>' --apply` (never CSS filters); `grade-compare` 3–4 candidates first.
 - Music (rule 5): new genre each video (Openverse → Jamendo works; Freesound/Wikimedia blocked). Duck under voice with a volume lane, e.g. `data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.14},{"t":0.3,"v":0.05},...]}]}'` built from word timings (0.05 while speaking, ~0.14 in gaps/cutaways), then optionally `node ~/.claude/skills/media-use/audio/scripts/carve.mjs --comp index.html`. Credit CC-BY tracks.
-- SFX (rule 3 + **rule 3B story sound design**): build a sound map from the transcript — ambience per place/time, a story sound on every word that has a sound (pintu, air, malam, ular, tapak kaki, jantung…), edit sounds for text/transitions, a story sound or ambience change every 4–6 s, total silence 0.5–1.5 s before the scariest/most painful line. Source story sounds from `sfx/google-sound-library.txt` (CC BY 4.0; `curl -o assets/sfx/<name>.ogg <url>`), edit sounds from bundled Pixabay. Peak 1 frame after the word; `data-duration` = file length; everything ducked under the voice.
+- SFX (rule 3 + **rule 3B story sound design**): build a sound map from the transcript — ambience per place/time, a story sound on every word that has a sound (pintu, air, malam, ular, tapak kaki, jantung…), edit sounds for text/transitions, a story sound or ambience change every 4–6 s, total silence 0.5–1.5 s before the scariest/most painful line. Source story sounds from `sfx/google-sound-library.txt` (CC BY 4.0; `curl -o x.ogg <url>` then convert to mp3; a few index entries return 404 — check the HTTP code and pick a neighbour), edit sounds from bundled Pixabay. Peak 1 frame after the word; `data-duration` = file length; everything ducked under the voice.
 
 ## 6. Verify → PREVIEW (rule 8)
 

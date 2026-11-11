@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Generate a HyperFrames captions sub-composition (word-by-word, bold white,
 keywords yellow) from cuts.json words.
-usage: build_captions.py cuts.json OUT.html [--honest-from SEC] [--fix 'a=>b' ...] [--kw WORD ...]
+usage: build_captions.py cuts.json OUT.html [--honest-from SEC] [--fix 'a=>b' ...] [--kw WORD ...] [--lower] [--karaoke] [--hl bg,fg] [--kwcolor C] [--css FILE]
 - groups of max 3 words, broken at sentence ends / pauses >= 0.15 s
 - active word pops (scale) ; after --honest-from the active word gets a yellow highlight box
 - tokens like "41" "%" are merged; --fix rewrites a token (case-insensitive) e.g. 'ilan=>iklan'"""
 import json, sys, re, html
 args = sys.argv[1:]
 cuts, out = args[0], args[1]
-honest = 1e9; fixes = {}; kws = set(); css_file = None
+honest = 1e9; fixes = {}; kws = set(); css_file = None; case = "upper"
 hl_bg, hl_fg, kw_color = "#FFC700", "#0A2A7A", "#FFC700"
 i = 2
 while i < len(args):
@@ -16,6 +16,7 @@ while i < len(args):
     elif args[i] == "--fix": a, b = args[i+1].split("=>"); fixes[a.lower()] = b; i += 2
     elif args[i] == "--kw": kws.add(args[i+1].upper()); i += 2
     elif args[i] == "--css": css_file = args[i+1]; i += 2
+    elif args[i] == "--lower": case = "lower"; i += 1
     elif args[i] == "--karaoke": honest = -1; i += 1
     elif args[i] == "--hl": hl_bg, hl_fg = args[i+1].rsplit(",", 1); i += 2
     elif args[i] == "--kwcolor": kw_color = args[i+1]; i += 2
@@ -32,7 +33,7 @@ for w in words:
     raw = w["text"]; end_punct = raw.rstrip()[-1:] if raw.rstrip()[-1:] in ".?!," else ""
     t = re.sub(r"[.,!]+$", "", raw).strip()
     t = fixes.get(t.lower(), t)
-    w["disp"] = t.upper(); w["brk"] = end_punct in (".", "?", "!")
+    w["disp"] = t.upper() if case == "upper" else t.lower(); w["brk"] = end_punct in (".", "?", "!")
     w["comma"] = end_punct == ","
 groups, cur = [], []
 for k, w in enumerate(words):
@@ -43,7 +44,7 @@ for k, w in enumerate(words):
     if (len(cur) >= 3 and not unit) or len(cur) >= 4 or w["brk"] or w["comma"] or gap >= 0.15 or nxt is None or \
        (nxt and (nxt["start"] >= honest) != (w["start"] >= honest)):
         groups.append(cur); cur = []
-def is_kw(d): return any(d == k or d.startswith(k) for k in kws)
+def is_kw(d): return any(d.upper() == k or d.upper().startswith(k) for k in kws)
 parts, js = [], []
 for gi, g in enumerate(groups):
     gs = max(g[0]["start"] - 0.04, 0.0)

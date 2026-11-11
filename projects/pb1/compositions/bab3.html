@@ -1,0 +1,113 @@
+<template>
+  <style>
+
+    @font-face { font-family:"Special Elite"; src:url("assets/fonts/special-elite.ttf") format("truetype"); font-weight:400; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .paper { position:absolute; left:110px; width:820px; top:236px; padding:18px 30px 22px; background:#F2E8D5; color:#1B1A17;
+      font-family:"Special Elite", monospace; box-shadow:0 14px 40px rgba(0,0,0,.45); opacity:0; border-radius:3px; text-align:center; }
+    .paper .k { font-size:28px; color:#B23A2E; letter-spacing:.08em; }
+    .paper .t { font-size:56px; line-height:1.08; }
+    .paper .t span { opacity:0; }
+    .stamp { position:absolute; font-family:"Special Elite", monospace; color:#B23A2E; border:6px solid #B23A2E; border-radius:10px;
+      padding:4px 22px 8px; background:rgba(242,232,213,.9); line-height:1.05; text-align:center; opacity:0; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+    .big { position:absolute; left:60px; width:880px; top:236px; text-align:center; font-family:"Special Elite", monospace; color:#F2E8D5;
+      font-size:92px; line-height:1.05; text-shadow:0 0 24px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); opacity:0; }
+    .chap { position:absolute; inset:0; background:#0E1726; opacity:0; }
+    .chap .lab { position:absolute; left:60px; width:880px; top:780px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      font-size:30px; letter-spacing:.4em; color:#F3A93C; }
+    .chap .ti { position:absolute; left:60px; width:880px; top:830px; text-align:center; font-family:"Special Elite", monospace; font-size:80px; line-height:1.08; color:#F2E8D5; }
+    .chap .ti span { opacity:0; }
+    .chap .glow { position:absolute; left:290px; top:500px; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(243,169,60,.35), rgba(243,169,60,0) 70%); }
+    .shot { position:absolute; inset:0; background:#0E1726; opacity:0; }
+    .shot .ph { position:absolute; left:90px; top:330px; width:900px; padding:18px 18px 80px; background:#F2E8D5; box-shadow:0 26px 70px rgba(0,0,0,.6); }
+    .shot img { display:block; width:864px; height:auto; }
+    .shot .cap { position:absolute; left:0; right:0; bottom:20px; text-align:center; font-family:"Special Elite", monospace; font-size:40px; color:#1B1A17; }
+    .list { position:absolute; left:110px; width:820px; top:228px; padding:16px 30px 18px; background:#F2E8D5; color:#1B1A17; font-family:"Special Elite", monospace;
+      box-shadow:0 14px 40px rgba(0,0,0,.45); opacity:0; border-radius:3px; }
+    .list .h { font-size:30px; color:#B23A2E; letter-spacing:.06em; margin-bottom:4px; }
+    .list .i { position:relative; font-size:38px; line-height:1.25; opacity:0; }
+    .list .i i { position:absolute; left:-6px; top:52%; height:5px; width:0; background:#B23A2E; }
+    .rain { position:absolute; left:-60px; top:-200px; width:1200px; height:2400px; opacity:0;
+      background-image: repeating-linear-gradient(100deg, rgba(220,230,255,0) 0 22px, rgba(220,230,255,.20) 22px 24px, rgba(220,230,255,0) 24px 61px),
+                        repeating-linear-gradient(104deg, rgba(220,230,255,0) 0 40px, rgba(220,230,255,.12) 40px 41px, rgba(220,230,255,0) 41px 97px); }
+    .tint { position:absolute; inset:0; opacity:0; }
+    .corner { position:absolute; width:120px; height:120px; border-color:#F3A93C; border-style:solid; border-width:0; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="bab3" data-width="1080" data-height="1920">
+    <div id="bab3-1" class="chap clip" data-start="0.0" data-duration="1.39" style="background:#0E1726;"><div class="glow"></div><div class="lab">BAB 3</div><div class="ti"><span>3</span><span>0</span><span>&nbsp;</span><span>h</span><span>a</span><span>r</span><span>i</span><span>&nbsp;</span><span>p</span><span>e</span><span>r</span><span>t</span><span>a</span><span>m</span><span>a</span></div></div>
+    <div id="bab3-2" class="paper clip" data-start="2.89" data-duration="2.5"><div class="k">hari 1–7</div><div class="t"><span>b</span><span>a</span><span>u</span><span>.</span></div></div>
+    <div id="bab3-3" class="paper clip" data-start="5.43" data-duration="2.26"><div class="t"><span>n</span><span>y</span><span>a</span><span>m</span><span>u</span><span>k</span><span>?</span><span>&nbsp;</span><span>t</span><span>a</span><span>k</span><span>d</span><span>e</span><span>.</span></div></div>
+    <div id="bab3-4" class="paper clip" data-start="7.76" data-duration="4.73"><div class="t"><span>b</span><span>i</span><span>l</span><span>i</span><span>k</span><span>&nbsp;</span><span>d</span><span>a</span><span>h</span><span>&nbsp;</span><span>k</span><span>e</span><span>d</span><span>a</span><span>p</span></div></div>
+    <div id="bab3-5" class="shot clip" data-start="13.89" data-duration="4.8" style="background:rgba(14,23,38,.92);"><div class="ph"><img src="assets/img/sulfur-ular.jpg" alt="sulfur keliling bilik — halau ular"/><div class="cap">sulfur keliling bilik — halau ular</div></div></div>
+    <div id="bab3-6" class="paper clip" data-start="18.75" data-duration="4.54"><div class="t"><span>c</span><span>a</span><span>r</span><span>a</span><span>&nbsp;</span><span>t</span><span>r</span><span>a</span><span>d</span><span>i</span><span>s</span><span>i</span><span>o</span><span>n</span><span>a</span><span>l</span><span>&nbsp;</span><span>+</span><span>&nbsp;</span><span>p</span><span>e</span><span>r</span><span>u</span><span>b</span><span>a</span><span>t</span><span>a</span><span>n</span><span>&nbsp;</span><span>i</span><span>s</span><span>l</span><span>a</span><span>m</span></div></div>
+    <div id="bab3-7" class="big clip" data-start="24.49" data-duration="4.45" style="color:#F2E8D5; font-size:66px; top:236px;"><span>m</span><span>a</span><span>k</span><span>h</span><span>l</span><span>u</span><span>k</span><span>&nbsp;</span><span>h</span><span>a</span><span>l</span><span>u</span><span>s</span><span>…</span><span>&nbsp;</span><span>t</span><span>a</span><span>k</span><span>&nbsp;</span><span>b</span><span>o</span><span>l</span><span>e</span><span>h</span><span>&nbsp;</span><span>e</span><span>l</span><span>a</span><span>k</span><span>.</span></div>
+    <div id="bab3-8" class="tint clip" data-start="23.29" data-duration="34.5" style="background:radial-gradient(ellipse at 50% 38%, rgba(14,23,38,0) 22%, rgba(3,5,10,.68) 100%);" data-layout-ignore></div>
+    <div id="bab3-9" class="big clip" data-start="29.01" data-duration="1.48" style="color:#F3A93C; font-size:110px; top:236px;"><span>h</span><span>a</span><span>r</span><span>i</span><span>&nbsp;</span><span>7</span></div>
+    <div id="bab3-10" class="big clip" data-start="30.54" data-duration="0.95" style="color:#F3A93C; font-size:110px; top:236px;"><span>h</span><span>a</span><span>r</span><span>i</span><span>&nbsp;</span><span>1</span><span>4</span></div>
+    <div id="bab3-11" class="big clip" data-start="31.51" data-duration="3.28" style="color:#F3A93C; font-size:110px; top:236px;"><span>h</span><span>a</span><span>r</span><span>i</span><span>&nbsp;</span><span>3</span><span>0</span></div>
+    <div id="bab3-12" class="paper clip" data-start="34.87" data-duration="4.02"><div class="t"><span>b</span><span>a</span><span>u</span><span>&nbsp;</span><span>p</span><span>e</span><span>l</span><span>i</span><span>k</span><span>.</span></div></div>
+    <div id="bab3-13" class="paper clip" data-start="38.99" data-duration="1.6"><div class="t"><span>p</span><span>a</span><span>g</span><span>i</span><span>-</span><span>p</span><span>a</span><span>g</span><span>i</span><span>…</span></div></div>
+    <div id="bab3-14" class="paper clip" data-start="40.66" data-duration="1.88"><div class="t"><span>a</span><span>z</span><span>i</span><span>m</span><span>&nbsp;</span><span>(</span><span>b</span><span>u</span><span>k</span><span>a</span><span>n</span><span>&nbsp;</span><span>n</span><span>a</span><span>m</span><span>a</span><span>&nbsp;</span><span>s</span><span>e</span><span>b</span><span>e</span><span>n</span><span>a</span><span>r</span><span>)</span></div></div>
+    <div id="bab3-15" class="big clip" data-start="42.69" data-duration="2.2" style="color:#F2E8D5; font-size:74px; top:236px;"><span>“</span><span>a</span><span>d</span><span>a</span><span>&nbsp;</span><span>b</span><span>a</span><span>u</span><span>&nbsp;</span><span>p</span><span>e</span><span>l</span><span>i</span><span>k</span><span>&nbsp;</span><span>t</span><span>a</span><span>k</span><span>?</span><span>”</span></div>
+    <div id="bab3-16" class="paper clip" data-start="46.39" data-duration="5.55"><div class="k">kawan aku</div><div class="t"><span>“</span><span>d</span><span>i</span><span>a</span><span>&nbsp;</span><span>d</span><span>a</span><span>h</span><span>&nbsp;</span><span>l</span><span>a</span><span>m</span><span>a</span><span>&nbsp;</span><span>d</span><span>u</span><span>d</span><span>u</span><span>k</span><span>&nbsp;</span><span>s</span><span>i</span><span>n</span><span>i</span><span>.</span><span>”</span></div></div>
+    <div id="bab3-17" class="big clip" data-start="52.29" data-duration="5.5" style="color:#F2E8D5; font-size:58px; top:236px;"><span>“</span><span>k</span><span>a</span><span>l</span><span>a</span><span>u</span><span>&nbsp;</span><span>d</span><span>i</span><span>a</span><span>&nbsp;</span><span>u</span><span>s</span><span>i</span><span>k</span><span>&nbsp;</span><span>k</span><span>a</span><span>k</span><span>i</span><span>&nbsp;</span><span>k</span><span>i</span><span>t</span><span>a</span><span>…</span><span>&nbsp;</span><span>l</span><span>a</span><span>l</span><span>u</span><span>&nbsp;</span><span>j</span><span>e</span><span>&nbsp;</span><span>l</span><span>a</span><span>h</span><span>.</span><span>”</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#bab3-1", { opacity: 0 }, { keyframes: { opacity: [0, 1, 0.3, 1] }, duration: 0.22, ease: "none" }, 0.0);
+    tl.fromTo("#bab3-1 .ti span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.045 }, 0.15);
+    tl.fromTo("#bab3-1 .glow", { scale: 0.8, opacity: 0.6 }, { keyframes: { scale: [0.8, 1.05, 0.95, 1.0], opacity: [0.6, 1, 0.7, 1] }, duration: 1.39, ease: "none" }, 0.0);
+    tl.to("#bab3-1", { opacity: 0, duration: 0.2 }, 1.18);
+    tl.fromTo("#bab3-2", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 2.89);
+    tl.fromTo("#bab3-2 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 3.0100000000000002);
+    tl.to("#bab3-2", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 5.19);
+    tl.fromTo("#bab3-3", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 5.43);
+    tl.fromTo("#bab3-3 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 5.55);
+    tl.to("#bab3-3", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 7.49);
+    tl.fromTo("#bab3-4", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 7.76);
+    tl.fromTo("#bab3-4 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 7.88);
+    tl.to("#bab3-4", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 12.29);
+    tl.fromTo("#bab3-5", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 13.89);
+    tl.fromTo("#bab3-5 .ph", { y: 120, rotation: 6, scale: 0.9 }, { y: 0, rotation: 2, scale: 1, duration: 0.45, ease: "expo.out" }, 13.89);
+    tl.fromTo("#bab3-5 .ph", { scale: 1 }, { scale: 1.04, duration: 4.3, ease: "none" }, 14.34);
+    tl.to("#bab3-5", { opacity: 0, duration: 0.22 }, 18.46);
+    tl.fromTo("#bab3-6", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 18.75);
+    tl.fromTo("#bab3-6 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.026 }, 18.87);
+    tl.to("#bab3-6", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 23.09);
+    tl.set("#bab3-7", { opacity: 1 }, 24.49);
+    tl.fromTo("#bab3-7 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.033 }, 24.49);
+    tl.to("#bab3-7", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 28.68);
+    tl.fromTo("#bab3-8", { opacity: 0 }, { opacity: 1.0, duration: 0.5 }, 23.29);
+    tl.to("#bab3-8", { opacity: 0, duration: 0.5 }, 57.29);
+    tl.set("#bab3-9", { opacity: 1 }, 29.01);
+    tl.fromTo("#bab3-9 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 29.01);
+    tl.to("#bab3-9", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 30.23);
+    tl.set("#bab3-10", { opacity: 1 }, 30.54);
+    tl.fromTo("#bab3-10 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 30.54);
+    tl.to("#bab3-10", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 31.23);
+    tl.set("#bab3-11", { opacity: 1 }, 31.51);
+    tl.fromTo("#bab3-11 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 31.51);
+    tl.to("#bab3-11", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 34.53);
+    tl.fromTo("#bab3-12", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 34.87);
+    tl.fromTo("#bab3-12 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 34.989999999999995);
+    tl.to("#bab3-12", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 38.69);
+    tl.fromTo("#bab3-13", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 38.99);
+    tl.fromTo("#bab3-13 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 39.11);
+    tl.to("#bab3-13", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 40.39);
+    tl.fromTo("#bab3-14", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 40.66);
+    tl.fromTo("#bab3-14 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 40.779999999999994);
+    tl.to("#bab3-14", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 42.34);
+    tl.set("#bab3-15", { opacity: 1 }, 42.69);
+    tl.fromTo("#bab3-15 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 42.69);
+    tl.to("#bab3-15", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 44.63);
+    tl.fromTo("#bab3-16", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 46.39);
+    tl.fromTo("#bab3-16 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 46.51);
+    tl.to("#bab3-16", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 51.74);
+    tl.set("#bab3-17", { opacity: 1 }, 52.29);
+    tl.fromTo("#bab3-17 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.025 }, 52.29);
+    tl.to("#bab3-17", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 57.53);
+    window.__timelines["bab3"] = tl;
+  </script>
+</template>

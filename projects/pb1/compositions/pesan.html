@@ -1,0 +1,97 @@
+<template>
+  <style>
+
+    @font-face { font-family:"Special Elite"; src:url("assets/fonts/special-elite.ttf") format("truetype"); font-weight:400; }
+    #root { position:absolute; inset:0; overflow:hidden; }
+    .paper { position:absolute; left:110px; width:820px; top:236px; padding:18px 30px 22px; background:#F2E8D5; color:#1B1A17;
+      font-family:"Special Elite", monospace; box-shadow:0 14px 40px rgba(0,0,0,.45); opacity:0; border-radius:3px; text-align:center; }
+    .paper .k { font-size:28px; color:#B23A2E; letter-spacing:.08em; }
+    .paper .t { font-size:56px; line-height:1.08; }
+    .paper .t span { opacity:0; }
+    .stamp { position:absolute; font-family:"Special Elite", monospace; color:#B23A2E; border:6px solid #B23A2E; border-radius:10px;
+      padding:4px 22px 8px; background:rgba(242,232,213,.9); line-height:1.05; text-align:center; opacity:0; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+    .big { position:absolute; left:60px; width:880px; top:236px; text-align:center; font-family:"Special Elite", monospace; color:#F2E8D5;
+      font-size:92px; line-height:1.05; text-shadow:0 0 24px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.6); opacity:0; }
+    .chap { position:absolute; inset:0; background:#0E1726; opacity:0; }
+    .chap .lab { position:absolute; left:60px; width:880px; top:780px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
+      font-size:30px; letter-spacing:.4em; color:#F3A93C; }
+    .chap .ti { position:absolute; left:60px; width:880px; top:830px; text-align:center; font-family:"Special Elite", monospace; font-size:80px; line-height:1.08; color:#F2E8D5; }
+    .chap .ti span { opacity:0; }
+    .chap .glow { position:absolute; left:290px; top:500px; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(243,169,60,.35), rgba(243,169,60,0) 70%); }
+    .shot { position:absolute; inset:0; background:#0E1726; opacity:0; }
+    .shot .ph { position:absolute; left:90px; top:330px; width:900px; padding:18px 18px 80px; background:#F2E8D5; box-shadow:0 26px 70px rgba(0,0,0,.6); }
+    .shot img { display:block; width:864px; height:auto; }
+    .shot .cap { position:absolute; left:0; right:0; bottom:20px; text-align:center; font-family:"Special Elite", monospace; font-size:40px; color:#1B1A17; }
+    .list { position:absolute; left:110px; width:820px; top:228px; padding:16px 30px 18px; background:#F2E8D5; color:#1B1A17; font-family:"Special Elite", monospace;
+      box-shadow:0 14px 40px rgba(0,0,0,.45); opacity:0; border-radius:3px; }
+    .list .h { font-size:30px; color:#B23A2E; letter-spacing:.06em; margin-bottom:4px; }
+    .list .i { position:relative; font-size:38px; line-height:1.25; opacity:0; }
+    .list .i i { position:absolute; left:-6px; top:52%; height:5px; width:0; background:#B23A2E; }
+    .rain { position:absolute; left:-60px; top:-200px; width:1200px; height:2400px; opacity:0;
+      background-image: repeating-linear-gradient(100deg, rgba(220,230,255,0) 0 22px, rgba(220,230,255,.20) 22px 24px, rgba(220,230,255,0) 24px 61px),
+                        repeating-linear-gradient(104deg, rgba(220,230,255,0) 0 40px, rgba(220,230,255,.12) 40px 41px, rgba(220,230,255,0) 41px 97px); }
+    .tint { position:absolute; inset:0; opacity:0; }
+    .corner { position:absolute; width:120px; height:120px; border-color:#F3A93C; border-style:solid; border-width:0; opacity:0; }
+
+  </style>
+  <div id="root" data-composition-id="pesan" data-width="1080" data-height="1920">
+    <div id="pesan-1" class="chap clip" data-start="0.0" data-duration="1.26" style="background:#2A1C10;"><div class="glow"></div><div class="lab">PESAN</div><div class="ti"><span>a</span><span>p</span><span>a</span><span>&nbsp;</span><span>a</span><span>k</span><span>u</span><span>&nbsp;</span><span>b</span><span>e</span><span>l</span><span>a</span><span>j</span><span>a</span><span>r</span></div></div>
+    <div id="pesan-2" class="paper clip" data-start="1.31" data-duration="4.45"><div class="k">nasihat orang perubatan islam</div><div class="t"><span>m</span><span>a</span><span>s</span><span>u</span><span>k</span><span>&nbsp;</span><span>t</span><span>e</span><span>m</span><span>p</span><span>a</span><span>t</span><span>&nbsp;</span><span>b</span><span>a</span><span>r</span><span>u</span><span>?</span></div></div>
+    <div id="pesan-3" class="paper clip" data-start="5.81" data-duration="9.15"><div class="k">7 hari berturut-turut</div><div class="t"><span>b</span><span>a</span><span>c</span><span>a</span><span>&nbsp;</span><span>a</span><span>l</span><span>-</span><span>b</span><span>a</span><span>q</span><span>a</span><span>r</span><span>a</span><span>h</span><span>&nbsp;</span><span>p</span><span>e</span><span>n</span><span>u</span><span>h</span></div></div>
+    <div id="pesan-4" class="paper clip" data-start="14.98" data-duration="5.18"><div class="t"><span>j</span><span>a</span><span>n</span><span>g</span><span>a</span><span>n</span><span>&nbsp;</span><span>p</span><span>e</span><span>r</span><span>n</span><span>a</span><span>h</span><span>&nbsp;</span><span>m</span><span>i</span><span>s</span><span>s</span></div></div>
+    <div id="pesan-5" class="paper clip" data-start="20.21" data-duration="5.85"><div class="k">dalam bilik tu</div><div class="t"><span>q</span><span>u</span><span>r</span><span>a</span><span>n</span><span>&nbsp;</span><span>·</span><span>&nbsp;</span><span>s</span><span>o</span><span>l</span><span>a</span><span>t</span><span>&nbsp;</span><span>·</span><span>&nbsp;</span><span>a</span><span>m</span><span>a</span><span>l</span><span>a</span><span>n</span></div></div>
+    <div id="pesan-6" class="paper clip" data-start="26.15" data-duration="3.11"><div class="t"><span>b</span><span>i</span><span>a</span><span>r</span><span>&nbsp;</span><span>d</span><span>i</span><span>a</span><span>&nbsp;</span><span>k</span><span>e</span><span>l</span><span>u</span><span>a</span><span>r</span><span>&nbsp;</span><span>s</span><span>i</span><span>k</span><span>i</span><span>t</span><span>-</span><span>s</span><span>i</span><span>k</span><span>i</span><span>t</span></div></div>
+    <div id="pesan-7" class="big clip" data-start="29.36" data-duration="2.55" style="color:#F3A93C; font-size:80px; top:236px;"><span>k</span><span>e</span><span>p</span><span>a</span><span>d</span><span>a</span><span>&nbsp;</span><span>k</span><span>a</span><span>u</span><span>…</span></div>
+    <div id="pesan-8" class="paper clip" data-start="31.97" data-duration="6.19"><div class="t"><span>y</span><span>a</span><span>n</span><span>g</span><span>&nbsp;</span><span>t</span><span>e</span><span>n</span><span>g</span><span>a</span><span>h</span><span>&nbsp;</span><span>s</span><span>t</span><span>r</span><span>u</span><span>g</span><span>g</span><span>l</span><span>e</span></div></div>
+    <div id="pesan-9" class="paper clip" data-start="38.23" data-duration="6.53"><div class="t"><span>“</span><span>k</span><span>e</span><span>r</span><span>j</span><span>a</span><span>&nbsp;</span><span>n</span><span>i</span><span>&nbsp;</span><span>t</span><span>a</span><span>k</span><span>&nbsp;</span><span>k</span><span>e</span><span>n</span><span>a</span><span>&nbsp;</span><span>d</span><span>e</span><span>n</span><span>g</span><span>a</span><span>n</span><span>&nbsp;</span><span>s</span><span>i</span><span>j</span><span>i</span><span>l</span><span>…</span><span>”</span></div></div>
+    <div id="pesan-10" class="paper clip" data-start="44.79" data-duration="3.42"><div class="t"><span>a</span><span>p</span><span>a</span><span>&nbsp;</span><span>p</span><span>e</span><span>l</span><span>u</span><span>a</span><span>n</span><span>g</span><span>&nbsp;</span><span>y</span><span>a</span><span>n</span><span>g</span><span>&nbsp;</span><span>a</span><span>d</span><span>a</span><span>?</span></div></div>
+    <div id="pesan-11" class="paper clip" data-start="48.26" data-duration="4.55"><div class="k">boleh bayar komitmen</div><div class="t"><span>w</span><span>a</span><span>l</span><span>a</span><span>u</span><span>p</span><span>u</span><span>n</span><span>&nbsp;</span><span>s</span><span>i</span><span>k</span><span>i</span><span>t</span><span>-</span><span>s</span><span>i</span><span>k</span><span>i</span><span>t</span></div></div>
+    <div id="pesan-12" class="paper clip" data-start="52.86" data-duration="6.9"><div class="t"><span>t</span><span>a</span><span>k</span><span>&nbsp;</span><span>g</span><span>a</span><span>n</span><span>g</span><span>g</span><span>u</span><span>&nbsp;</span><span>k</span><span>e</span><span>r</span><span>j</span><span>a</span><span>&nbsp;</span><span>&amp;</span><span>&nbsp;</span><span>k</span><span>e</span><span>l</span><span>u</span><span>a</span><span>r</span><span>g</span><span>a</span><span>?</span></div></div>
+    <div id="pesan-13" class="big clip" data-start="59.86" data-duration="1.9" style="color:#F3A93C; font-size:110px; top:236px;"><span>b</span><span>e</span><span>t</span><span>t</span><span>e</span><span>r</span><span>&nbsp;</span><span>a</span><span>m</span><span>b</span><span>i</span><span>l</span><span>.</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#pesan-1", { opacity: 0 }, { keyframes: { opacity: [0, 1, 0.3, 1] }, duration: 0.22, ease: "none" }, 0.0);
+    tl.fromTo("#pesan-1 .ti span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.045 }, 0.15);
+    tl.fromTo("#pesan-1 .glow", { scale: 0.8, opacity: 0.6 }, { keyframes: { scale: [0.8, 1.05, 0.95, 1.0], opacity: [0.6, 1, 0.7, 1] }, duration: 1.26, ease: "none" }, 0.0);
+    tl.to("#pesan-1", { opacity: 0, duration: 0.2 }, 1.05);
+    tl.fromTo("#pesan-2", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 1.31);
+    tl.fromTo("#pesan-2 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 1.4300000000000002);
+    tl.to("#pesan-2", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 5.56);
+    tl.fromTo("#pesan-3", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 5.81);
+    tl.fromTo("#pesan-3 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 5.93);
+    tl.to("#pesan-3", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 14.76);
+    tl.fromTo("#pesan-4", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 14.98);
+    tl.fromTo("#pesan-4 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 15.1);
+    tl.to("#pesan-4", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 19.96);
+    tl.fromTo("#pesan-5", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 20.21);
+    tl.fromTo("#pesan-5 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 20.330000000000002);
+    tl.to("#pesan-5", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 25.86);
+    tl.fromTo("#pesan-6", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 26.15);
+    tl.fromTo("#pesan-6 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.033 }, 26.27);
+    tl.to("#pesan-6", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 29.06);
+    tl.set("#pesan-7", { opacity: 1 }, 29.36);
+    tl.fromTo("#pesan-7 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 29.36);
+    tl.to("#pesan-7", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 31.65);
+    tl.fromTo("#pesan-8", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 31.97);
+    tl.fromTo("#pesan-8 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 32.089999999999996);
+    tl.to("#pesan-8", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 37.96);
+    tl.fromTo("#pesan-9", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 38.23);
+    tl.fromTo("#pesan-9 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.027 }, 38.349999999999994);
+    tl.to("#pesan-9", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 44.56);
+    tl.fromTo("#pesan-10", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 44.79);
+    tl.fromTo("#pesan-10 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 44.91);
+    tl.to("#pesan-10", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 48.01);
+    tl.fromTo("#pesan-11", { opacity: 0, y: -30, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.28, ease: "power3.out" }, 48.26);
+    tl.fromTo("#pesan-11 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.035 }, 48.379999999999995);
+    tl.to("#pesan-11", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 52.61);
+    tl.fromTo("#pesan-12", { opacity: 0, y: -30, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.28, ease: "power3.out" }, 52.86);
+    tl.fromTo("#pesan-12 .t span", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.032 }, 52.98);
+    tl.to("#pesan-12", { opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }, 59.56);
+    tl.set("#pesan-13", { opacity: 1 }, 59.86);
+    tl.fromTo("#pesan-13 span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.050 }, 59.86);
+    tl.to("#pesan-13", { opacity: 0, filter: "blur(6px)", duration: 0.25 }, 61.5);
+    window.__timelines["pesan"] = tl;
+  </script>
+</template>
