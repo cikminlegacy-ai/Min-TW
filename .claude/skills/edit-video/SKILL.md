@@ -50,6 +50,7 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 - `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (removes pauses > 0.18 s; prints total). Target per rules.md/funnel.
 - **Deliberate silence** (funnel 2 pause, funnel 4 silence after a painful/scary line): add a 4th value to that keep entry, e.g. `[58.48, 62.36, "tak-mampu", 1.2]` → build_talk freezes the last frame + silence for 1.2 s; animate a slow push-in over it in the root timeline.
 - Long source (10 min): build_talk takes ~20–40 min on CPU (4K HDR decode). Start it early in the background and write design/scenes meanwhile.
+- **Disk is limited** (per-session allowance): segment files are big (PB1: 7 GB). build_talk now encodes straight from the concat list and deletes its temp dir. Before a new video, delete old `/tmp/talk_*` dirs and old source downloads from the scratchpad (re-downloadable from Drive); `df -h /tmp` when anything fails with exit 228 / no space.
 - `python3 scripts/build_talk.py "<src>" cuts.json talk.mp4` → 1440x2560/30fps, HDR→SDR tonemap + bt709 tags, voice cleaned + −14 LUFS. Extract `voice.m4a` (`-vn -c:a copy`); videos stay muted, voice is its own `<audio>`.
 
 ## 4. Design (rule 9) — decide before building

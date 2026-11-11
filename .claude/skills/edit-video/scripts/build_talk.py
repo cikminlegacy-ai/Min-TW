@@ -37,12 +37,12 @@ with ThreadPoolExecutor(max_workers=int(os.environ.get("TALK_JOBS","4"))) as ex:
 lst = open(os.path.join(tmp,"list.txt"),"w")
 for f in files: lst.write(f"file '{f}'\n")
 lst.close()
-cat = os.path.join(tmp,"cat.mov")
-subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",lst.name,"-c","copy",cat],check=True)
-subprocess.run(["ffmpeg","-v","error","-y","-i",cat,"-c:v","libx264","-preset","medium","-crf","16","-g","15",
+# encode straight from the concat list (no multi-GB intermediate file), then delete the segments
+subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",lst.name,"-c:v","libx264","-preset","medium","-crf","16","-g","15",
     "-pix_fmt","yuv420p","-movflags","+faststart",
     "-color_primaries","bt709","-color_trc","bt709","-colorspace","bt709",
     "-bsf:v","h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1",
     "-af","highpass=f=80,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3:attack=5:release=80,loudnorm=I=-14:TP=-1.5:LRA=7",
     "-c:a","aac","-b:a","192k","-ar","48000",out],check=True)
+import shutil; shutil.rmtree(tmp, ignore_errors=True)
 print("wrote",out)
