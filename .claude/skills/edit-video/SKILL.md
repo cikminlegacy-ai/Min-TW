@@ -76,4 +76,4 @@ Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook c
 
 ## 7. Render (only after approval)
 
-`HYPERFRAMES_RENDER_DETACHED=1 npx hyperframes render -q delivery -w 4 -o out/<name>.mp4` in the background (CPU-only: ~50 min for 48 s with blur layers — warn the user). Then `ffmpeg -af ebur128=peak=true` (target −14 LUFS, ≤ −1 dBTP), spot-check frames, copy to `/home/user/Min-TW/preview/`, SendUserFile, add the `design-log.md` entry, commit + push.
+`HYPERFRAMES_RENDER_DETACHED=1 npx hyperframes render -q delivery -w 4 -o out/<name>.mp4` in the background (CPU-only: ~50 min for 48 s with blur layers — warn the user). Then `ffmpeg -af ebur128=peak=true` (target −14 LUFS, ≤ −1 dBTP; compare with voice.m4a alone — mix ≈ voice means the bed sits well under the voice). Long videos: the delivery render is huge (PB1 4:45 = 839 MB) → also make an upload copy: `-c:v libx264 -crf 20 -maxrate 8M -bufsize 16M -af loudnorm=I=-14:TP=-1.5:LRA=11` (PB1 → 262 MB), spot-check frames, copy to `/home/user/Min-TW/preview/`, SendUserFile, add the `design-log.md` entry, commit + push.
