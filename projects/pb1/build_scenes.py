@@ -10,7 +10,7 @@ KIT = '''
       font-family:"Special Elite", monospace; box-shadow:0 14px 40px rgba(0,0,0,.45); opacity:0; border-radius:3px; text-align:center; }
     .paper .k { font-size:28px; color:#B23A2E; letter-spacing:.08em; }
     .paper .t { font-size:56px; line-height:1.08; }
-    .paper .t span { opacity:0; }
+    .paper .t .c { opacity:0; } .wd { white-space:nowrap; display:inline-block; }
     .stamp { position:absolute; font-family:"Special Elite", monospace; color:#B23A2E; border:6px solid #B23A2E; border-radius:10px;
       padding:4px 22px 8px; background:rgba(242,232,213,.9); line-height:1.05; text-align:center; opacity:0; box-shadow:0 10px 30px rgba(0,0,0,.4); }
     .big { position:absolute; left:60px; width:880px; top:236px; text-align:center; font-family:"Special Elite", monospace; color:#F2E8D5;
@@ -19,7 +19,7 @@ KIT = '''
     .chap .lab { position:absolute; left:60px; width:880px; top:780px; text-align:center; font-family:"Montserrat", sans-serif; font-weight:800;
       font-size:30px; letter-spacing:.4em; color:#F3A93C; }
     .chap .ti { position:absolute; left:60px; width:880px; top:830px; text-align:center; font-family:"Special Elite", monospace; font-size:80px; line-height:1.08; color:#F2E8D5; }
-    .chap .ti span { opacity:0; }
+    .chap .ti .c { opacity:0; }
     .chap .glow { position:absolute; left:290px; top:500px; width:500px; height:500px; border-radius:50%;
       background:radial-gradient(circle, rgba(243,169,60,.35), rgba(243,169,60,0) 70%); }
     .shot { position:absolute; inset:0; background:#0E1726; opacity:0; }
@@ -39,7 +39,9 @@ KIT = '''
 '''
 
 def typed(text):
-    return "".join(f"<span>{html.escape(c) if c != ' ' else '&nbsp;'}</span>" for c in text)
+    # letters are .c spans (typed one by one); each word is a nowrap .wd span so lines never break mid-word
+    words = text.split(" ")
+    return " ".join('<span class="wd">' + "".join(f'<span class="c">{html.escape(ch)}</span>' for ch in w) + "</span>" for w in words)
 
 class Scene:
     def __init__(self, cid, t0, t1):
@@ -55,7 +57,7 @@ class Scene:
     def paper(self, a, b, kicker, text, rot=-1.5):
         i, la, lb = self.clip("paper", a, b, f'<div class="k">{html.escape(kicker)}</div><div class="t">{typed(text)}</div>' if kicker else f'<div class="t">{typed(text)}</div>')
         self.js.append(f'tl.fromTo("#{i}", {{ opacity: 0, y: -30, rotation: {rot*3} }}, {{ opacity: 1, y: 0, rotation: {rot}, duration: 0.28, ease: "power3.out" }}, {la});')
-        self.js.append(f'tl.fromTo("#{i} .t span", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.01, stagger: {min(0.035, 0.9/max(len(text),1)):.3f} }}, {la + 0.12});')
+        self.js.append(f'tl.fromTo("#{i} .t .c", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.01, stagger: {min(0.035, 0.9/max(len(text),1)):.3f} }}, {la + 0.12});')
         self.js.append(f'tl.to("#{i}", {{ opacity: 0, y: -16, duration: 0.18, ease: "power2.in" }}, {round(lb - 0.2, 3)});')
     def stamp(self, a, b, text, left=180, top=300, size=70, rot=-6):
         i, la, lb = self.clip("stamp", a, b, html.escape(text), f"left:{left}px; top:{top}px; font-size:{size}px;")
@@ -64,13 +66,13 @@ class Scene:
     def big(self, a, b, text, color="#F2E8D5", size=92, top=236):
         i, la, lb = self.clip("big", a, b, typed(text), f"color:{color}; font-size:{size}px; top:{top}px;")
         self.js.append(f'tl.set("#{i}", {{ opacity: 1 }}, {la});')
-        self.js.append(f'tl.fromTo("#{i} span", {{ opacity: 0, filter: "blur(6px)" }}, {{ opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: {min(0.05, 1.0/max(len(text),1)):.3f} }}, {la});')
+        self.js.append(f'tl.fromTo("#{i} .c", {{ opacity: 0, filter: "blur(6px)" }}, {{ opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: {min(0.05, 1.0/max(len(text),1)):.3f} }}, {la});')
         self.js.append(f'tl.to("#{i}", {{ opacity: 0, filter: "blur(6px)", duration: 0.25 }}, {round(lb - 0.26, 3)});')
     def chapter(self, a, b, lab, title, warm=False):
         bg = "#2A1C10" if warm else "#0E1726"
         i, la, lb = self.clip("chap", a, b, f'<div class="glow"></div><div class="lab">{html.escape(lab)}</div><div class="ti">{typed(title)}</div>', f"background:{bg};")
         self.js.append(f'tl.fromTo("#{i}", {{ opacity: 0 }}, {{ keyframes: {{ opacity: [0, 1, 0.3, 1] }}, duration: 0.22, ease: "none" }}, {la});')
-        self.js.append(f'tl.fromTo("#{i} .ti span", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.01, stagger: {min(0.045, 0.7/max(len(title),1)):.3f} }}, {la + 0.15});')
+        self.js.append(f'tl.fromTo("#{i} .ti .c", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.01, stagger: {min(0.045, 0.7/max(len(title),1)):.3f} }}, {la + 0.15});')
         self.js.append(f'tl.fromTo("#{i} .glow", {{ scale: 0.8, opacity: 0.6 }}, {{ keyframes: {{ scale: [0.8, 1.05, 0.95, 1.0], opacity: [0.6, 1, 0.7, 1] }}, duration: {round(lb - la, 3)}, ease: "none" }}, {la});')
         self.js.append(f'tl.to("#{i}", {{ opacity: 0, duration: 0.2 }}, {round(lb - 0.21, 3)});')
     def shot(self, a, b, src, cap, rot=-2):

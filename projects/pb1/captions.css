@@ -1,5 +1,5 @@
     #root { position:absolute; inset:0; pointer-events:none; }
-    #root .cgroup { position:absolute; left:60px; width:880px; top:1186px; text-align:center;
+    #root .cgroup { position:absolute; left:60px; width:880px; top:1230px; text-align:center;
       font-family:"Nunito", sans-serif; font-weight:800; font-size:70px; line-height:1.12;
       color:#F2E8D5; overflow:visible; opacity:0;
       text-shadow:0 0 16px rgba(0,0,0,.8), 0 3px 8px rgba(0,0,0,.6); }

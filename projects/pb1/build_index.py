@@ -9,18 +9,20 @@ cards = [(9.86, 11.2), (66.15, 67.55), (154.91, 156.3), (212.74, 214.0), (TALK_E
 lifts = sorted(holds + cards)
 
 # ---- camera: new framing every >=4 s on a cut (cinematic, funnel 4), slow push during holds
-cycle = [1.15, 1.35, 1.05, 1.45, 1.25, 1.4, 1.1]; cam = []; last = -9; k = 0
+cycle = [1.08, 1.25, 1.0, 1.3, 1.15, 1.28, 1.12]; cam = []; last = -9; k = 0
+# measured on this footage: hair top ~513, chin ~1052 (source px). Keep hair >= 400 (under the notes) and chin <= 1150 (above captions).
+def cam_y(sc): return round(-8 - 60 * (sc - 1), 1)
 for s in cuts["segments"]:
     if s["t"] - last >= 4.0:
         sc = cycle[k % len(cycle)]; k += 1; last = s["t"]
-        cam.append((round(s["t"], 3), sc, round(240 * (sc - 1), 1)))
+        cam.append((round(s["t"], 3), sc, cam_y(sc)))
 cam_js = ", ".join(f"[{t}, {sc}, {y}]" for t, sc, y in cam)
 def cam_at(t):
-    cur = (1.3, 72)
+    cur = (1.22, cam_y(1.22))
     for ct, sc, y in cam:
         if ct <= t: cur = (sc, y)
     return cur
-hold_js = ", ".join(f"[{a}, {b}, {round(cam_at(a)[0] + 0.08, 3)}, {round(cam_at(a)[1] + 19, 1)}]" for a, b in holds)
+hold_js = ", ".join(f"[{a}, {b}, {round(cam_at(a)[0] + 0.05, 3)}, {cam_y(cam_at(a)[0] + 0.05)}]" for a, b in holds)
 
 def lane(base, lift, fade_from=None):
     pts = [(0, base)]
@@ -115,7 +117,7 @@ html = f'''<!doctype html>
       #ground {{ position:absolute; inset:0; background:#0E1726; }}
       #cam {{ position:absolute; inset:0; z-index:1; transform-origin:520px 730px; }}
       #cam video {{ position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }}
-      #scrim {{ position:absolute; left:0; right:0; top:1060px; height:420px; z-index:15; pointer-events:none;
+      #scrim {{ position:absolute; left:0; right:0; top:1100px; height:400px; z-index:15; pointer-events:none;
         background:linear-gradient(180deg, rgba(14,23,38,0) 0%, rgba(14,23,38,.62) 42%, rgba(14,23,38,.62) 72%, rgba(14,23,38,0) 100%); }}
     </style>
   </head>
@@ -142,7 +144,7 @@ html = f'''<!doctype html>
       const tl = gsap.timeline({{ paused: true }});
       // Cinematic framing (funnel 4): new framing on a cut at most every ~4 s; y keeps the head in the band under the notes.
       const CAM = [{cam_js}];
-      tl.fromTo("#cam", {{ scale: 1.6, y: 140 }}, {{ scale: 1.3, y: 72, duration: 0.6, ease: "expo.out" }}, 0);
+      tl.fromTo("#cam", {{ scale: 1.5, y: -38 }}, {{ scale: 1.22, y: -21, duration: 0.6, ease: "expo.out" }}, 0);
       for (const [t, s, y] of CAM) if (t > 0) tl.set("#cam", {{ scale: s, y: y }}, t);
       // Silences after heavy lines: slow push-in while the frame holds.
       const HOLDS = [{hold_js}];
