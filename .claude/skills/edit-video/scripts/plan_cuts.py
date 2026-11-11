@@ -27,6 +27,12 @@ for item in keep:
     if b - cur > 0.05: segs.append([cur, b, label])
     if hold > 0 and segs: segs[-1] = segs[-1][:3] + [hold]
 segs = [sg for sg in segs if sg[1] - sg[0] >= MIN_SEG or len(sg) > 3]
+# snap every boundary (and hold) to the 30 fps frame grid: video segments are frame-quantised, audio is not,
+# and 170 unsnapped segments drift ~1 s (PB1). Snapped, video and audio lengths match exactly.
+FPS = 30
+def snap(x): return round(round(x * FPS) / FPS, 4)
+segs = [[snap(sg[0]), snap(sg[1])] + sg[2:3] + ([snap(sg[3])] if len(sg) > 3 else []) for sg in segs]
+segs = [sg for sg in segs if sg[1] > sg[0]]
 out, t = [], 0.0
 for sg in segs:
     a, b, label = sg[:3]; hold = sg[3] if len(sg) > 3 else 0.0

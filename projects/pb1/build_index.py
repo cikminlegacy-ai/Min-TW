@@ -5,7 +5,7 @@ import json
 cuts = json.load(open("cuts.json")); SCENES = json.load(open("scenes.json"))
 TALK_END = cuts["total"]; END = round(TALK_END + 2.48, 2); SPLIT = 212.74
 holds = [(round(s["t"] + s["dur"], 3), round(s["t"] + s["dur"] + s["hold"], 3)) for s in cuts["segments"] if s.get("hold")]
-cards = [(9.86, 11.2), (66.15, 67.55), (154.91, 156.3), (212.74, 214.0), (282.72, END)]
+cards = [(9.86, 11.2), (66.15, 67.55), (154.91, 156.3), (212.74, 214.0), (TALK_END, END)]
 lifts = sorted(holds + cards)
 
 # ---- camera: new framing every >=4 s on a cut (cinematic, funnel 4), slow push during holds

@@ -50,6 +50,7 @@ for gi, g in enumerate(groups):
     gs = max(g[0]["start"] - 0.04, 0.0)
     ge = (groups[gi+1][0]["start"] - 0.04) if gi+1 < len(groups) else g[-1]["end"] + 0.6
     ge = min(ge, g[-1]["end"] + 0.6)
+    ge = max(ge, gs + 0.3)   # zero-length word timings would give data-duration 0 (= whole film)
     hon = g[0]["start"] >= honest
     spans = []
     for wi, w in enumerate(g):

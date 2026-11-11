@@ -27,7 +27,7 @@ def cut(i_s):
     h = s.get("hold", 0)
     vfx = vf + (f",tpad=stop_mode=clone:stop_duration={h}" if h else "")
     if h: af += f",apad=pad_dur={h}"
-    subprocess.run(["ffmpeg","-nostdin","-v","error","-y","-ss",f"{s['src_in']:.3f}","-i",src,"-t",f"{d:.3f}",
+    subprocess.run(["ffmpeg","-nostdin","-v","error","-y","-ss",f"{s['src_in']:.4f}","-t",f"{d:.4f}","-i",src,
         "-vf",vfx,"-af",af,"-c:v","libx264","-preset","veryfast","-crf","12","-g","15",
         "-c:a","pcm_s16le","-ar","48000","-ac","2",f],check=True)
     print(f"seg {i+1}/{len(segs)}",flush=True)

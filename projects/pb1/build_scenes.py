@@ -207,9 +207,9 @@ s.big(272.6, 274.5, "better ambil.", size=110, color="#F3A93C")
 SCENES.append(s.write())
 
 # ---------------- CTA + END (274.52 – 285.2) ----------------
-s = Scene("cta", 274.52, 285.2)
-s.paper(277.5, 282.7, "komen kat bawah", "apa kau belajar dari kisah ni?", rot=-1)
-s.chapter(282.72, 285.2, "SAVE VIDEO NI", "bila kau tengah struggle, tengok balik.", warm=True)
+s = Scene("cta", 274.52, 285.28)
+s.paper(277.5, 282.78, "komen kat bawah", "apa kau belajar dari kisah ni?", rot=-1)
+s.chapter(282.8, 285.28, "SAVE VIDEO NI", "bila kau tengah struggle, tengok balik.", warm=True)
 SCENES.append(s.write())
 
 open("scenes.json", "w").write(__import__("json").dumps(SCENES))
