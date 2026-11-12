@@ -2,7 +2,7 @@
 """Build PB1 index.html: camera, two graded talk clips (past/present), scene hosts, captions,
 voice, 3 music cues with ducking lanes, ambience + story sounds + edit sounds.  Run: python3 build_index.py"""
 import json
-from timemap import M   # SFX/cue times authored on the first cut → current cut
+from timemap import M, Src   # SFX/cue times authored on the first cut → current cut
 cuts = json.load(open("cuts.json")); SCENES = json.load(open("scenes.json"))
 TALK_END = cuts["total"]; END = round(TALK_END + 2.48, 2); SPLIT = M(212.74)
 holds = [(round(s["t"] + s["dur"], 3), round(s["t"] + s["dur"] + s["hold"], 3)) for s in cuts["segments"] if s.get("hold")]
@@ -61,7 +61,7 @@ SFX = [
  ("tapak", 66.2, "distant_footsteps_on_wood", 3.4, 0.60, 0, 0.6),
  ("pintu", 70.3, "creaking_wooden_door", 2.6, 0.60, 0, 0.6),
  ("jantung-1", 72.6, "heartbeat-4", 3.0, 0.85, 0, 0.6),
- ("air-dulang", 79.9, "water_pour_into_surgical_tray", 2.3, 0.50, 1, 0.5),
+ ("air-dulang", Src(207.4), "water_pour_into_surgical_tray", 2.3, 0.50, 1, 0.5),
  ("sapu", 96.6, "sweeping_wooden_porch", 3.0, 0.45, 2, 0.6),
  ("gosok", 101.8, "scrubbing_metal", 2.0, 0.40, 0, 0.5),
  ("air-paip", 108.3, "water_drains_in_pipe", 2.5, 0.45, 0, 0.6),
@@ -85,7 +85,7 @@ SFX = [
  ("cop-1", 4.8, "impact-bass-2", 1.5, 0.35, 0, 0.6),
  ("cop-2", 47.25, "click-soft", 0.37, 0.50, 0, 0),
  ("cop-3", 54.2, "click-soft", 0.37, 0.50, 0, 0),
- ("whoosh-1", 79.8, "whoosh-short", 0.57, 0.30, 0, 0),
+ ("whoosh-1", Src(207.25), "whoosh-short", 0.57, 0.30, 0, 0),
  ("whoosh-2", 168.75, "whoosh-short", 0.57, 0.30, 0, 0),
  ("riser", 271.2, "riser", 1.4, 0.25, 8.6, 0.3),
  # quiet "Pesan" section: soft key taps on each new note (story sound every 4-6 s)
