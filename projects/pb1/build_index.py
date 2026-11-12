@@ -2,10 +2,11 @@
 """Build PB1 index.html: camera, two graded talk clips (past/present), scene hosts, captions,
 voice, 3 music cues with ducking lanes, ambience + story sounds + edit sounds.  Run: python3 build_index.py"""
 import json
+from timemap import M   # SFX/cue times authored on the first cut → current cut
 cuts = json.load(open("cuts.json")); SCENES = json.load(open("scenes.json"))
-TALK_END = cuts["total"]; END = round(TALK_END + 2.48, 2); SPLIT = 212.74
+TALK_END = cuts["total"]; END = round(TALK_END + 2.48, 2); SPLIT = M(212.74)
 holds = [(round(s["t"] + s["dur"], 3), round(s["t"] + s["dur"] + s["hold"], 3)) for s in cuts["segments"] if s.get("hold")]
-cards = [(9.86, 11.2), (66.15, 67.55), (154.91, 156.3), (212.74, 214.0), (TALK_END, END)]
+cards = [(M(9.86), M(11.2)), (M(66.15), M(67.55)), (M(154.91), M(156.3)), (M(212.74), M(214.0)), (TALK_END, END)]
 lifts = sorted(holds + cards)
 
 # ---- camera: new framing every >=4 s on a cut (cinematic, funnel 4), slow push during holds
@@ -97,6 +98,7 @@ SFX = [
 ]
 aud = []
 for n, (i, t, f, d, v, ms, fade) in enumerate(SFX):
+    t = M(t)
     aud.append(f'      <audio id="sfx-{i}" class="clip" data-start="{t}" data-duration="{d}"' + (f' data-media-start="{ms}"' if ms else "") +
                f' data-track-index="{7 + n % 3}" src="assets/sfx/{f}.mp3" data-volume="{v}"' + (f' data-fade-in="{min(fade, d/3):.2f}" data-fade-out="{min(fade, d/3):.2f}"' if fade else "") + '></audio>')
 
@@ -135,9 +137,9 @@ html = f'''<!doctype html>
       <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="{TALK_END}" data-track-index="1" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index:20"></div>
 
       <audio id="voice" class="clip" data-start="0" data-duration="{TALK_END}" data-track-index="5" src="assets/video/voice.m4a" data-volume="1"></audio>
-{music("music-susah", "sad-piano", 0, 73.2, 0, 0.18, 0.36)}
-{music("music-seram", "universal-drone", 70.2, 214.2, 40, 0.5, 0.9)}
-{music("music-bangkit", "heart-strings", 211.7, END, 0, 0.17, 0.36)}
+{music("music-susah", "sad-piano", 0, M(73.2), 0, 0.18, 0.36)}
+{music("music-seram", "universal-drone", M(70.2), M(214.2), 40, 0.5, 0.9)}
+{music("music-bangkit", "heart-strings", M(211.7), END, 0, 0.17, 0.36)}
 {chr(10).join(aud)}
     </div>
     <script>

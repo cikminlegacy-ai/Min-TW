@@ -2,6 +2,7 @@
 """Emit PB1 scene files. Times below are ABSOLUTE (film time); each scene converts to local.
 Run from the project dir:  python3 build_scenes.py"""
 import os, html
+from timemap import M, Src   # times below were authored on the first cut; M() moves them to the current cut
 P = "."
 KIT = '''
     @font-face { font-family:"Special Elite"; src:url("assets/fonts/special-elite.ttf") format("truetype"); font-weight:400; }
@@ -45,12 +46,16 @@ def typed(text):
 
 class Scene:
     def __init__(self, cid, t0, t1):
-        self.cid, self.t0, self.t1 = cid, t0, t1
+        self.cid, self.t0, self.t1 = cid, (0.0 if t0 == 0 else M(t0)), M(t1)
         self.body, self.js, self.n = [], [], 0
     def L(self, t): return round(t - self.t0, 3)
     def clip(self, cls, a, b, inner="", style="", extra=""):
         self.n += 1; i = f"{self.cid}-{self.n}"
-        a = max(a, self.t0); b = min(b, self.t1)
+        oa, ob = a, b
+        a = max(M(a), self.t0); b = min(M(b), self.t1)
+        if b - a < 0.6:
+            print(f"WARN {self.cid}: element at {oa}-{ob} collapsed to {a}-{b} (its words were cut) — re-anchor with Src()")
+            b = a + 1.2
         self.body.append(f'    <div id="{i}" class="{cls} clip" data-start="{self.L(a)}" data-duration="{round(b - a, 3)}"{(" style=\"" + style + "\"") if style else ""}{extra}>{inner}</div>')
         return i, self.L(a), self.L(b)
     # --- element kinds ---
@@ -87,8 +92,8 @@ class Scene:
         i, la, lb = self.clip("list", a, b, inner)
         self.js.append(f'tl.fromTo("#{i}", {{ opacity: 0, y: -30 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }}, {la});')
         for k, (t, ts, tx) in enumerate(items):
-            self.js.append(f'tl.fromTo("#{i} .i:nth-of-type({k + 2})", {{ opacity: 0, x: -20 }}, {{ opacity: 1, x: 0, duration: 0.25 }}, {self.L(ts)});')
-            if tx: self.js.append(f'tl.fromTo("#{i} .i:nth-of-type({k + 2}) i", {{ width: 0 }}, {{ width: "102%", duration: 0.3, ease: "power2.out" }}, {self.L(tx)});')
+            self.js.append(f'tl.fromTo("#{i} .i:nth-of-type({k + 2})", {{ opacity: 0, x: -20 }}, {{ opacity: 1, x: 0, duration: 0.25 }}, {self.L(M(ts))});')
+            if tx: self.js.append(f'tl.fromTo("#{i} .i:nth-of-type({k + 2}) i", {{ width: 0 }}, {{ width: "102%", duration: 0.3, ease: "power2.out" }}, {self.L(M(tx))});')
         self.js.append(f'tl.to("#{i}", {{ opacity: 0, duration: 0.2 }}, {round(lb - 0.21, 3)});')
     def rain(self, a, b):
         i, la, lb = self.clip("rain", a, b, "", extra=" data-layout-ignore")
@@ -154,8 +159,10 @@ s.chapter(66.15, 67.55, "BAB 2", "bilik di belakang surau")
 s.tint(67.55, 86.8, "radial-gradient(ellipse at 50% 38%, rgba(14,23,38,0) 25%, rgba(5,8,14,.6) 100%)")
 s.paper(69.7, 71.6, "", "ada satu bilik…", rot=-1)
 s.stamp(72.7, 75.6, "BILIK MAYAT?!", left=200, top=270, size=90, rot=-4)
-s.paper(76.2, 77.45, "", "baru 3 kali diguna", rot=1)
+s.paper(Src(167.3), Src(172.1), "", "baru 3 kali diguna", rot=1)
+s.paper(Src(178.1), Src(189.2), "cikgu", "barang dalam bilik pun jarang diguna", rot=-1)
 s.paper(77.5, 79.8, "", "hampir 13 tahun kosong", rot=-1)
+s.paper(Src(209.3), Src(219.0), "selama ni mayat", "dimandikan di masjid sri putra", rot=1)
 s.shot(79.84, 82.15, "assets/img/meja-mandi.jpg", "untuk mandikan mayat")
 s.big(82.2, 86.75, "pandang atas bawah… fikir.", size=70)
 s.paper(87.6, 89.9, "kawan aku", "“min, tak ada pilihan.”", rot=1)
@@ -165,6 +172,7 @@ s.paper(100.29, 102.5, "", "jemaah datang tolong", rot=-1)
 s.checklist(102.56, 124.6, "buang “vibe” bilik mayat:", [("paip mandi mayat", 105.4, 112.42), ("lorong air mandi mayat", 115.68, 118.74), ("apa-apa yang nampak macam bilik mayat", 121.3, 124.31)])
 s.paper(127.0, 132.6, "kawan aku", "“ayah kau buat perubatan islam kan?”", rot=1)
 s.paper(137.6, 142.05, "untuk", "pagar bilik · halau benda halus", rot=-1)
+s.paper(Src(342.3), Src(351.0), "kau pakar perubatan islam?", "share kat komen", rot=-1)
 s.paper(145.07, 148.5, "bahan", "daun bidara", rot=1)
 s.paper(148.56, 153.7, "baca pada air daun", "yasin · ayat 1–9", rot=-1)
 s.corners(153.72, 154.9)
