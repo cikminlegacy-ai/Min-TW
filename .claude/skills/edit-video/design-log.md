@@ -18,3 +18,9 @@ Baca sebelum design video baru. Tambah entri selepas setiap render. Jangan ulang
 - Transition: whip pan blur; zoom-through; colour flood; iris; glitch; slide bertindan (stack cards).
 - Grade: clean-studio sejuk; deep-contrast; soft-boost; mono-clean untuk kontra "dulu vs sekarang".
 - Muzik: upbeat corporate; trap ringan; acoustic; cinematic tension → release; synthwave.
+
+## PB1 v3 (2026-11-12) — Pengalaman bilik mayat (re-edit)
+- Padat: buang filler (mmm/eee/jadi), ulang perkataan, pause berfikir, scene delay; disahkan dengan re-transcribe audio potong.
+- Speed 1.3× (penyampaian slow) → 4:24.
+- Emotion FX baru: scare = flash + vignette merah + shake ↔ glitch/impact; surprise = zoom-snap ↔ whoosh; happy = glow + bounce ↔ chime/sparkle.
+- Final: HEVC hvc1 1080x1920, 93.2 MB, -14.4 LUFS.
