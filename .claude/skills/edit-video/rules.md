@@ -100,5 +100,6 @@ Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedi
 - `scripts/deliver.sh out/<render>.mp4 out/<name>-final-1080p.mp4` — HEVC/H.265 2-pass (x265 slow, aq-mode 3, psy-rd, tag hvc1), sasaran 95 MB,
   semak saiz & encode semula kalau terkeluar 90–100 MB, audio AAC 256k −14 LUFS. HEVC ≈ 40% lebih tajam dari H.264 pada saiz sama.
 - Sandaran kalau phone/app tak boleh main HEVC: `deliver.sh <in> <out> 95 h264` (x264 veryslow, tune film).
-- Encode HEVC slow ambil masa (≈10–15 min seminit video bila CPU kosong) — jalankan di background selepas render.
+- Encode HEVC slow ambil masa (≈10–15 min seminit video bila CPU kosong). Tugasan background tool dibunuh selepas 2 jam: **jangan gabungkan render + deliver dalam satu tugasan** untuk video panjang. Jalankan deliver berasingan dan detached:
+  `setsid nohup scripts/deliver.sh in.mp4 out.mp4 > out/deliver.log 2>&1 < /dev/null & disown`, kemudian pantau `out.mp4` dengan until-loop.
 - Hantar fail INI sahaja (SendUserFile, display "attach"); render asal kekal dalam `out/`.
