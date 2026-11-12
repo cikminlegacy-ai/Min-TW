@@ -93,7 +93,11 @@ Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedi
 - Font bukan-bundled: download .ttf/.woff2 (Google Fonts, OFL) ke `assets/fonts/` + @font-face dalam setiap fail yang guna.
 - Jangan ulang kombinasi font video sebelum (design-log.md) kecuali vibe memang sama.
 
-## 11. FAIL AKHIR UNTUK PHONE (ditetapkan user, 2026-11-11)
-- Fail yang dihantar kepada user: **1080x1920, saiz BAWAH 100 MB** (sasaran ~90 MB). Dikemas kini 2026-11-11: phone user gagal simpan fail 120 MB, fail 88 MB berjaya. Jangan lebih 95 MB.
-- Selepas render: `scripts/deliver.sh out/<render>.mp4 out/<name>-final-1080p.mp4` (2-pass, bitrate dikira ikut durasi, loudnorm −14 LUFS). Hantar fail INI sahaja (SendUserFile, display "attach").
-- Fail render asal (boleh ratusan MB) disimpan dalam `out/` sahaja; hantar hanya kalau user minta.
+## 11. FAIL AKHIR UNTUK PHONE (user 2026-11-11, dikemas kini 2026-11-12)
+- Fail yang dihantar: **1080x1920, saiz 90–100 MB, kualiti "level kayangan"** (setinggi mungkin dalam saiz tu).
+  - Phone user tak boleh simpan fail >100 MB (120 MB gagal, 88 MB berjaya).
+- `scripts/deliver.sh out/<render>.mp4 out/<name>-final-1080p.mp4` — HEVC/H.265 2-pass (x265 slow, aq-mode 3, psy-rd, tag hvc1), sasaran 95 MB,
+  semak saiz & encode semula kalau terkeluar 90–100 MB, audio AAC 256k −14 LUFS. HEVC ≈ 40% lebih tajam dari H.264 pada saiz sama.
+- Sandaran kalau phone/app tak boleh main HEVC: `deliver.sh <in> <out> 95 h264` (x264 veryslow, tune film).
+- Encode HEVC slow ambil masa (≈10–15 min seminit video bila CPU kosong) — jalankan di background selepas render.
+- Hantar fail INI sahaja (SendUserFile, display "attach"); render asal kekal dalam `out/`.
