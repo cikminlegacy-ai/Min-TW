@@ -46,8 +46,9 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 ## 3. Cut (rule 6) and hook (rule 7)
 
 - Silences: `ffmpeg -i audio.wav -af silencedetect=n=-38dB:d=0.22 -f null - 2>&1 | grep -oE 'silence_(start|end): [0-9.]+' | awk '{print $2}' | paste - - > silences.txt`
-- `keep.json` = ordered `[src_start, src_end, "label"]`. Put the strongest hook line FIRST even if it was said later (cold open). Drop intro/salam, fillers, repeated takes (keep the best), looking-down/fiddling moments. Find exact cut points with an RMS dB-minimum scan between words.
-- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (removes pauses > 0.18 s; prints total). Target per rules.md/funnel.
+- **Cut policy (rules.md §6, user 2026-11-12): KEEP all story content.** Build keep.json as the WHOLE recording minus only: fillers (eh/aa/hmm/ok so/okey/sebenarnya kan), sentences said twice, false starts, salam intro, looking-down/fiddling, editor-directed talk, and a clearly weak part. Never drop content to hit a funnel duration. Hook line may be copied to the front (cold open). Exact cut points via an RMS dB-minimum scan between words.
+- After planning, diff transcript vs cuts.json words: the only missing words must be the ones you meant to drop. List every drop in the preview message.
+- `python3 scripts/plan_cuts.py keep.json silences.txt transcript.json > cuts.json` (jump-cuts only pauses > 0.5 s — user rule; prints total). Target per rules.md/funnel.
 - **Deliberate silence** (funnel 2 pause, funnel 4 silence after a painful/scary line): add a 4th value to that keep entry, e.g. `[58.48, 62.36, "tak-mampu", 1.2]` → build_talk freezes the last frame + silence for 1.2 s; animate a slow push-in over it in the root timeline.
 - Long source (10 min): build_talk takes ~20–40 min on CPU (4K HDR decode). Start it early in the background and write design/scenes meanwhile.
 - **Disk is limited** (per-session allowance): segment files are big (PB1: 7 GB). build_talk now encodes straight from the concat list and deletes its temp dir. Before a new video, delete old `/tmp/talk_*` dirs and old source downloads from the scratchpad (re-downloadable from Drive); `df -h /tmp` when anything fails with exit 228 / no space.
@@ -56,12 +57,12 @@ Read the `/hyperframes` skill (contract) before writing compositions. Remotion (
 ## 4. Design (rule 9) — decide before building
 
 Write a short `DESIGN.md` in the project: palette, fonts, subtitle style, hook card, transitions, grade, music genre, SFX style — checked against `design-log.md`.
-**Fonts (rule 10): always Nunito + Montserrat** (Montserrat 800–900 headlines/hook/cards/numbers, Nunito 800–900 subtitles/labels). Only an emotional script (sad, touching, struggle, nostalgia, gratitude, deep motivation) gets an emotion-matched display font from rules.md §10 — state the emotion and the reason in DESIGN.md. Fonts are not a rule-9 variety dimension; vary the other 7. Browse `npx hyperframes catalog --tag caption-style --json`, `--tag transition`, and the frame presets in `~/.claude/skills/hyperframes/assets/frame-presets/`.
+**Fonts (rule 10, updated 2026-11-12): chosen by the story's vibe every time** (table in rules.md §10; Nunito + Montserrat is the default for neutral/educational videos). Subtitles stay easy to read. State vibe + reason in DESIGN.md. Browse `npx hyperframes catalog --tag caption-style --json`, `--tag transition`, and the frame presets in `~/.claude/skills/hyperframes/assets/frame-presets/`.
 
 ## 5. Build (HyperFrames)
 
 `cd projects && npx hyperframes init <name> --example blank --resolution portrait --non-interactive --skip-skills --skill=hyperframes`
-- Camera: `#cam` wrapper with transform-origin on the face; `tl.set` a new scale (1.0–1.38) on EVERY jump cut → pattern interrupt every ~2 s.
+- Camera: `#cam` wrapper with transform-origin on the face (measure hair-top/chin on the real footage); a framing change on jump cuts, and a pattern interrupt (zoom / pop text / B-roll) on **every main story point**.
 - Animations only where they add meaning (rule 2). **Never cover the face**: snapshot each beat; put graphics above the head (push `#cam` y down), on the opposite side, or as full-screen cutaways.
 - Safe zone (rule 4): all text inside x 60–940, y 220–1330; captions ~1150–1300.
 - Captions: `python3 scripts/build_captions.py cuts.json compositions/captions.html [--honest-from S] --fix 'a=>b' --kw ...` then RESTYLE via `--css <file>` (Nunito/Montserrat per rule 10; colours, highlight via `--karaoke --hl bg,fg --kwcolor`).

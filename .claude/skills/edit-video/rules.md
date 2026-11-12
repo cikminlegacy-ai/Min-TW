@@ -49,12 +49,20 @@ Gabungan paling selamat untuk dua-dua app:
 - Boleh `carve.mjs` (media-use) supaya muzik dip di band suara.
 - Mix akhir −14 LUFS, true peak ≤ −1 dBTP. Ukur selepas render.
 
-## 6. POTONG YANG TAK PENTING
-- Buang ayat ulang (ambil take terbaik), false start, filler ("eh, aa, hmm, ok so, sebenarnya kan, jadi"), salam/intro panjang.
-- Jump cut setiap pause > 0.3 s (simpan ~0.15 s nafas). Fade audio 12–30 ms setiap cut.
-- Buang bahagian pandang bawah / betulkan rambut-topi-tudung / pegang phone.
-- Sasaran durasi ikut FUNNEL (funnels.md): Awareness 35–55s, Consider 30–45s, Hardsell 25–35s (max 40), Storytelling TIADA had (boleh >90s). Kalau lebih, buang bahagian paling lemah.
-- Funnel 2 & 4: JANGAN potong pause yang disengajakan (1s lepas poin / 1.5s lepas ayat pedih).
+## 6. POTONG YANG TAK PENTING — HANYA yang dalam senarai ni (ditegaskan semula user, 2026-11-12)
+**Prinsip: KEKALKAN semua isi cerita.** Jangan potong ayat/perkataan isi semata-mata nak pendekkan video atau ikut sasaran saat
+(PB1 dulu terlalu banyak dipotong — user tegur). Hanya BUANG:
+- Filler: "eh, aa, hmm, ok so, okey (pembuka), sebenarnya kan".
+- Ayat yang diulang 2 kali (simpan sekali sahaja, take terbaik) dan false start / tersasul.
+- **Pause LEBIH 0.5 saat → jump cut.** Pause bawah 0.5 s KEKAL (rentak semula jadi). (`plan_cuts.py` MAX_GAP = 0.5.)
+- Intro "Hai assalamualaikum, hari ni saya nak cerita…" — buang terus, masuk hook.
+- Part pandang bawah, betulkan tudung/topi/rambut, pegang phone.
+- Part paling lemah — HANYA kalau jelas lemah (meleret tanpa isi). Senaraikan setiap potongan dalam mesej preview supaya user boleh minta pulangkan.
+- Bercakap dengan editor ("Claude, …", "cuba zoom") — buang, ikut arahannya.
+Cara kerja: mula dengan KESELURUHAN rakaman sebagai "keep", kemudian tolak senarai buang di atas (bukan pilih ayat yang nak simpan).
+Selepas cut: pastikan tiada perkataan hilang — banding transcript asal vs cuts.json (mesti tinggal hanya perkataan dalam senarai buang).
+Durasi funnel (funnels.md) = panduan susunan & hook sahaja, BUKAN sebab untuk buang isi.
+Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedih).
 
 ## 7. HOOK
 - Cari ayat PALING KUAT dalam transcript (soalan mengejut, nombor besar, kontra, janji hasil). Kalau bukan di awal, pindahkan ke depan (cold open) — 0–3 s.
@@ -71,22 +79,19 @@ Gabungan paling selamat untuk dua-dua app:
 - Ikut kreativiti: gaya boleh diambil dari `npx hyperframes catalog` (caption-style, transition), `assets/frame-presets` dalam skill hyperframes, atau cipta sendiri.
 - Selepas render, TAMBAH entri baru dalam `design-log.md`.
 
-## 10. FONT (ditetapkan user, 2026-11-07)
-- **Font utama setiap video: Nunito + Montserrat** (dua-dua bundled dalam HyperFrames, tak perlu @font-face).
-  - Montserrat (800–900): headline, hook, kad, stamp, nombor besar.
-  - Nunito (800–900): subtitle dan teks badan/label. Nunito lebih bulat & mesra.
-  - Boleh tukar peranan (contoh subtitle Montserrat) — tapi JANGAN guna font lain untuk video biasa.
-- **KECUALI video beremosi** (sedih, sebak, kisah susah/perjuangan, rindu, syukur, motivasi mendalam, nostalgia, kisah keluarga):
-  - Baca skrip dulu, tentukan emosi utama, pilih font yang sentuh emosi tu. Tulis pilihan + sebab dalam DESIGN.md.
-  - Panduan:
-    - Sedih / sebak / kehilangan / rindu → serif lembut: **Playfair Display** (italic untuk ayat kunci) atau **EB Garamond**.
-    - Kisah peribadi / surat / nostalgia → tulisan tangan: **Caveat** atau **Kalam** (perlu fail font dalam `assets/fonts/` + @font-face).
-    - Bangkit / motivasi / perjuangan → tinggi & kuat: **League Gothic** atau **Oswald**.
-    - Syukur / tenang / spiritual → **Lora** atau **Cormorant Garamond** (perlu @font-face).
-    - Seram / misteri (+ inspirasi) → **Cinzel** 700/900 (serif poster filem seram klasik; emas untuk bahagian inspirasi). Dipakai di SERAM1.
-  - Subtitle video beremosi boleh kekal Nunito supaya senang baca; font emosi dipakai pada headline/kad/ayat kunci.
-  - Font bukan-bundled: download .woff2 (Google Fonts, lesen OFL) ke `assets/fonts/` dan tulis @font-face dalam setiap fail yang guna (lint `font_family_without_font_face`).
-- Mix check: after render, measure the speech part vs voice.m4a; impacts/booms add a lot — keep SFX ~0.3–0.45 under a single voice (SERAM1 first mix was -10.4 LUFS).
+## 10. FONT — ikut VIBE jalan cerita (ditetapkan semula user, 2026-11-12)
+- Setiap video: baca skrip, tentukan vibe/emosi, pilih font yang sesuai dengan vibe tu. Tulis pilihan + sebab dalam DESIGN.md.
+- Default untuk video edukasi/neutral/santai: **Nunito + Montserrat** (bundled).
+- Panduan vibe → font:
+  - Sedih / sebak / kehilangan / rindu → Playfair Display (italic ayat kunci) atau EB Garamond.
+  - Kisah peribadi / surat / nostalgia / catatan → Special Elite (mesin taip), Caveat atau Kalam (tulisan tangan).
+  - Bangkit / motivasi / perjuangan → League Gothic atau Oswald.
+  - Syukur / tenang / spiritual → Lora atau Cormorant Garamond.
+  - Seram / misteri → Cinzel (atau Special Elite untuk "catatan" seram).
+  - Bisnes / data / tegas → Montserrat 900 / Archivo Black.
+- Subtitle mesti senang baca (Nunito / Poppins / Montserrat) walaupun tajuk guna font emosi.
+- Font bukan-bundled: download .ttf/.woff2 (Google Fonts, OFL) ke `assets/fonts/` + @font-face dalam setiap fail yang guna.
+- Jangan ulang kombinasi font video sebelum (design-log.md) kecuali vibe memang sama.
 
 ## 11. FAIL AKHIR UNTUK PHONE (ditetapkan user, 2026-11-11)
 - Fail yang dihantar kepada user: **1080x1920, saiz BAWAH 100 MB** (sasaran ~90 MB). Dikemas kini 2026-11-11: phone user gagal simpan fail 120 MB, fail 88 MB berjaya. Jangan lebih 95 MB.

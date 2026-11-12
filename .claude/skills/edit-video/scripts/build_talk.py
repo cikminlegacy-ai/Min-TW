@@ -28,7 +28,7 @@ def cut(i_s):
     vfx = vf + (f",tpad=stop_mode=clone:stop_duration={h}" if h else "")
     if h: af += f",apad=pad_dur={h}"
     subprocess.run(["ffmpeg","-nostdin","-v","error","-y","-ss",f"{s['src_in']:.4f}","-t",f"{d:.4f}","-i",src,
-        "-vf",vfx,"-af",af,"-c:v","libx264","-preset","veryfast","-crf","12","-g","15",
+        "-vf",vfx,"-af",af,"-c:v","libx264","-preset","veryfast","-crf","18","-g","15",
         "-c:a","pcm_s16le","-ar","48000","-ac","2",f],check=True)
     print(f"seg {i+1}/{len(segs)}",flush=True)
     return f
@@ -38,7 +38,7 @@ lst = open(os.path.join(tmp,"list.txt"),"w")
 for f in files: lst.write(f"file '{f}'\n")
 lst.close()
 # encode straight from the concat list (no multi-GB intermediate file), then delete the segments
-subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",lst.name,"-c:v","libx264","-preset","medium","-crf","16","-g","15",
+subprocess.run(["ffmpeg","-v","error","-y","-f","concat","-safe","0","-i",lst.name,"-c:v","libx264","-preset","medium","-crf","18","-g","15",
     "-pix_fmt","yuv420p","-movflags","+faststart",
     "-color_primaries","bt709","-color_trc","bt709","-colorspace","bt709",
     "-bsf:v","h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1",

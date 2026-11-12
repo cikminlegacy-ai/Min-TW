@@ -7,7 +7,7 @@ silences.txt: lines "start end" from ffmpeg silencedetect
 Every silence inside a kept range longer than MAX_GAP is removed (jump cut).
 Output: segments with src in/out and output timeline position, plus remapped words."""
 import json, sys
-MAX_GAP = 0.18   # keep at most this much of any pause
+MAX_GAP = 0.5    # user rule: only pauses LONGER than 0.5 s are jump-cut; shorter pauses stay
 PAD = 0.07       # breathing room either side of speech
 MIN_SEG = 0.22   # drop slivers shorter than this
 keep = json.load(open(sys.argv[1]))

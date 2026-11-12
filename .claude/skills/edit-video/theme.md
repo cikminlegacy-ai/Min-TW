@@ -1,49 +1,26 @@
-# TEMA: MUHAIMIN - TIKTOK AWARENESS NAIK FOLLOWERS
+# TEMA: MUHAIMIN - TIKTOK AWARENESS NAIK FOLLOWERS (versi user 2026-11-12)
 
-> Ini = FUNNEL 1 (Awareness) dalam `funnels.md`. Kalau bercanggah, funnels.md menang (contoh durasi 35–55s, B-roll bandar Malaysia sahaja).
-
-(Teks asal daripada Muhaimin. Ini peraturan tetap untuk setiap video `/edit-video`.)
+> Gaya visual (warna, font, grafik) mesti ikut vibe video DAN berlainan dari video/session sebelum (design-log.md).
+> Strategi funnel: funnels.md. Peraturan teknikal: rules.md.
 
 ## [PERATURAN PERTAMA - BUANG HAL TAK PENTING]
+Transcribe dulu, supaya tahu kat mana nak masukkan animation, sound effects, motion design.
 
-Make sure buang semua awkward pause dan apa-apa yang repeatable. Transcribe dulu video, so tahu kat mana nak masukkan animation, sound effects, motion design, dekat mana-mana yang patut.
-
-BUANG habis:
+BUANG habis (HANYA ini — isi cerita lain KEKAL):
 - "eh, aa, hmm, ok so, sebenarnya kan"
 - Ayat ulang 2 kali
-- Pause lebih 0.5 saat, terus jump cut
-- Intro "Hai assalamualaikum, hari ni saya nak cerita..." - BUANG TERUS, terus masuk hook
-- Mana-mana part pandang bawah, betulkan tudung/topi, pegang phone - BUANG
-- Video akhir mesti 45-50 saat je, padat. Kalau lebih, potong part paling lemah.
+- Pause lebih 0.5 saat → terus jump cut
+- Intro "Hai assalamualaikum, hari ni saya nak cerita..." — BUANG TERUS, terus masuk hook
+- Part pandang bawah, betulkan tudung, pegang phone — BUANG
+- Potong part paling lemah (kalau memang lemah; senaraikan dalam preview)
 
-Audiens: Abang akak Malaysia. Tujuan video: EDUCATE JE, bagi orang FOLLOW.
-JANGAN JUAL, JANGAN suruh isi form, JANGAN suruh tekan link.
-
-## [PERATURAN PALING PENTING - HOOK 3 SAAT PERTAMA]
-
+## [PERATURAN PALING PENTING - HOOK 3 SAAT]
 WAJIB tetapkan hook yang paling capture 3 saat pertama. Jangan ikut intro asal kalau intro lemah.
-Kalau user bagi "HOOK LOCK", guna ayat tu.
-
-0-3 saat:
-- Muka close-up, zoom in 120% terus
-- Text besar tengah-tengah warna KUNING #FFC700 background BIRU DIRAJA #0A2A7A
-- Sound effect: whoosh + pop kuat
-- Kalau audiens scroll dalam 3 saat ni, video gagal. Hook mesti paling kuat.
-
-Selepas hook, baru masuk skrip asal.
-
-## EDIT IKUT SKRIP
-
-Setiap ayat penting dapat visual sendiri (B-roll fast cut, text besar, animasi).
-Bahagian penutup "Saya tak jual apa-apa..." -> buang semua B-roll, balik close-up muka,
-background blur, nampak jujur, subtitle highlight kuning.
 
 ## STYLE
-
-- Font: Nunito + Montserrat (rules.md §10).
-
-- Format 9:16 (1080x1920), subtitle word-by-word bold putih, keyword nombor/angka dalam KUNING.
-- Setiap 2 saat mesti ada pattern interrupt: zoom, pop text, B-Roll.
+- Format 9:16 (1080x1920).
+- **Font** sesuai dengan vibe jalan cerita (rules.md §10).
+- **Setiap poin utama jalan cerita** mesti ada pattern interrupt: zoom, pop text, B-roll (bukan ikut jam, ikut poin).
 - Hook kuat, color grade premium, adjust lighting.
-- Music lo-fi 10% je.
-- JANGAN render dulu. Tunjuk preview dulu, tunggu approve.
+- **Muzik sesuai + sound effect ikut jalan cerita** (rules.md §3B).
+- JANGAN render dulu. Tunjuk preview dulu.
