@@ -30,10 +30,20 @@ SFX bukan hiasan transisi je — SFX **hidupkan cerita** supaya audiens tak bosa
   1. **Ambience** (latar tempat, panjang, perlahan ~0.15–0.3): bilik malam, kampung, bandar, surau, hujan — tukar bila cerita tukar tempat/masa.
   2. **Bunyi cerita** (spot, ikut perkataan): pintu, tapak kaki, air, ular, jantung — puncak 1 frame selepas perkataan disebut.
   3. **Bunyi edit** (whoosh, impact, riser, pop): untuk teks/transisi — sederhana, jangan tenggelamkan lapisan 1–2.
-- **Rentak anti-bosan:** sekurang-kurangnya satu "bunyi cerita" atau perubahan ambience setiap 4–6 saat; bunyi besar (impact/jantung/sunyi tiba-tiba) di klimaks; **diam total 0.5–1.5s** sebelum ayat paling seram/pedih supaya ia menghentak.
+- **Rentak anti-bosan:** sekurang-kurangnya satu "bunyi cerita" atau perubahan ambience setiap 4–6 saat; bunyi besar (impact/jantung/sunyi tiba-tiba) di klimaks; muzik/ambience boleh mati 0.3–0.4 s sebelum ayat paling seram (bukan freeze video).
 - **Suara tetap raja:** semua lapisan duck bawah suara; selepas render ukur bahagian bercakap vs voice.m4a (sasaran mix −14 LUFS, suara jelas ≥ 4 dB atas yang lain).
 - **Sumber bunyi:** `sfx/google-sound-library.txt` (1,160 bunyi Google Sound Library, **CC BY 4.0** — kredit "Sound effects: Google Sound Library (CC BY 4.0)" dalam caption) → muat turun dengan curl dari URL dalam senarai. Bundled Pixabay (`~/.claude/skills/media-use/audio/assets/sfx`) untuk bunyi edit. Freesound & Wikimedia disekat (403/429) — jangan cuba pintas.
 - Tulis **peta bunyi** (masa → perkataan → bunyi → lapisan) dalam DESIGN.md dan masukkan dalam mesej preview.
+
+## 3C. SFX SEIRING TRANSITION IKUT EMOSI (user 2026-11-12) — WAJIB
+Setiap momen emosi = **transition visual + SFX padan, serentak** (bukan SFX sahaja):
+- **Jump scare / seram** (benda mengejut, "mayat", bunyi pelik): flash putih/merah 2–3 frame + camera shake/punch-in pantas + glitch/RGB split ringkas
+  ↔ SFX hit/stinger seram + sub boom (+ jantung/drone naik sebelum).
+- **Terkejut / twist / reveal** ("biar betul?", fakta mengejut): whip/zoom-snap + teks pop besar ↔ whoosh + impact / record-scratch.
+- **Poin best / tips / hasil yang audiens dapat** (gembira, lega, harapan): pop/bounce teks, sparkle/glow, cahaya hangat, slide lembut
+  ↔ chime / ding / sparkle / pop ceria; muzik naik ke cue lebih cerah.
+- **Sedih / berat:** slow push + fade/desaturate ↔ low hit lembut, piano/reverse swell.
+- Tulis senarai "momen emosi → transition → SFX" dalam DESIGN.md dan mesej preview. Variasi: jangan ulang pasangan sama berturut-turut.
 
 ## 4. SAFE ZONE TikTok + IG Reels (1080x1920)
 Gabungan paling selamat untuk dua-dua app:
@@ -49,9 +59,10 @@ Gabungan paling selamat untuk dua-dua app:
 - Boleh `carve.mjs` (media-use) supaya muzik dip di band suara.
 - Mix akhir −14 LUFS, true peak ≤ −1 dBTP. Ukur selepas render.
 
-## 6. POTONG YANG TAK PENTING — HANYA yang dalam senarai ni (ditegaskan semula user, 2026-11-12)
-**Prinsip: KEKALKAN semua isi cerita.** Jangan potong ayat/perkataan isi semata-mata nak pendekkan video atau ikut sasaran saat
-(PB1 dulu terlalu banyak dipotong — user tegur). Hanya BUANG:
+## 6. POTONG YANG TAK PENTING — PADAT DENGAN POIN UTAMA (user 2026-11-12, dikemas kini)
+**Prinsip: video tiada had masa, tapi mesti PADAT dengan info.** Kekalkan setiap poin/isi cerita (PB1 v1 terlalu banyak dipotong — user tegur),
+tapi buang SEMUA yang buat penyampaian nampak tak profesional atau lambat: scene delay, pause berfikir, ulang perkataan, ayat meleret yang tak tambah info.
+Kalau satu ayat cakap benda sama dua kali dengan perkataan lain → simpan versi paling padat. Senaraikan semua potongan isi dalam preview supaya user boleh minta pulangkan. BUANG:
 - Filler: "eh, aa, hmm, mmm, eee, ok so, okey (pembuka), so, ha (pembuka), **jadi** (penyambung — user 2026-11-12: 'jadi' = delay word, buang), sebenarnya kan".
   - Whisper biasa SEMBUNYIKAN filler (dia regangkan perkataan sebelah, cth "macam" 2 s). Wajib:
     (a) transcribe dengan prompt disfluency: `transcribe.py audio.wav large-v3 "Emm, eee, hmm, aa... jadi, jadi kita orang, eh, mmm."` → token filler muncul;
@@ -61,7 +72,8 @@ Gabungan paling selamat untuk dua-dua app:
   - Termasuk gagap restart 1–3 perkataan: "untuk. Untuk…", "sebab. Sebab…", "tak ada, tak ada…", "benda benda-benda" → buang salinan pertama.
     JANGAN kira penggandaan (macam-macam, benda-benda, pelik-pelik), ulangan gaya ("atas bawah, atas bawah, atas bawah") dan dialog ("tanya Cikgu, 'Cikgu, …'").
   - Awas: kalau satu salinan dah dibuang sebelum ni, jangan buang salinan yang tinggal (PB1 v3 hampir hilang "surau Jumaat · dekat taman").
-- **Pause LEBIH 0.5 saat → jump cut.** Pause bawah 0.5 s KEKAL (rentak semula jadi). (`plan_cuts.py` MAX_GAP = 0.5.)
+- **Pause berfikir → jump cut.** `plan_cuts.py` MAX_GAP = 0.3 s (sumber) — pause lebih panjang dipotong (user 2026-11-12: pause berfikir terlalu lama buat bosan).
+- **Tiada scene delay:** jangan guna hold/freeze senyap (nilai ke-4 keep.json) kecuali user minta; jeda dramatik maksimum ~0.4 s.
 - Intro "Hai assalamualaikum, hari ni saya nak cerita…" — buang terus, masuk hook.
 - Part pandang bawah, betulkan tudung/topi/rambut, pegang phone.
 - Part paling lemah — HANYA kalau jelas lemah (meleret tanpa isi). Senaraikan setiap potongan dalam mesej preview supaya user boleh minta pulangkan.
@@ -70,7 +82,14 @@ Cara kerja: mula dengan KESELURUHAN rakaman sebagai "keep", kemudian tolak senar
 Selepas cut: pastikan tiada perkataan hilang — banding transcript asal vs cuts.json (mesti tinggal hanya perkataan dalam senarai buang).
 **Semakan akhir wajib:** bina audio hasil potongan (atrim+concat dari audio.wav ikut cuts.json) dan transcribe SEMULA → baca: ayat lengkap, tiada filler/ulang tinggal, tiada perkataan isi hilang. Timestamp Whisper tak tepat — jangan percaya diff timestamp sahaja.
 Durasi funnel (funnels.md) = panduan susunan & hook sahaja, BUKAN sebab untuk buang isi.
-Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedih).
+Funnel 2 & 4: jeda dramatik dulu 1–1.5 s — kini MAKSIMUM 0.4 s (user tak suka scene delay).
+
+## 6B. SPEED 1.2–1.3 (user 2026-11-12) — WAJIB setiap video
+- Laju talking-head ikut cara percakapan user: dengar/ukur kadar cakap (perkataan sesaat selepas potong, tanpa jeda).
+  - Lambat / meleret sampai membosankan (≲ 2.6 perkataan/s) → **1.3×**.
+  - Dah laju, risiko audiens hilang info (≳ 3.2 perkataan/s) → **1.2×**. Antara → 1.25×.
+- Cara: `SPEED=1.3 plan_cuts.py ...` (cuts.json simpan `speed`; build_talk guna setpts + atempo — pic suara kekal). Semua masa nota/SFX ikut cuts.json/timemap.
+- Nyatakan speed yang dipilih + sebab dalam mesej preview.
 
 ## 7. HOOK
 - Cari ayat PALING KUAT dalam transcript (soalan mengejut, nombor besar, kontra, janji hasil). Kalau bukan di awal, pindahkan ke depan (cold open) — 0–3 s.

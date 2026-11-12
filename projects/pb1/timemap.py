@@ -7,13 +7,13 @@ def _to_src(t):
     for s in _old:
         a = s["t"]; b = a + s["dur"] + s.get("hold", 0)
         if a - 1e-6 <= t < b:
-            return s["src_in"] + min(t - a, s["dur"])
+            return s["src_in"] + min(t - a, s["dur"]) * s.get("speed", 1)
     return _old[-1]["src_out"] + (t - (_old[-1]["t"] + _old[-1]["dur"] + _old[-1].get("hold", 0)))
 def _to_new(src):
     best = None
     for s in _new:
         if s["src_in"] - 1e-6 <= src <= s["src_out"] + 1e-6:
-            return round(s["t"] + (src - s["src_in"]), 3)
+            return round(s["t"] + (src - s["src_in"]) / s.get("speed", 1), 3)
         if s["src_in"] > src:   # src fell in a removed pause: snap to the next kept segment start
             return round(s["t"], 3)
     last = _new[-1]

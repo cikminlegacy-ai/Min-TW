@@ -96,9 +96,33 @@ SFX = [
  ("key-9", 261.05, "key-press", 0.43, 0.35, 0, 0), ("key-10", 265.65, "key-press", 0.43, 0.35, 0, 0),
  ("key-11", 277.55, "key-press", 0.43, 0.35, 0, 0),
 ]
+# ---- rules.md §3C: emotion moment = transition + matching SFX, together (source times, mapped to the current cut)
+# kind: scare (flash + shake + punch + stinger), surprise (whip zoom-snap + whoosh/impact), happy (warm glow + bounce + chime/sparkle)
+EMO = [
+ (Src(173.94), "scare",    "Mayat.",                      [("glitch-2", 1.2, 0.40, 0), ("impact-bass-2", 1.5, 0.55, 0)]),
+ (Src(174.90), "surprise", "Biar betul Cikgu?",           [("whoosh-cinematic", 1.0, 0.35, 0)]),
+ (Src(176.42), "scare",    "Bilik mayat.",                [("heartbeat-single", 1.2, 0.90, 0), ("impact-bass-1", 1.2, 0.45, 0)]),
+ (Src(233.96), "surprise", "Min, tak ada pilihan",        [("whoosh-short", 0.57, 0.35, 0), ("impact-bass-1", 1.2, 0.30, 0)]),
+ (Src(247.24), "happy",    "Alhamdulillah, jemaah tolong", [("chime", 2.0, 0.30, 0)]),
+ (Src(305.92), "happy",    "Settle, tiga benda",          [("ping", 1.3, 0.35, 0), ("pop", 0.72, 0.30, 0)]),
+ (Src(317.70), "surprise", "Ayah kau reti perubatan Islam?", [("whoosh", 0.57, 0.35, 0), ("pop", 0.72, 0.25, 0)]),
+ (Src(452.54), "scare",    "Terbangun",                   [("heartbeat-single", 1.2, 0.80, 0)]),
+ (Src(464.32), "scare",    "Ada bau pelik tak?",          [("glitch-3", 1.2, 0.35, 0), ("impact-bass-2", 1.5, 0.45, 0)]),
+ (Src(478.84), "scare",    "Kalau dia usik kaki kita",    [("glitch-1", 1.0, 0.30, 0)]),
+ (Src(516.50), "happy",    "Al-Baqarah, penuh",           [("sparkle", 1.8, 0.30, 0)]),
+ (Src(542.48), "happy",    "Tips",                        [("chime", 2.0, 0.28, 0)]),
+ (Src(576.22), "happy",    "Kurangkan beban",             [("sparkle", 1.8, 0.28, 0)]),
+ (Src(585.98), "happy",    "Better ambil",                [("ping", 1.3, 0.35, 0), ("pop", 0.72, 0.30, 0)]),
+]
+EMO = [(M(t), k, lab, sf) for t, k, lab, sf in EMO]
+emo_js = ", ".join(f'[{t}, "{k}"]' for t, k, lab, sf in EMO)
+for n, (t, k, lab, sf) in enumerate(EMO):
+    for m, (f, d, v, ms) in enumerate(sf):
+        SFX.append((f"emo{n}-{m}", Src(-1), f, d, v, ms, 0.05))
 aud = []
+emo_iter = iter([(t, f) for t, k, lab, sf in EMO for (f, d, v, ms) in sf])
 for n, (i, t, f, d, v, ms, fade) in enumerate(SFX):
-    t = M(t)
+    t = next(emo_iter)[0] if i.startswith("emo") else M(t)
     aud.append(f'      <audio id="sfx-{i}" class="clip" data-start="{t}" data-duration="{d}"' + (f' data-media-start="{ms}"' if ms else "") +
                f' data-track-index="{7 + n % 3}" src="assets/sfx/{f}.mp3" data-volume="{v}"' + (f' data-fade-in="{min(fade, d/3):.2f}" data-fade-out="{min(fade, d/3):.2f}"' if fade else "") + '></audio>')
 
@@ -119,6 +143,11 @@ html = f'''<!doctype html>
       #ground {{ position:absolute; inset:0; background:#0E1726; }}
       #cam {{ position:absolute; inset:0; z-index:1; transform-origin:520px 730px; }}
       #cam video {{ position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }}
+      #shake {{ position:absolute; inset:0; transform-origin:520px 730px; }}
+      #fx-flash, #fx-red, #fx-glow {{ position:absolute; inset:0; z-index:30; pointer-events:none; opacity:0; }}
+      #fx-flash {{ background:#FFF6E8; }}
+      #fx-red {{ background:radial-gradient(ellipse at 50% 45%, rgba(178,58,46,0) 30%, rgba(120,20,14,.85) 100%); }}
+      #fx-glow {{ z-index:16; mix-blend-mode:screen; background:radial-gradient(ellipse at 50% 38%, rgba(255,200,120,.55) 0%, rgba(243,169,60,.18) 45%, rgba(243,169,60,0) 75%); }}
       #scrim {{ position:absolute; left:0; right:0; top:1100px; height:400px; z-index:15; pointer-events:none;
         background:linear-gradient(180deg, rgba(14,23,38,0) 0%, rgba(14,23,38,.62) 42%, rgba(14,23,38,.62) 72%, rgba(14,23,38,0) 100%); }}
     </style>
@@ -126,10 +155,13 @@ html = f'''<!doctype html>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="{END}" data-width="1080" data-height="1920">
       <div id="ground"></div>
-      <div id="cam">
+      <div id="cam"><div id="shake">
         <video id="talk-past" class="clip" data-start="0" data-duration="{SPLIT}" data-track-index="0" src="assets/video/talk.mp4" muted playsinline></video>
         <video id="talk-now" class="clip" data-start="{SPLIT}" data-duration="{round(TALK_END - SPLIT, 3)}" data-media-start="{SPLIT}" data-track-index="0" src="assets/video/talk.mp4" muted playsinline></video>
-      </div>
+      </div></div>
+      <div id="fx-glow" data-layout-ignore></div>
+      <div id="fx-red" data-layout-ignore></div>
+      <div id="fx-flash" data-layout-ignore></div>
 
 {hosts}
 
@@ -151,6 +183,24 @@ html = f'''<!doctype html>
       // Silences after heavy lines: slow push-in while the frame holds.
       const HOLDS = [{hold_js}];
       for (const [a, b, s, y] of HOLDS) tl.to("#cam", {{ scale: s, y: y, duration: b - a, ease: "sine.inOut" }}, a);
+      // rules.md §3C emotion transitions (paired with SFX in the audio list)
+      const EMO = [{emo_js}];
+      for (const [t, k] of EMO) {{
+        if (k === "scare") {{
+          tl.set("#fx-flash", {{ opacity: 0.9 }}, t).to("#fx-flash", {{ opacity: 0, duration: 0.16, ease: "power2.out" }}, t + 0.033);
+          tl.set("#fx-red", {{ opacity: 0.75 }}, t).to("#fx-red", {{ opacity: 0, duration: 0.9, ease: "power2.out" }}, t + 0.1);
+          tl.fromTo("#shake", {{ scale: 1.14 }}, {{ scale: 1, duration: 0.5, ease: "expo.out", immediateRender: false }}, t);
+          const X = [18, -15, 12, -9, 6, -3, 0];
+          X.forEach((x, i) => tl.set("#shake", {{ x: x, y: (i % 2 ? -1 : 1) * x * 0.5 }}, t + i * 0.033));
+        }} else if (k === "surprise") {{
+          tl.fromTo("#shake", {{ scale: 1.1, rotation: -1.2 }}, {{ scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }}, t);
+          tl.set("#fx-flash", {{ opacity: 0.35 }}, t).to("#fx-flash", {{ opacity: 0, duration: 0.12 }}, t + 0.033);
+        }} else {{
+          tl.fromTo("#fx-glow", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.35, ease: "sine.out", immediateRender: false }}, t)
+            .to("#fx-glow", {{ opacity: 0, duration: 1.1, ease: "sine.in" }}, t + 0.9);
+          tl.fromTo("#shake", {{ scale: 1.045 }}, {{ scale: 1, duration: 0.6, ease: "elastic.out(1, 0.5)", immediateRender: false }}, t);
+        }}
+      }}
       window.__timelines["main"] = tl;
     </script>
   </body>

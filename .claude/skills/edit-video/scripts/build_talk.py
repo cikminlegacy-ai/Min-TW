@@ -25,7 +25,11 @@ def cut(i_s):
     d = s["src_out"]-s["src_in"]; f = os.path.join(tmp, f"s{i:03d}.mov")
     af = f"afade=t=in:d=0.012,afade=t=out:st={max(d-0.012,0):.3f}:d=0.012"
     h = s.get("hold", 0)
-    vfx = vf + (f",tpad=stop_mode=clone:stop_duration={h}" if h else "")
+    sp = s.get("speed", 1)
+    if sp != 1:   # atempo output length drifts a few ms per segment -> pad+trim to the exact frame length
+        L = d / sp
+        af = f"atempo={sp},apad,atrim=end={L:.4f}," + af.replace(f"st={max(d-0.012,0):.3f}", f"st={max(L-0.012,0):.3f}")
+    vfx = (f"setpts=(PTS-STARTPTS)/{sp}," if sp != 1 else "") + vf + (f",tpad=stop_mode=clone:stop_duration={h}" if h else "")
     if h: af += f",apad=pad_dur={h}"
     subprocess.run(["ffmpeg","-nostdin","-v","error","-y","-ss",f"{s['src_in']:.4f}","-t",f"{d:.4f}","-i",src,
         "-vf",vfx,"-af",af,"-c:v","libx264","-preset","veryfast","-crf","18","-g","15",

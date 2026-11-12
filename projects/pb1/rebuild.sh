@@ -2,7 +2,7 @@
 # Rebuild PB1 after a re-cut (cuts.json already planned). Usage: ./rebuild.sh [skip-talk]
 set -e
 SK=/home/user/Min-TW/.claude/skills/edit-video/scripts
-SRC="/tmp/claude-0/-home-user-Min-TW/94a4eb73-a899-5606-9809-9f8ce39fcd34/scratchpad/src4/PB 1/IMG_0547.MOV"
+SRC="/tmp/claude-0/-home-user-Min-TW/94a4eb73-a899-5606-9809-9f8ce39fcd34/scratchpad/src4/PB 1/BAHAN/IMG_0547.MOV"
 if [ "$1" != skip-talk ]; then
   python3 $SK/build_talk.py "$SRC" cuts.json assets/video/talk.mp4
   ffmpeg -nostdin -v error -y -i assets/video/talk.mp4 -vn -c:a copy assets/video/voice.m4a

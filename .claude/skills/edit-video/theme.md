@@ -9,7 +9,8 @@ Transcribe dulu, supaya tahu kat mana nak masukkan animation, sound effects, mot
 BUANG habis (HANYA ini — isi cerita lain KEKAL):
 - "eh, aa, hmm, ok so, sebenarnya kan"
 - Ayat ulang 2 kali
-- Pause lebih 0.5 saat → terus jump cut
+- Pause berfikir (> 0.3 s) → terus jump cut; tiada scene delay / freeze senyap
+- Ayat meleret yang tak tambah info → padatkan (video tiada had masa tapi mesti padat dengan poin utama)
 - Intro "Hai assalamualaikum, hari ni saya nak cerita..." — BUANG TERUS, terus masuk hook
 - Part pandang bawah, betulkan tudung, pegang phone — BUANG
 - Potong part paling lemah (kalau memang lemah; senaraikan dalam preview)
@@ -18,6 +19,8 @@ BUANG habis (HANYA ini — isi cerita lain KEKAL):
 WAJIB tetapkan hook yang paling capture 3 saat pertama. Jangan ikut intro asal kalau intro lemah.
 
 ## STYLE
+- **Speed 1.2–1.3×** ikut cara percakapan (lambat → 1.3, laju → 1.2) — rules.md §6B.
+- **SFX seiring transition ikut emosi** (jump scare / terkejut / poin best gembira) — rules.md §3C.
 - Format 9:16 (1080x1920).
 - **Font** sesuai dengan vibe jalan cerita (rules.md §10).
 - **Setiap poin utama jalan cerita** mesti ada pattern interrupt: zoom, pop text, B-roll (bukan ikut jam, ikut poin).
