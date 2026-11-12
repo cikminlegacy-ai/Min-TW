@@ -96,6 +96,7 @@ Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedi
 ## 11. FAIL AKHIR UNTUK PHONE (user 2026-11-11, dikemas kini 2026-11-12)
 - Fail yang dihantar: **1080x1920, saiz 90–100 MB, kualiti "level kayangan"** (setinggi mungkin dalam saiz tu).
   - Phone user tak boleh simpan fail >100 MB (120 MB gagal, 88 MB berjaya).
+  - **HEVC disahkan user 2026-11-12**: fail ujian CONS1 HEVC 92 MB boleh download & main di phone user → HEVC ialah format tetap.
 - `scripts/deliver.sh out/<render>.mp4 out/<name>-final-1080p.mp4` — HEVC/H.265 2-pass (x265 slow, aq-mode 3, psy-rd, tag hvc1), sasaran 95 MB,
   semak saiz & encode semula kalau terkeluar 90–100 MB, audio AAC 256k −14 LUFS. HEVC ≈ 40% lebih tajam dari H.264 pada saiz sama.
 - Sandaran kalau phone/app tak boleh main HEVC: `deliver.sh <in> <out> 95 h264` (x264 veryslow, tune film).
