@@ -52,8 +52,15 @@ Gabungan paling selamat untuk dua-dua app:
 ## 6. POTONG YANG TAK PENTING — HANYA yang dalam senarai ni (ditegaskan semula user, 2026-11-12)
 **Prinsip: KEKALKAN semua isi cerita.** Jangan potong ayat/perkataan isi semata-mata nak pendekkan video atau ikut sasaran saat
 (PB1 dulu terlalu banyak dipotong — user tegur). Hanya BUANG:
-- Filler: "eh, aa, hmm, ok so, okey (pembuka), sebenarnya kan".
+- Filler: "eh, aa, hmm, mmm, eee, ok so, okey (pembuka), so, ha (pembuka), **jadi** (penyambung — user 2026-11-12: 'jadi' = delay word, buang), sebenarnya kan".
+  - Whisper biasa SEMBUNYIKAN filler (dia regangkan perkataan sebelah, cth "macam" 2 s). Wajib:
+    (a) transcribe dengan prompt disfluency: `transcribe.py audio.wav large-v3 "Emm, eee, hmm, aa... jadi, jadi kita orang, eh, mmm."` → token filler muncul;
+    (b) `scripts/fillers.py audio.wav --min 0.25` → bunyi meleret (mmm/eee) yang Whisper tak tulis (runs dalam GAP / perkataan >0.9 s);
+    (c) titik potong pada minimum tenaga di sekeliling perkataan.
 - Ayat yang diulang 2 kali (simpan sekali sahaja, take terbaik) dan false start / tersasul.
+  - Termasuk gagap restart 1–3 perkataan: "untuk. Untuk…", "sebab. Sebab…", "tak ada, tak ada…", "benda benda-benda" → buang salinan pertama.
+    JANGAN kira penggandaan (macam-macam, benda-benda, pelik-pelik), ulangan gaya ("atas bawah, atas bawah, atas bawah") dan dialog ("tanya Cikgu, 'Cikgu, …'").
+  - Awas: kalau satu salinan dah dibuang sebelum ni, jangan buang salinan yang tinggal (PB1 v3 hampir hilang "surau Jumaat · dekat taman").
 - **Pause LEBIH 0.5 saat → jump cut.** Pause bawah 0.5 s KEKAL (rentak semula jadi). (`plan_cuts.py` MAX_GAP = 0.5.)
 - Intro "Hai assalamualaikum, hari ni saya nak cerita…" — buang terus, masuk hook.
 - Part pandang bawah, betulkan tudung/topi/rambut, pegang phone.
@@ -61,6 +68,7 @@ Gabungan paling selamat untuk dua-dua app:
 - Bercakap dengan editor ("Claude, …", "cuba zoom") — buang, ikut arahannya.
 Cara kerja: mula dengan KESELURUHAN rakaman sebagai "keep", kemudian tolak senarai buang di atas (bukan pilih ayat yang nak simpan).
 Selepas cut: pastikan tiada perkataan hilang — banding transcript asal vs cuts.json (mesti tinggal hanya perkataan dalam senarai buang).
+**Semakan akhir wajib:** bina audio hasil potongan (atrim+concat dari audio.wav ikut cuts.json) dan transcribe SEMULA → baca: ayat lengkap, tiada filler/ulang tinggal, tiada perkataan isi hilang. Timestamp Whisper tak tepat — jangan percaya diff timestamp sahaja.
 Durasi funnel (funnels.md) = panduan susunan & hook sahaja, BUKAN sebab untuk buang isi.
 Funnel 2 & 4: kekalkan pause sengaja (1 s lepas poin / 1–1.5 s lepas ayat pedih).
 
