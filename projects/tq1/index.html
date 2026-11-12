@@ -21,7 +21,7 @@
         background:radial-gradient(ellipse at 50% 35%, rgba(255,214,150,.75) 0%, rgba(215,180,106,.25) 45%, rgba(215,180,106,0) 75%); }
       #bottomshade { position:absolute; left:0; right:0; top:1120px; height:420px; z-index:3; pointer-events:none;
         background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.28) 70%, rgba(0,0,0,0) 100%); }
-      .cut { position:absolute; inset:0; z-index:4; overflow:hidden; background:#101012; }
+      .cut { position:absolute; inset:0; z-index:4; overflow:hidden; background:#101012; opacity:0; }
       .cut video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
       .cut .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 52%, rgba(0,0,0,.55) 78%, rgba(0,0,0,.35) 100%); }
       .cut video.bg { opacity:.9; }
@@ -36,7 +36,7 @@
       .card { position:absolute; left:50%; top:930px; transform:translateX(-50%); z-index:13; text-align:center; white-space:nowrap;
         padding:26px 56px 30px; border-radius:26px; background:var(--glass); border:1px solid var(--line);
         backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
-      .card .lab { color:var(--gold); font-weight:700; font-size:22px; letter-spacing:7px; margin-bottom:6px; }
+      .card .lab { color:var(--gold); font-weight:700; font-size:28px; letter-spacing:7px; margin-bottom:6px; }
       .card .ttl { color:#fff; font-family:"Playfair Display", serif; font-weight:700; font-size:84px; line-height:1.05; }
       .card .ttl i { display:inline-block; color:var(--gold); font-style:italic; font-weight:600; }
       .card .dot, .card .amp { color:rgba(255,255,255,.55); }
@@ -48,9 +48,10 @@
       .pill .mk.x { color:#fff; background:rgba(255,255,255,.18); }
       .ayat { position:absolute; left:60px; width:960px; z-index:14; padding:30px 40px 30px; border-radius:28px; text-align:center;
         background:rgba(14,14,16,.78); border:1px solid rgba(215,180,106,.35); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
-      .ayat .aref { color:var(--gold); font-weight:700; font-size:22px; letter-spacing:6px; }
+      .ayat .aref { color:var(--gold); font-weight:700; font-size:28px; letter-spacing:6px; }
       .ayat .ar { font-family:"UthmanicHafs", serif; color:#fff; font-size:60px; line-height:1.85; margin:10px 0 8px; }
       .ayat .ar .g { color:var(--gold); }
+      .ayat .anote .arn { font-family:"UthmanicHafs", serif; color:var(--gold); font-size:34px; }
       .ayat .anote { color:rgba(255,255,255,.78); font-weight:500; font-size:26px; }
       .cap { position:absolute; left:0; right:0; top:1268px; z-index:15; text-align:center; white-space:nowrap;
         color:#fff; font-weight:800; font-size:46px; letter-spacing:.2px;
@@ -64,31 +65,31 @@
       </div></div>
       <div id="fx-glow" data-layout-ignore></div>
       <div id="bottomshade" data-layout-ignore></div>
-      <div class="cut clip" id="cut0" data-start="12.794" data-duration="4.573" data-track-index="3"><video id="cutv0" class="clip" data-start="12.794" data-duration="4.573" data-media-start="2.0" data-track-index="4" src="assets/video/opening.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut1" data-start="17.367" data-duration="4.16" data-track-index="3"><video id="cutv1" class="clip" data-start="17.367" data-duration="4.16" data-media-start="0.0" data-track-index="4" src="assets/video/dewasa.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut2" data-start="28.827" data-duration="3.103" data-track-index="3"><video id="cutb2" class="clip bg" data-start="28.827" data-duration="3.103" data-media-start="0.0" data-track-index="4" src="assets/video/modul_blur.mp4" muted playsinline></video><div class="vcard" id="vcard2"><video id="cutv2" class="clip" data-start="28.827" data-duration="3.103" data-media-start="0.0" data-track-index="5" src="assets/video/modul.mp4" muted playsinline></video></div></div>
-      <div class="cut clip" id="cut3" data-start="60.333" data-duration="3.419" data-track-index="3"><video id="cutv3" class="clip" data-start="60.333" data-duration="3.419" data-media-start="1.0" data-track-index="4" src="assets/video/perbetul.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut4" data-start="77.909" data-duration="2.458" data-track-index="3"><video id="cutv4" class="clip" data-start="77.909" data-duration="2.458" data-media-start="0.0" data-track-index="4" src="assets/video/sesama.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut5" data-start="82.227" data-duration="4.025" data-track-index="3"><video id="cutv5" class="clip" data-start="82.227" data-duration="4.025" data-media-start="2.0" data-track-index="4" src="assets/video/teliti.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut6" data-start="93.467" data-duration="3.733" data-track-index="3"><video id="cutv6" class="clip" data-start="93.467" data-duration="3.733" data-media-start="0.0" data-track-index="4" src="assets/video/msurat.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut7" data-start="154.121" data-duration="4.543" data-track-index="3"><video id="cutv7" class="clip" data-start="154.121" data-duration="4.543" data-media-start="0.0" data-track-index="4" src="assets/video/simulasi.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="cut8" data-start="177.715" data-duration="3.485" data-track-index="3"><video id="cutv8" class="clip" data-start="177.715" data-duration="3.485" data-media-start="0.0" data-track-index="4" src="assets/video/cekhukum.mp4" muted playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="ins-talaqi" data-start="45.1" data-duration="13.5" data-track-index="3"><video id="insv-talaqi" class="clip" data-start="45.1" data-duration="13.5" data-track-index="6" src="assets/video/talaqi.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="ins-teori" data-start="104.667" data-duration="27.1" data-track-index="3"><video id="insv-teori" class="clip" data-start="104.667" data-duration="27.1" data-track-index="6" src="assets/video/teori.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
-      <div class="cut clip" id="ins-praktikal" data-start="162.1" data-duration="11.3" data-track-index="3"><video id="insv-praktikal" class="clip" data-start="162.1" data-duration="11.3" data-track-index="6" src="assets/video/praktikal.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
-      <div class="ayat clip" id="a6714" data-start="45.5" data-duration="12.8" data-track-index="7" style="top:900px"><div class="aref">AL-MULK · 67:14</div><div class="ar" dir="rtl" lang="ar">أَلَا يَعۡلَمُ مَنۡ خَلَقَ وَهُوَ ٱللَّطِيفُ ٱلۡخَبِيرُ ١٤</div><div class="anote">Guru baca dulu, kemudian pelajar ikut bacaan yang sama.</div></div>
-      <div class="ayat clip" id="a181" data-start="110.067" data-duration="10.1" data-track-index="7" style="top:820px"><div class="aref">AL-KAHF · 18:1</div><div class="ar" dir="rtl" lang="ar">وَلَمۡ يَجۡعَل لَّهُۥ <span class="g">عِوَجَاۜ ١</span></div><div class="anote">Berhenti seketika pada ۜ tanpa ambil nafas baru.</div></div>
-      <div class="ayat clip" id="a4911" data-start="120.267" data-duration="11.2" data-track-index="7" style="top:820px"><div class="aref">AL-HUJURAT · 49:11</div><div class="ar" dir="rtl" lang="ar">بِئۡسَ <span class="g">ٱلِٱسۡمُ</span> ٱلۡفُسُوقُ بَعۡدَ ٱلۡإِيمَٰنِۚ</div><div class="anote">Satu-satunya tempat naql dalam riwayat Hafs.</div></div>
-      <div class="ayat clip" id="a3652" data-start="163.8" data-duration="9.3" data-track-index="7" style="top:860px"><div class="aref">YĀ SĪN · 36:52</div><div class="ar" dir="rtl" lang="ar">قَالُواْ يَٰوَيۡلَنَا مَنۢ بَعَثَنَا مِن <span class="g">مَّرۡقَدِنَاۜۗ</span> هَٰذَا مَا وَعَدَ ٱلرَّحۡمَٰنُ وَصَدَقَ ٱلۡمُرۡسَلُونَ ٥٢</div><div class="anote">Saktah pada مَّرۡقَدِنَاۜ — berhenti seketika, tanpa nafas.</div></div>
-      <div class="chip clip" data-start="0.0" data-duration="12.733" data-track-index="8" id="chip0"><span class="ic"></span>5 cara belajar tajwid &amp; talaqi</div>
-      <div class="chip clip" data-start="12.733" data-duration="8.8" data-track-index="8" id="chip1"><span class="ic"></span>Video simulasi · kelas dewasa</div>
-      <div class="chip clip" data-start="21.533" data-duration="10.412" data-track-index="8" id="chip2"><span class="ic"></span>01 · Modul kelas</div>
-      <div class="chip clip" data-start="31.945" data-duration="26.655" data-track-index="8" id="chip3"><span class="ic"></span>02 · Guru yang mahir</div>
-      <div class="chip clip" data-start="58.6" data-duration="31.0" data-track-index="8" id="chip4"><span class="ic"></span>03 · Berani baca depan guru</div>
-      <div class="chip clip" data-start="89.6" data-duration="42.167" data-track-index="8" id="chip5"><span class="ic"></span>04 · Sesi teori</div>
-      <div class="chip clip" data-start="131.767" data-duration="41.633" data-track-index="8" id="chip6"><span class="ic"></span>05 · Praktikal yang kreatif</div>
-      <div class="chip clip" data-start="173.4" data-duration="20.367" data-track-index="8" id="chip7"><span class="ic"></span>Kelima-lima mesti berkait</div>
-      <div class="chip clip" data-start="193.767" data-duration="6.0" data-track-index="8" id="chip8"><span class="ic"></span>Ada soalan? Tanya saya</div>
+      <div class="cut" id="cut0"><video id="cutv0" class="clip" data-start="12.794" data-duration="4.573" data-media-start="2.0" data-track-index="4" src="assets/video/opening.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut1"><video id="cutv1" class="clip" data-start="17.367" data-duration="4.16" data-media-start="0.0" data-track-index="4" src="assets/video/dewasa.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut2"><video id="cutb2" class="clip bg" data-start="28.827" data-duration="3.103" data-media-start="0.0" data-track-index="4" src="assets/video/modul_blur.mp4" muted playsinline></video><div class="vcard" id="vcard2"><video id="cutv2" class="clip" data-start="28.827" data-duration="3.103" data-media-start="0.0" data-track-index="5" src="assets/video/modul.mp4" muted playsinline></video></div></div>
+      <div class="cut" id="cut3"><video id="cutv3" class="clip" data-start="60.333" data-duration="3.419" data-media-start="1.0" data-track-index="4" src="assets/video/perbetul.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut4"><video id="cutv4" class="clip" data-start="77.909" data-duration="2.458" data-media-start="0.0" data-track-index="4" src="assets/video/sesama.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut5"><video id="cutv5" class="clip" data-start="82.227" data-duration="4.025" data-media-start="2.0" data-track-index="4" src="assets/video/teliti.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut6"><video id="cutv6" class="clip" data-start="93.467" data-duration="3.733" data-media-start="0.0" data-track-index="4" src="assets/video/msurat.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut7"><video id="cutv7" class="clip" data-start="154.121" data-duration="4.543" data-media-start="0.0" data-track-index="4" src="assets/video/simulasi.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="cut8"><video id="cutv8" class="clip" data-start="177.715" data-duration="3.485" data-media-start="0.0" data-track-index="4" src="assets/video/cekhukum.mp4" muted playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="ins-talaqi"><video id="insv-talaqi" class="clip" data-start="45.1" data-duration="13.5" data-track-index="6" src="assets/video/talaqi.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="ins-teori"><video id="insv-teori" class="clip" data-start="104.667" data-duration="27.1" data-track-index="6" src="assets/video/teori.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
+      <div class="cut" id="ins-praktikal"><video id="insv-praktikal" class="clip" data-start="162.1" data-duration="11.3" data-track-index="6" src="assets/video/praktikal.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>
+      <div class="ayat clip" id="a6714" data-start="45.5" data-duration="12.8" data-track-index="7" style="top:430px"><div class="aref">AL-MULK · 67:14</div><div class="ar" dir="rtl" lang="ar">أَلَا يَعۡلَمُ مَنۡ خَلَقَ وَهُوَ ٱللَّطِيفُ ٱلۡخَبِيرُ ١٤</div><div class="anote">Guru baca dulu, kemudian pelajar ikut bacaan yang sama.</div></div>
+      <div class="ayat clip" id="a181" data-start="110.067" data-duration="10.1" data-track-index="7" style="top:880px"><div class="aref">AL-KAHF · 18:1</div><div class="ar" dir="rtl" lang="ar">وَلَمۡ يَجۡعَل لَّهُۥ <span class="g">عِوَجَاۜ ١</span></div><div class="anote">Berhenti seketika pada tanda <span class="arn" dir="rtl">ۜ</span> tanpa ambil nafas baru.</div></div>
+      <div class="ayat clip" id="a4911" data-start="120.267" data-duration="11.2" data-track-index="7" style="top:880px"><div class="aref">AL-HUJURAT · 49:11</div><div class="ar" dir="rtl" lang="ar">بِئۡسَ <span class="g">ٱلِٱسۡمُ</span> ٱلۡفُسُوقُ بَعۡدَ ٱلۡإِيمَٰنِۚ</div><div class="anote">Satu-satunya tempat naql dalam riwayat Hafs.</div></div>
+      <div class="ayat clip" id="a3652" data-start="163.8" data-duration="9.3" data-track-index="7" style="top:980px"><div class="aref">YĀ SĪN · 36:52</div><div class="ar" dir="rtl" lang="ar">قَالُواْ يَٰوَيۡلَنَا مَنۢ بَعَثَنَا مِن <span class="g">مَّرۡقَدِنَاۜۗ</span> هَٰذَا مَا وَعَدَ ٱلرَّحۡمَٰنُ وَصَدَقَ ٱلۡمُرۡسَلُونَ ٥٢</div><div class="anote">Saktah pada <span class="arn" dir="rtl">مَّرۡقَدِنَاۜ</span> — berhenti seketika, tanpa nafas.</div></div>
+      <div class="chip clip" data-start="0.0" data-duration="12.733" data-track-index="8" id="chip0_0"><span class="ic"></span>5 cara belajar tajwid &amp; talaqi</div>
+      <div class="chip clip" data-start="12.733" data-duration="8.8" data-track-index="8" id="chip1_0"><span class="ic"></span>Video simulasi · kelas dewasa</div>
+      <div class="chip clip" data-start="21.533" data-duration="10.412" data-track-index="8" id="chip2_0"><span class="ic"></span>01 · Modul kelas</div>
+      <div class="chip clip" data-start="31.945" data-duration="13.155" data-track-index="8" id="chip3_0"><span class="ic"></span>02 · Guru yang mahir</div>
+      <div class="chip clip" data-start="58.6" data-duration="31.0" data-track-index="8" id="chip4_0"><span class="ic"></span>03 · Berani baca depan guru</div>
+      <div class="chip clip" data-start="89.6" data-duration="15.067" data-track-index="8" id="chip5_0"><span class="ic"></span>04 · Sesi teori</div>
+      <div class="chip clip" data-start="131.767" data-duration="30.333" data-track-index="8" id="chip6_0"><span class="ic"></span>05 · Praktikal yang kreatif</div>
+      <div class="chip clip" data-start="173.4" data-duration="20.367" data-track-index="8" id="chip7_0"><span class="ic"></span>Kelima-lima mesti berkait</div>
+      <div class="chip clip" data-start="193.767" data-duration="6.0" data-track-index="8" id="chip8_0"><span class="ic"></span>Ada soalan? Tanya saya</div>
       <div class="chip clip" data-start="45.5" data-duration="12.8" data-track-index="8" id="ca6714"><span class="ic"></span>Talaqi · guru baca, pelajar ikut</div>
       <div class="chip clip" data-start="110.067" data-duration="10.1" data-track-index="8" id="ca181"><span class="ic"></span>Saktah · sin kecil ( ۜ )</div>
       <div class="chip clip" data-start="120.267" data-duration="11.2" data-track-index="8" id="ca4911"><span class="ic"></span>Naql · pindah baris</div>
@@ -152,202 +153,196 @@
       <div class="cap clip" id="cap16" data-start="17.964" data-duration="0.909" data-track-index="11">saya juga belajar</div>
       <div class="cap clip" id="cap17" data-start="18.873" data-duration="1.054" data-track-index="11">daripada pelajar-pelajar dalam</div>
       <div class="cap clip" id="cap18" data-start="19.927" data-duration="1.037" data-track-index="11">kelas dewasa yang</div>
-      <div class="cap clip" id="cap19" data-start="20.964" data-duration="0.581" data-track-index="11">saya mengajar.</div>
-      <div class="cap clip" id="cap20" data-start="21.545" data-duration="0.455" data-track-index="11">Firstnya,</div>
-      <div class="cap clip" id="cap21" data-start="22.0" data-duration="1.182" data-track-index="11">of course lah paling cantik</div>
-      <div class="cap clip" id="cap22" data-start="23.182" data-duration="1.918" data-track-index="11">sekali kena ada modul kelas.</div>
-      <div class="cap clip" id="cap23" data-start="25.1" data-duration="0.555" data-track-index="11">Kalau tak ada,</div>
-      <div class="cap clip" id="cap24" data-start="25.655" data-duration="1.563" data-track-index="11">dia agak kurang teratur kita</div>
-      <div class="cap clip" id="cap25" data-start="27.218" data-duration="1.549" data-track-index="11">punya sesi kelas tu.</div>
-      <div class="cap clip" id="cap26" data-start="28.767" data-duration="1.566" data-track-index="11">Dan boleh tengok dalam contoh</div>
-      <div class="cap clip" id="cap27" data-start="30.333" data-duration="1.6" data-track-index="11">gambar yang saya tunjukkan.</div>
-      <div class="cap clip" id="cap28" data-start="31.933" data-duration="0.7" data-track-index="11">Yang keduanya,</div>
-      <div class="cap clip" id="cap29" data-start="32.633" data-duration="1.149" data-track-index="11">benda kena ada bila</div>
-      <div class="cap clip" id="cap30" data-start="33.782" data-duration="1.585" data-track-index="11">dalam sesi mengajar Quran,</div>
-      <div class="cap clip" id="cap31" data-start="35.367" data-duration="0.924" data-track-index="11">guru yang mengajar tu</div>
-      <div class="cap clip" id="cap32" data-start="36.291" data-duration="0.727" data-track-index="11">of course lah kan.</div>
-      <div class="cap clip" id="cap33" data-start="37.018" data-duration="1.149" data-track-index="11">Dia kena mahir.</div>
-      <div class="cap clip" id="cap34" data-start="38.167" data-duration="1.266" data-track-index="11">Mahir dari sudut makhraj ni.</div>
-      <div class="cap clip" id="cap35" data-start="39.433" data-duration="0.7" data-track-index="11">Tempat keluar huruf.</div>
-      <div class="cap clip" id="cap36" data-start="40.133" data-duration="0.667" data-track-index="11">Itu sifat.</div>
-      <div class="cap clip" id="cap37" data-start="40.8" data-duration="1.145" data-track-index="11">Macam mana sebutan setiap</div>
-      <div class="cap clip" id="cap38" data-start="41.945" data-duration="0.8" data-track-index="11">huruf tu macam mana.</div>
-      <div class="cap clip" id="cap39" data-start="42.745" data-duration="1.155" data-track-index="11">Bunyi panjang pendek lah.</div>
-      <div class="cap clip" id="cap40" data-start="43.9" data-duration="1.2" data-track-index="11">Boleh rujuk video ni.</div>
-      <div class="cap clip" id="cap41" data-start="58.6" data-duration="1.733" data-track-index="11">Yang ketiga, mostly takut.</div>
-      <div class="cap clip" id="cap42" data-start="60.333" data-duration="1.822" data-track-index="11">Lepas sesi guru baca,</div>
-      <div class="cap clip" id="cap43" data-start="62.155" data-duration="0.872" data-track-index="11">of course lah pelajar</div>
-      <div class="cap clip" id="cap44" data-start="63.027" data-duration="0.74" data-track-index="11">kena baca kan.</div>
-      <div class="cap clip" id="cap45" data-start="63.767" data-duration="2.024" data-track-index="11">Mostly yang dah berumur kan.</div>
-      <div class="cap clip" id="cap46" data-start="65.791" data-duration="1.976" data-track-index="11">Umur 50-an, 60-an, 70-an.</div>
-      <div class="cap clip" id="cap47" data-start="67.767" data-duration="1.624" data-track-index="11">Takut-takut nak baca kan.</div>
-      <div class="cap clip" id="cap48" data-start="69.391" data-duration="1.436" data-track-index="11">Takut kerap dia tegur.</div>
-      <div class="cap clip" id="cap49" data-start="70.827" data-duration="1.437" data-track-index="11">Sayang sebenarnya. Sebab apa?</div>
-      <div class="cap clip" id="cap50" data-start="72.264" data-duration="1.145" data-track-index="11">Bila dalam kelas,</div>
-      <div class="cap clip" id="cap51" data-start="73.409" data-duration="2.509" data-track-index="11">bukan dapat ilmu daripada</div>
-      <div class="cap clip" id="cap52" data-start="75.918" data-duration="1.449" data-track-index="11">guru yang menegur.</div>
-      <div class="cap clip" id="cap53" data-start="77.367" data-duration="1.606" data-track-index="11">Malah dapat support daripada</div>
-      <div class="cap clip" id="cap54" data-start="78.973" data-duration="1.345" data-track-index="11">kawan-kawan yang satu kelas.</div>
-      <div class="cap clip" id="cap55" data-start="80.318" data-duration="0.582" data-track-index="11">Tapi sayangnya,</div>
-      <div class="cap clip" id="cap56" data-start="80.9" data-duration="1.267" data-track-index="11">mostly yang nombor tiga ni.</div>
-      <div class="cap clip" id="cap57" data-start="82.167" data-duration="1.533" data-track-index="11">Bila kerap, tak ada masa,</div>
-      <div class="cap clip" id="cap58" data-start="83.7" data-duration="0.836" data-track-index="11">jarang-jarang datang,</div>
-      <div class="cap clip" id="cap59" data-start="84.536" data-duration="1.109" data-track-index="11">tiba-tiba malu sebab kawan</div>
-      <div class="cap clip" id="cap60" data-start="85.645" data-duration="0.51" data-track-index="11">dah ke depan.</div>
-      <div class="cap clip" id="cap61" data-start="86.155" data-duration="0.963" data-track-index="11">Tak boleh tu. Bagi saya,</div>
-      <div class="cap clip" id="cap62" data-start="87.118" data-duration="1.146" data-track-index="11">nanti tak ke depan</div>
-      <div class="cap clip" id="cap63" data-start="88.264" data-duration="1.272" data-track-index="11">ilmu Quran tu.</div>
-      <div class="cap clip" id="cap64" data-start="89.536" data-duration="0.764" data-track-index="11">Yang keempatnya,</div>
-      <div class="cap clip" id="cap65" data-start="90.3" data-duration="1.959" data-track-index="11">of course sesi teori.</div>
-      <div class="cap clip" id="cap66" data-start="92.259" data-duration="1.132" data-track-index="11">Kan dah selesai baca kan?</div>
-      <div class="cap clip" id="cap67" data-start="93.391" data-duration="0.4" data-track-index="11">So,</div>
-      <div class="cap clip" id="cap68" data-start="93.573" data-duration="0.927" data-track-index="11">kita nak rungkai apa</div>
-      <div class="cap clip" id="cap69" data-start="94.5" data-duration="0.673" data-track-index="11">yang baca tu,</div>
-      <div class="cap clip" id="cap70" data-start="95.173" data-duration="0.6" data-track-index="11">benda hukum-hukum tajwid</div>
-      <div class="cap clip" id="cap71" data-start="95.773" data-duration="0.594" data-track-index="11">yang ada.</div>
-      <div class="cap clip" id="cap72" data-start="96.367" data-duration="0.4" data-track-index="11">Contoh,</div>
-      <div class="cap clip" id="cap73" data-start="96.718" data-duration="2.349" data-track-index="11">dalam saya punya topik</div>
-      <div class="cap clip" id="cap74" data-start="99.067" data-duration="1.924" data-track-index="11">dalam sesi simulasi ni,</div>
-      <div class="cap clip" id="cap75" data-start="100.991" data-duration="1.709" data-track-index="11">tajwid naql dengan saktah.</div>
-      <div class="cap clip" id="cap76" data-start="102.7" data-duration="0.745" data-track-index="11">Boleh tengok sikit apa</div>
-      <div class="cap clip" id="cap77" data-start="103.445" data-duration="1.222" data-track-index="11">yang saya kongsikan.</div>
-      <div class="cap clip" id="cap78" data-start="104.827" data-duration="0.88" data-track-index="11">Okey,</div>
-      <div class="cap clip" id="cap79" data-start="105.707" data-duration="4.44" data-track-index="11">apa beza saktah dengan naql?</div>
-      <div class="cap clip" id="cap80" data-start="110.147" data-duration="3.68" data-track-index="11">Okey, saktah, kita berhenti.</div>
-      <div class="cap clip" id="cap81" data-start="113.827" data-duration="0.48" data-track-index="11">Maksudnya,</div>
-      <div class="cap clip" id="cap82" data-start="114.307" data-duration="1.62" data-track-index="11">kita berhenti pada huruf</div>
-      <div class="cap clip" id="cap83" data-start="115.927" data-duration="0.86" data-track-index="11">sin kecil kan?</div>
-      <div class="cap clip" id="cap84" data-start="116.787" data-duration="0.88" data-track-index="11">Dalam Al-Quran tu,</div>
-      <div class="cap clip" id="cap85" data-start="117.667" data-duration="1.0" data-track-index="11">kita berhenti tanpa</div>
-      <div class="cap clip" id="cap86" data-start="118.667" data-duration="1.72" data-track-index="11">ambil nafas baru.</div>
-      <div class="cap clip" id="cap87" data-start="120.387" data-duration="0.76" data-track-index="11">Naql pula,</div>
-      <div class="cap clip" id="cap88" data-start="121.147" data-duration="2.28" data-track-index="11">dalam Al-Quran hanya ada</div>
-      <div class="cap clip" id="cap89" data-start="123.427" data-duration="1.16" data-track-index="11">satu tempat sahaja.</div>
-      <div class="cap clip" id="cap90" data-start="124.587" data-duration="2.58" data-track-index="11">Iaitu, dipindahkan baris.</div>
-      <div class="cap clip" id="cap91" data-start="127.167" data-duration="0.78" data-track-index="11">Contohnya,</div>
-      <div class="cap clip" id="cap92" data-start="127.947" data-duration="1.34" data-track-index="11">dekat surah hujurat</div>
-      <div class="cap clip" id="cap93" data-start="129.287" data-duration="2.48" data-track-index="11">dalam Al-Quran kita.</div>
-      <div class="cap clip" id="cap94" data-start="131.767" data-duration="0.724" data-track-index="11">Yang last kali ni,</div>
-      <div class="cap clip" id="cap95" data-start="132.491" data-duration="1.209" data-track-index="11">guru yang</div>
-      <div class="cap clip" id="cap96" data-start="133.867" data-duration="0.897" data-track-index="11">mengajar tu dia</div>
-      <div class="cap clip" id="cap97" data-start="134.764" data-duration="0.803" data-track-index="11">kena kreatif lah.</div>
-      <div class="cap clip" id="cap98" data-start="135.567" data-duration="0.866" data-track-index="11">Sesi praktikal ni,</div>
-      <div class="cap clip" id="cap99" data-start="136.433" data-duration="1.312" data-track-index="11">kalau orang yang mengajar</div>
-      <div class="cap clip" id="cap100" data-start="137.745" data-duration="2.182" data-track-index="11">tu dia terlalu fakta.</div>
-      <div class="cap clip" id="cap101" data-start="139.927" data-duration="1.328" data-track-index="11">Dia terlalu macam</div>
-      <div class="cap clip" id="cap102" data-start="141.255" data-duration="1.509" data-track-index="11">terikat dengan buku.</div>
-      <div class="cap clip" id="cap103" data-start="142.764" data-duration="1.203" data-track-index="11">Jadi, kelas tu tak best.</div>
-      <div class="cap clip" id="cap104" data-start="143.967" data-duration="1.233" data-track-index="11">Dia kena kreatifnya, contoh,</div>
-      <div class="cap clip" id="cap105" data-start="145.2" data-duration="1.323" data-track-index="11">nak menampakkan by group.</div>
-      <div class="cap clip" id="cap106" data-start="146.523" data-duration="0.927" data-track-index="11">Dalam kelas saya ada</div>
-      <div class="cap clip" id="cap107" data-start="147.45" data-duration="0.732" data-track-index="11">tiga group kan?</div>
-      <div class="cap clip" id="cap108" data-start="148.182" data-duration="1.054" data-track-index="11">So, group pertama baca,</div>
-      <div class="cap clip" id="cap109" data-start="149.236" data-duration="1.897" data-track-index="11">saya kira, tiga, dua, satu,</div>
-      <div class="cap clip" id="cap110" data-start="151.133" data-duration="0.4" data-track-index="11">okey.</div>
-      <div class="cap clip" id="cap111" data-start="151.382" data-duration="1.018" data-track-index="11">Yang group bahagian</div>
-      <div class="cap clip" id="cap112" data-start="152.4" data-duration="0.945" data-track-index="11">kanan sahaja baca,</div>
-      <div class="cap clip" id="cap113" data-start="153.345" data-duration="1.473" data-track-index="11">okey, selesai. Lepas tu, okey,</div>
-      <div class="cap clip" id="cap114" data-start="154.818" data-duration="1.746" data-track-index="11">group tengah, satu, tiga, dua,</div>
-      <div class="cap clip" id="cap115" data-start="156.564" data-duration="1.436" data-track-index="11">satu, contoh, faham, selesai,</div>
-      <div class="cap clip" id="cap116" data-start="158.0" data-duration="1.127" data-track-index="11">dua, okey. Lepas tu,</div>
-      <div class="cap clip" id="cap117" data-start="159.127" data-duration="0.782" data-track-index="11">saya pergi ke tiga.</div>
-      <div class="cap clip" id="cap118" data-start="159.909" data-duration="0.658" data-track-index="11">Macam tu lah.</div>
-      <div class="cap clip" id="cap119" data-start="160.567" data-duration="0.869" data-track-index="11">Boleh tengok simulasi</div>
-      <div class="cap clip" id="cap120" data-start="161.436" data-duration="0.664" data-track-index="11">contoh ni kan.</div>
-      <div class="cap clip" id="cap121" data-start="173.4" data-duration="0.4" data-track-index="11">So,</div>
-      <div class="cap clip" id="cap122" data-start="173.645" data-duration="1.055" data-track-index="11">ke lima-lima ni</div>
-      <div class="cap clip" id="cap123" data-start="174.7" data-duration="1.033" data-track-index="11">sebenarnya kena berkait.</div>
-      <div class="cap clip" id="cap124" data-start="175.733" data-duration="1.222" data-track-index="11">Jangan sekadar dalam</div>
-      <div class="cap clip" id="cap125" data-start="176.955" data-duration="0.745" data-track-index="11">kelas dah habis.</div>
-      <div class="cap clip" id="cap126" data-start="177.7" data-duration="1.436" data-track-index="11">So, boleh praktik dekat rumah,</div>
-      <div class="cap clip" id="cap127" data-start="179.136" data-duration="1.164" data-track-index="11">apa yang dekat dalam</div>
-      <div class="cap clip" id="cap128" data-start="180.3" data-duration="0.9" data-track-index="11">kelas dah selesai,</div>
-      <div class="cap clip" id="cap129" data-start="181.2" data-duration="0.9" data-track-index="11">tu praktik dekat rumah.</div>
-      <div class="cap clip" id="cap130" data-start="182.1" data-duration="1.273" data-track-index="11">Barulah ilmu yang tuan</div>
-      <div class="cap clip" id="cap131" data-start="183.373" data-duration="1.061" data-track-index="11">puan belajar tu kan.</div>
-      <div class="cap clip" id="cap132" data-start="184.434" data-duration="0.699" data-track-index="11">Bukan sekadar dalam</div>
-      <div class="cap clip" id="cap133" data-start="185.133" data-duration="0.512" data-track-index="11">ilmu Quran je.</div>
-      <div class="cap clip" id="cap134" data-start="185.645" data-duration="1.055" data-track-index="11">Ilmu-ilmu lain pun boleh.</div>
-      <div class="cap clip" id="cap135" data-start="186.7" data-duration="1.234" data-track-index="11">Cuma lain lah kan.</div>
-      <div class="cap clip" id="cap136" data-start="187.934" data-duration="0.857" data-track-index="11">Cara penyampaian,</div>
-      <div class="cap clip" id="cap137" data-start="188.791" data-duration="1.382" data-track-index="11">mungkin kepakaran tuan puan</div>
-      <div class="cap clip" id="cap138" data-start="190.173" data-duration="0.782" data-track-index="11">kepada ilmu lain</div>
-      <div class="cap clip" id="cap139" data-start="190.955" data-duration="0.912" data-track-index="11">boleh tiru style.</div>
-      <div class="cap clip" id="cap140" data-start="191.867" data-duration="1.397" data-track-index="11">Macam contoh dalam simulasi</div>
-      <div class="cap clip" id="cap141" data-start="193.264" data-duration="0.509" data-track-index="11">yang saya kongsi.</div>
-      <div class="cap clip" id="cap142" data-start="193.773" data-duration="1.494" data-track-index="11">Nak tahu lagi detail,</div>
-      <div class="cap clip" id="cap143" data-start="195.267" data-duration="1.767" data-track-index="11">apa yang saya kongsikan boleh</div>
-      <div class="cap clip" id="cap144" data-start="197.034" data-duration="1.557" data-track-index="11">tanya dekat ruangan komen dan</div>
-      <div class="cap clip" id="cap145" data-start="198.591" data-duration="1.176" data-track-index="11">jangan lupa follow saya.</div>
+      <div class="cap clip" id="cap19" data-start="20.964" data-duration="1.036" data-track-index="11">saya mengajar. Firstnya,</div>
+      <div class="cap clip" id="cap20" data-start="22.0" data-duration="1.182" data-track-index="11">of course lah paling cantik</div>
+      <div class="cap clip" id="cap21" data-start="23.182" data-duration="1.918" data-track-index="11">sekali kena ada modul kelas.</div>
+      <div class="cap clip" id="cap22" data-start="25.1" data-duration="0.555" data-track-index="11">Kalau tak ada,</div>
+      <div class="cap clip" id="cap23" data-start="25.655" data-duration="1.563" data-track-index="11">dia agak kurang teratur kita</div>
+      <div class="cap clip" id="cap24" data-start="27.218" data-duration="1.549" data-track-index="11">punya sesi kelas tu.</div>
+      <div class="cap clip" id="cap25" data-start="28.767" data-duration="1.566" data-track-index="11">Dan boleh tengok dalam contoh</div>
+      <div class="cap clip" id="cap26" data-start="30.333" data-duration="1.6" data-track-index="11">gambar yang saya tunjukkan.</div>
+      <div class="cap clip" id="cap27" data-start="31.933" data-duration="0.7" data-track-index="11">Yang keduanya,</div>
+      <div class="cap clip" id="cap28" data-start="32.633" data-duration="1.149" data-track-index="11">benda kena ada bila</div>
+      <div class="cap clip" id="cap29" data-start="33.782" data-duration="1.585" data-track-index="11">dalam sesi mengajar Quran,</div>
+      <div class="cap clip" id="cap30" data-start="35.367" data-duration="0.924" data-track-index="11">guru yang mengajar tu</div>
+      <div class="cap clip" id="cap31" data-start="36.291" data-duration="0.727" data-track-index="11">of course lah kan.</div>
+      <div class="cap clip" id="cap32" data-start="37.018" data-duration="1.149" data-track-index="11">Dia kena mahir.</div>
+      <div class="cap clip" id="cap33" data-start="38.167" data-duration="1.266" data-track-index="11">Mahir dari sudut makhraj ni.</div>
+      <div class="cap clip" id="cap34" data-start="39.433" data-duration="0.7" data-track-index="11">Tempat keluar huruf.</div>
+      <div class="cap clip" id="cap35" data-start="40.133" data-duration="0.667" data-track-index="11">Itu sifat.</div>
+      <div class="cap clip" id="cap36" data-start="40.8" data-duration="1.145" data-track-index="11">Macam mana sebutan setiap</div>
+      <div class="cap clip" id="cap37" data-start="41.945" data-duration="0.8" data-track-index="11">huruf tu macam mana.</div>
+      <div class="cap clip" id="cap38" data-start="42.745" data-duration="1.155" data-track-index="11">Bunyi panjang pendek lah.</div>
+      <div class="cap clip" id="cap39" data-start="43.9" data-duration="1.2" data-track-index="11">Boleh rujuk video ni.</div>
+      <div class="cap clip" id="cap40" data-start="58.6" data-duration="1.733" data-track-index="11">Yang ketiga, mostly takut.</div>
+      <div class="cap clip" id="cap41" data-start="60.333" data-duration="1.822" data-track-index="11">Lepas sesi guru baca,</div>
+      <div class="cap clip" id="cap42" data-start="62.155" data-duration="0.872" data-track-index="11">of course lah pelajar</div>
+      <div class="cap clip" id="cap43" data-start="63.027" data-duration="0.74" data-track-index="11">kena baca kan.</div>
+      <div class="cap clip" id="cap44" data-start="63.767" data-duration="2.024" data-track-index="11">Mostly yang dah berumur kan.</div>
+      <div class="cap clip" id="cap45" data-start="65.791" data-duration="1.976" data-track-index="11">Umur 50-an, 60-an, 70-an.</div>
+      <div class="cap clip" id="cap46" data-start="67.767" data-duration="1.624" data-track-index="11">Takut-takut nak baca kan.</div>
+      <div class="cap clip" id="cap47" data-start="69.391" data-duration="1.436" data-track-index="11">Takut kerap dia tegur.</div>
+      <div class="cap clip" id="cap48" data-start="70.827" data-duration="1.437" data-track-index="11">Sayang sebenarnya. Sebab apa?</div>
+      <div class="cap clip" id="cap49" data-start="72.264" data-duration="1.145" data-track-index="11">Bila dalam kelas,</div>
+      <div class="cap clip" id="cap50" data-start="73.409" data-duration="2.509" data-track-index="11">bukan dapat ilmu daripada</div>
+      <div class="cap clip" id="cap51" data-start="75.918" data-duration="1.449" data-track-index="11">guru yang menegur.</div>
+      <div class="cap clip" id="cap52" data-start="77.367" data-duration="1.606" data-track-index="11">Malah dapat support daripada</div>
+      <div class="cap clip" id="cap53" data-start="78.973" data-duration="1.345" data-track-index="11">kawan-kawan yang satu kelas.</div>
+      <div class="cap clip" id="cap54" data-start="80.318" data-duration="0.582" data-track-index="11">Tapi sayangnya,</div>
+      <div class="cap clip" id="cap55" data-start="80.9" data-duration="1.267" data-track-index="11">mostly yang nombor tiga ni.</div>
+      <div class="cap clip" id="cap56" data-start="82.167" data-duration="1.533" data-track-index="11">Bila kerap, tak ada masa,</div>
+      <div class="cap clip" id="cap57" data-start="83.7" data-duration="0.836" data-track-index="11">jarang-jarang datang,</div>
+      <div class="cap clip" id="cap58" data-start="84.536" data-duration="1.109" data-track-index="11">tiba-tiba malu sebab kawan</div>
+      <div class="cap clip" id="cap59" data-start="85.645" data-duration="0.51" data-track-index="11">dah ke depan.</div>
+      <div class="cap clip" id="cap60" data-start="86.155" data-duration="0.963" data-track-index="11">Tak boleh tu. Bagi saya,</div>
+      <div class="cap clip" id="cap61" data-start="87.118" data-duration="1.146" data-track-index="11">nanti tak ke depan</div>
+      <div class="cap clip" id="cap62" data-start="88.264" data-duration="1.272" data-track-index="11">ilmu Quran tu.</div>
+      <div class="cap clip" id="cap63" data-start="89.536" data-duration="0.764" data-track-index="11">Yang keempatnya,</div>
+      <div class="cap clip" id="cap64" data-start="90.3" data-duration="1.959" data-track-index="11">of course sesi teori.</div>
+      <div class="cap clip" id="cap65" data-start="92.259" data-duration="1.132" data-track-index="11">Kan dah selesai baca kan?</div>
+      <div class="cap clip" id="cap66" data-start="93.391" data-duration="1.109" data-track-index="11">So, kita nak rungkai apa</div>
+      <div class="cap clip" id="cap67" data-start="94.5" data-duration="0.673" data-track-index="11">yang baca tu,</div>
+      <div class="cap clip" id="cap68" data-start="95.173" data-duration="0.6" data-track-index="11">benda hukum-hukum tajwid</div>
+      <div class="cap clip" id="cap69" data-start="95.773" data-duration="0.945" data-track-index="11">yang ada. Contoh,</div>
+      <div class="cap clip" id="cap70" data-start="96.718" data-duration="2.349" data-track-index="11">dalam saya punya topik</div>
+      <div class="cap clip" id="cap71" data-start="99.067" data-duration="1.924" data-track-index="11">dalam sesi simulasi ni,</div>
+      <div class="cap clip" id="cap72" data-start="100.991" data-duration="1.709" data-track-index="11">tajwid naql dengan saktah.</div>
+      <div class="cap clip" id="cap73" data-start="102.7" data-duration="0.745" data-track-index="11">Boleh tengok sikit apa</div>
+      <div class="cap clip" id="cap74" data-start="103.445" data-duration="1.222" data-track-index="11">yang saya kongsikan.</div>
+      <div class="cap clip" id="cap75" data-start="104.827" data-duration="0.88" data-track-index="11">Okey,</div>
+      <div class="cap clip" id="cap76" data-start="105.707" data-duration="4.44" data-track-index="11">apa beza saktah dengan naql?</div>
+      <div class="cap clip" id="cap77" data-start="110.147" data-duration="3.68" data-track-index="11">Okey, saktah, kita berhenti.</div>
+      <div class="cap clip" id="cap78" data-start="113.827" data-duration="0.48" data-track-index="11">Maksudnya,</div>
+      <div class="cap clip" id="cap79" data-start="114.307" data-duration="1.62" data-track-index="11">kita berhenti pada huruf</div>
+      <div class="cap clip" id="cap80" data-start="115.927" data-duration="0.86" data-track-index="11">sin kecil kan?</div>
+      <div class="cap clip" id="cap81" data-start="116.787" data-duration="0.88" data-track-index="11">Dalam Al-Quran tu,</div>
+      <div class="cap clip" id="cap82" data-start="117.667" data-duration="1.0" data-track-index="11">kita berhenti tanpa</div>
+      <div class="cap clip" id="cap83" data-start="118.667" data-duration="1.72" data-track-index="11">ambil nafas baru.</div>
+      <div class="cap clip" id="cap84" data-start="120.387" data-duration="0.76" data-track-index="11">Naql pula,</div>
+      <div class="cap clip" id="cap85" data-start="121.147" data-duration="2.28" data-track-index="11">dalam Al-Quran hanya ada</div>
+      <div class="cap clip" id="cap86" data-start="123.427" data-duration="1.16" data-track-index="11">satu tempat sahaja.</div>
+      <div class="cap clip" id="cap87" data-start="124.587" data-duration="2.58" data-track-index="11">Iaitu, dipindahkan baris.</div>
+      <div class="cap clip" id="cap88" data-start="127.167" data-duration="2.12" data-track-index="11">Contohnya, dekat surah hujurat</div>
+      <div class="cap clip" id="cap89" data-start="129.287" data-duration="2.48" data-track-index="11">dalam Al-Quran kita.</div>
+      <div class="cap clip" id="cap90" data-start="131.767" data-duration="0.724" data-track-index="11">Yang last kali ni,</div>
+      <div class="cap clip" id="cap91" data-start="132.491" data-duration="1.209" data-track-index="11">guru yang</div>
+      <div class="cap clip" id="cap92" data-start="133.867" data-duration="0.897" data-track-index="11">mengajar tu dia</div>
+      <div class="cap clip" id="cap93" data-start="134.764" data-duration="0.803" data-track-index="11">kena kreatif lah.</div>
+      <div class="cap clip" id="cap94" data-start="135.567" data-duration="0.866" data-track-index="11">Sesi praktikal ni,</div>
+      <div class="cap clip" id="cap95" data-start="136.433" data-duration="1.312" data-track-index="11">kalau orang yang mengajar</div>
+      <div class="cap clip" id="cap96" data-start="137.745" data-duration="2.182" data-track-index="11">tu dia terlalu fakta.</div>
+      <div class="cap clip" id="cap97" data-start="139.927" data-duration="1.328" data-track-index="11">Dia terlalu macam</div>
+      <div class="cap clip" id="cap98" data-start="141.255" data-duration="1.509" data-track-index="11">terikat dengan buku.</div>
+      <div class="cap clip" id="cap99" data-start="142.764" data-duration="1.203" data-track-index="11">Jadi, kelas tu tak best.</div>
+      <div class="cap clip" id="cap100" data-start="143.967" data-duration="1.233" data-track-index="11">Dia kena kreatifnya, contoh,</div>
+      <div class="cap clip" id="cap101" data-start="145.2" data-duration="1.323" data-track-index="11">nak menampakkan by group.</div>
+      <div class="cap clip" id="cap102" data-start="146.523" data-duration="0.927" data-track-index="11">Dalam kelas saya ada</div>
+      <div class="cap clip" id="cap103" data-start="147.45" data-duration="0.732" data-track-index="11">tiga group kan?</div>
+      <div class="cap clip" id="cap104" data-start="148.182" data-duration="1.054" data-track-index="11">So, group pertama baca,</div>
+      <div class="cap clip" id="cap105" data-start="149.236" data-duration="1.897" data-track-index="11">saya kira, tiga, dua, satu,</div>
+      <div class="cap clip" id="cap106" data-start="151.133" data-duration="1.267" data-track-index="11">okey. Yang group bahagian</div>
+      <div class="cap clip" id="cap107" data-start="152.4" data-duration="0.945" data-track-index="11">kanan sahaja baca,</div>
+      <div class="cap clip" id="cap108" data-start="153.345" data-duration="1.473" data-track-index="11">okey, selesai. Lepas tu, okey,</div>
+      <div class="cap clip" id="cap109" data-start="154.818" data-duration="1.746" data-track-index="11">group tengah, satu, tiga, dua,</div>
+      <div class="cap clip" id="cap110" data-start="156.564" data-duration="1.436" data-track-index="11">satu, contoh, faham, selesai,</div>
+      <div class="cap clip" id="cap111" data-start="158.0" data-duration="1.127" data-track-index="11">dua, okey. Lepas tu,</div>
+      <div class="cap clip" id="cap112" data-start="159.127" data-duration="0.782" data-track-index="11">saya pergi ke tiga.</div>
+      <div class="cap clip" id="cap113" data-start="159.909" data-duration="0.658" data-track-index="11">Macam tu lah.</div>
+      <div class="cap clip" id="cap114" data-start="160.567" data-duration="0.869" data-track-index="11">Boleh tengok simulasi</div>
+      <div class="cap clip" id="cap115" data-start="161.436" data-duration="0.664" data-track-index="11">contoh ni kan.</div>
+      <div class="cap clip" id="cap116" data-start="173.4" data-duration="1.3" data-track-index="11">So, ke lima-lima ni</div>
+      <div class="cap clip" id="cap117" data-start="174.7" data-duration="1.033" data-track-index="11">sebenarnya kena berkait.</div>
+      <div class="cap clip" id="cap118" data-start="175.733" data-duration="1.222" data-track-index="11">Jangan sekadar dalam</div>
+      <div class="cap clip" id="cap119" data-start="176.955" data-duration="0.745" data-track-index="11">kelas dah habis.</div>
+      <div class="cap clip" id="cap120" data-start="177.7" data-duration="1.436" data-track-index="11">So, boleh praktik dekat rumah,</div>
+      <div class="cap clip" id="cap121" data-start="179.136" data-duration="1.164" data-track-index="11">apa yang dekat dalam</div>
+      <div class="cap clip" id="cap122" data-start="180.3" data-duration="0.9" data-track-index="11">kelas dah selesai,</div>
+      <div class="cap clip" id="cap123" data-start="181.2" data-duration="0.9" data-track-index="11">tu praktik dekat rumah.</div>
+      <div class="cap clip" id="cap124" data-start="182.1" data-duration="1.273" data-track-index="11">Barulah ilmu yang tuan</div>
+      <div class="cap clip" id="cap125" data-start="183.373" data-duration="1.061" data-track-index="11">puan belajar tu kan.</div>
+      <div class="cap clip" id="cap126" data-start="184.434" data-duration="0.699" data-track-index="11">Bukan sekadar dalam</div>
+      <div class="cap clip" id="cap127" data-start="185.133" data-duration="0.512" data-track-index="11">ilmu Quran je.</div>
+      <div class="cap clip" id="cap128" data-start="185.645" data-duration="1.055" data-track-index="11">Ilmu-ilmu lain pun boleh.</div>
+      <div class="cap clip" id="cap129" data-start="186.7" data-duration="1.234" data-track-index="11">Cuma lain lah kan.</div>
+      <div class="cap clip" id="cap130" data-start="187.934" data-duration="0.857" data-track-index="11">Cara penyampaian,</div>
+      <div class="cap clip" id="cap131" data-start="188.791" data-duration="1.382" data-track-index="11">mungkin kepakaran tuan puan</div>
+      <div class="cap clip" id="cap132" data-start="190.173" data-duration="0.782" data-track-index="11">kepada ilmu lain</div>
+      <div class="cap clip" id="cap133" data-start="190.955" data-duration="0.912" data-track-index="11">boleh tiru style.</div>
+      <div class="cap clip" id="cap134" data-start="191.867" data-duration="1.397" data-track-index="11">Macam contoh dalam simulasi</div>
+      <div class="cap clip" id="cap135" data-start="193.264" data-duration="0.509" data-track-index="11">yang saya kongsi.</div>
+      <div class="cap clip" id="cap136" data-start="193.773" data-duration="1.494" data-track-index="11">Nak tahu lagi detail,</div>
+      <div class="cap clip" id="cap137" data-start="195.267" data-duration="1.767" data-track-index="11">apa yang saya kongsikan boleh</div>
+      <div class="cap clip" id="cap138" data-start="197.034" data-duration="1.557" data-track-index="11">tanya dekat ruangan komen dan</div>
+      <div class="cap clip" id="cap139" data-start="198.591" data-duration="1.176" data-track-index="11">jangan lupa follow saya.</div>
       <audio id="voice" class="clip" data-start="0" data-duration="199.767" data-track-index="1" src="assets/video/voice.m4a" data-volume="1"></audio>
       <audio id="music" class="clip" data-start="0" data-duration="199.767" data-track-index="2" src="assets/music/ambient-blu.mp3" data-volume="1" data-fade-in="1.5" data-fade-out="1.5" data-automation="{&quot;version&quot;: 1, &quot;lanes&quot;: [{&quot;target&quot;: &quot;volume&quot;, &quot;points&quot;: [{&quot;t&quot;: 0, &quot;v&quot;: 0.0}, {&quot;t&quot;: 0.6, &quot;v&quot;: 0.1}, {&quot;t&quot;: 44.6, &quot;v&quot;: 0.1}, {&quot;t&quot;: 45.1, &quot;v&quot;: 0.0}, {&quot;t&quot;: 58.6, &quot;v&quot;: 0.0}, {&quot;t&quot;: 59.4, &quot;v&quot;: 0.1}, {&quot;t&quot;: 161.6, &quot;v&quot;: 0.1}, {&quot;t&quot;: 162.1, &quot;v&quot;: 0.0}, {&quot;t&quot;: 173.4, &quot;v&quot;: 0.0}, {&quot;t&quot;: 174.2, &quot;v&quot;: 0.1}, {&quot;t&quot;: 198.267, &quot;v&quot;: 0.1}, {&quot;t&quot;: 199.767, &quot;v&quot;: 0.0}]}]}"></audio>
       <audio id="sfx-chip1" class="clip" data-start="12.733" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
       <audio id="sfx-chip2" class="clip" data-start="21.533" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
       <audio id="sfx-chip3" class="clip" data-start="31.945" data-duration="0.57" data-track-index="22" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-chip5" class="clip" data-start="89.6" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-chip6" class="clip" data-start="131.767" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-chip8" class="clip" data-start="193.767" data-duration="0.57" data-track-index="22" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-chip10" class="clip" data-start="110.067" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-chip11" class="clip" data-start="120.267" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-card0" class="clip" data-start="0.045" data-duration="0.72" data-track-index="22" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card1" class="clip" data-start="7.618" data-duration="0.72" data-track-index="20" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card2" class="clip" data-start="21.624" data-duration="0.72" data-track-index="21" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card3" class="clip" data-start="32.054" data-duration="0.72" data-track-index="22" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card5" class="clip" data-start="65.827" data-duration="0.72" data-track-index="20" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card6" class="clip" data-start="89.646" data-duration="0.72" data-track-index="21" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card7" class="clip" data-start="101.076" data-duration="0.72" data-track-index="22" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card8" class="clip" data-start="131.797" data-duration="0.72" data-track-index="20" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card9" class="clip" data-start="147.382" data-duration="0.72" data-track-index="21" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card10" class="clip" data-start="150.052" data-duration="0.72" data-track-index="22" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card11" class="clip" data-start="174.052" data-duration="0.72" data-track-index="20" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card12" class="clip" data-start="193.797" data-duration="0.72" data-track-index="21" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-card13" class="clip" data-start="197.276" data-duration="0.72" data-track-index="22" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-hook" class="clip" data-start="0.3" data-duration="2.1" data-track-index="20" src="assets/sfx/impact-bass-1.mp3" data-volume="0.22"></audio>
-      <audio id="sfx-pill5.179" class="clip" data-start="5.179" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill6.088" class="clip" data-start="6.088" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill11.249" class="clip" data-start="11.249" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill25.191" class="clip" data-start="25.191" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill26.1" class="clip" data-start="26.1" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill38.167" class="clip" data-start="38.167" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill40.164" class="clip" data-start="40.164" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill42.921" class="clip" data-start="42.921" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill60.379" class="clip" data-start="60.379" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill62.752" class="clip" data-start="62.752" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill67.827" class="clip" data-start="67.827" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill69.555" class="clip" data-start="69.555" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill74.558" class="clip" data-start="74.558" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill77.955" class="clip" data-start="77.955" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill83.797" class="clip" data-start="83.797" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill84.888" class="clip" data-start="84.888" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill94.042" class="clip" data-start="94.042" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill139.449" class="clip" data-start="139.449" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill141.812" class="clip" data-start="141.812" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill146.364" class="clip" data-start="146.364" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill177.37" class="clip" data-start="177.37" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill178.215" class="clip" data-start="178.215" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill182.685" class="clip" data-start="182.685" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill185.785" class="clip" data-start="185.785" data-duration="0.37" data-track-index="20" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill187.994" class="clip" data-start="187.994" data-duration="0.37" data-track-index="21" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-pill191.279" class="clip" data-start="191.279" data-duration="0.37" data-track-index="22" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
-      <audio id="sfx-cut0" class="clip" data-start="12.794" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut1" class="clip" data-start="17.367" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut2" class="clip" data-start="28.827" data-duration="0.57" data-track-index="22" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut3" class="clip" data-start="60.333" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut4" class="clip" data-start="77.909" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut5" class="clip" data-start="82.227" data-duration="0.57" data-track-index="22" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut6" class="clip" data-start="93.467" data-duration="0.57" data-track-index="20" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut7" class="clip" data-start="154.121" data-duration="0.57" data-track-index="21" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-cut8" class="clip" data-start="177.715" data-duration="0.57" data-track-index="22" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-emo16.6" class="clip" data-start="11.703" data-duration="1.2" data-track-index="20" src="assets/sfx/whoosh-cinematic.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-emo113.0" class="clip" data-start="78.591" data-duration="2.5" data-track-index="21" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-emo135.3" class="clip" data-start="84.979" data-duration="1.2" data-track-index="22" src="assets/sfx/whoosh-cinematic.mp3" data-volume="0.14"></audio>
-      <audio id="sfx-emo235.5" class="clip" data-start="182.685" data-duration="2.5" data-track-index="20" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-emo242.2" class="clip" data-start="186.103" data-duration="2.5" data-track-index="21" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-emo250.5" class="clip" data-start="191.37" data-duration="2.5" data-track-index="22" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
-      <audio id="sfx-modul-paper" class="clip" data-start="24.454" data-duration="1.6" data-media-start="3.0" data-track-index="20" src="assets/sfx/using_thick_paper.mp3" data-volume="0.35" data-fade-in="0.2" data-fade-out="0.2"></audio>
-      <audio id="sfx-buku-paper" class="clip" data-start="141.812" data-duration="1.4" data-media-start="8.0" data-track-index="21" src="assets/sfx/using_thick_paper.mp3" data-volume="0.3" data-fade-in="0.2" data-fade-out="0.2"></audio>
-      <audio id="sfx-rungkai-pen" class="clip" data-start="94.042" data-duration="2.2" data-media-start="4.0" data-track-index="22" src="assets/sfx/drawing_on_paper_with_pencil.mp3" data-volume="0.3" data-fade-in="0.3" data-fade-out="0.3"></audio>
-      <audio id="sfx-teori-pen" class="clip" data-start="104.867" data-duration="1.6" data-media-start="10.0" data-track-index="20" src="assets/sfx/drawing_on_paper_with_pencil.mp3" data-volume="0.18" data-fade-in="0.3" data-fade-out="0.3"></audio>
+      <audio id="sfx-chip5" class="clip" data-start="89.6" data-duration="0.57" data-track-index="23" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-chip6" class="clip" data-start="131.767" data-duration="0.57" data-track-index="24" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-chip8" class="clip" data-start="193.767" data-duration="0.57" data-track-index="25" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-chip10" class="clip" data-start="110.067" data-duration="0.57" data-track-index="26" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-chip11" class="clip" data-start="120.267" data-duration="0.57" data-track-index="27" src="assets/sfx/whoosh-short.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-card0" class="clip" data-start="0.045" data-duration="0.72" data-track-index="28" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card1" class="clip" data-start="7.618" data-duration="0.72" data-track-index="29" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card2" class="clip" data-start="21.624" data-duration="0.72" data-track-index="30" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card3" class="clip" data-start="32.054" data-duration="0.72" data-track-index="31" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card5" class="clip" data-start="65.827" data-duration="0.72" data-track-index="32" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card6" class="clip" data-start="89.646" data-duration="0.72" data-track-index="33" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card7" class="clip" data-start="101.076" data-duration="0.72" data-track-index="34" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card8" class="clip" data-start="131.797" data-duration="0.72" data-track-index="35" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card9" class="clip" data-start="147.382" data-duration="0.72" data-track-index="36" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card10" class="clip" data-start="150.052" data-duration="0.72" data-track-index="37" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card11" class="clip" data-start="174.052" data-duration="0.72" data-track-index="38" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card12" class="clip" data-start="193.797" data-duration="0.72" data-track-index="39" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-card13" class="clip" data-start="197.276" data-duration="0.72" data-track-index="40" src="assets/sfx/pop.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-hook" class="clip" data-start="0.3" data-duration="2.1" data-track-index="41" src="assets/sfx/impact-bass-1.mp3" data-volume="0.22"></audio>
+      <audio id="sfx-pill5.179" class="clip" data-start="5.179" data-duration="0.37" data-track-index="42" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill6.088" class="clip" data-start="6.088" data-duration="0.37" data-track-index="43" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill11.249" class="clip" data-start="11.249" data-duration="0.37" data-track-index="44" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill25.191" class="clip" data-start="25.191" data-duration="0.37" data-track-index="45" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill26.1" class="clip" data-start="26.1" data-duration="0.37" data-track-index="46" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill38.167" class="clip" data-start="38.167" data-duration="0.37" data-track-index="47" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill40.164" class="clip" data-start="40.164" data-duration="0.37" data-track-index="48" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill42.921" class="clip" data-start="42.921" data-duration="0.37" data-track-index="49" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill60.379" class="clip" data-start="60.379" data-duration="0.37" data-track-index="50" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill62.752" class="clip" data-start="62.752" data-duration="0.37" data-track-index="51" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill67.827" class="clip" data-start="67.827" data-duration="0.37" data-track-index="52" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill69.555" class="clip" data-start="69.555" data-duration="0.37" data-track-index="53" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill74.558" class="clip" data-start="74.558" data-duration="0.37" data-track-index="54" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill77.955" class="clip" data-start="77.955" data-duration="0.37" data-track-index="55" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill83.797" class="clip" data-start="83.797" data-duration="0.37" data-track-index="56" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill84.888" class="clip" data-start="84.888" data-duration="0.37" data-track-index="57" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill94.042" class="clip" data-start="94.042" data-duration="0.37" data-track-index="58" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill139.449" class="clip" data-start="139.449" data-duration="0.37" data-track-index="59" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill141.812" class="clip" data-start="141.812" data-duration="0.37" data-track-index="60" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill146.364" class="clip" data-start="146.364" data-duration="0.37" data-track-index="61" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill177.37" class="clip" data-start="177.37" data-duration="0.37" data-track-index="62" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill178.215" class="clip" data-start="178.215" data-duration="0.37" data-track-index="63" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill182.685" class="clip" data-start="182.685" data-duration="0.37" data-track-index="64" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill185.785" class="clip" data-start="185.785" data-duration="0.37" data-track-index="65" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill187.994" class="clip" data-start="187.994" data-duration="0.37" data-track-index="66" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-pill191.279" class="clip" data-start="191.279" data-duration="0.37" data-track-index="67" src="assets/sfx/click-soft.mp3" data-volume="0.32"></audio>
+      <audio id="sfx-cut0" class="clip" data-start="12.794" data-duration="0.57" data-track-index="68" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut1" class="clip" data-start="17.367" data-duration="0.57" data-track-index="69" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut2" class="clip" data-start="28.827" data-duration="0.57" data-track-index="70" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut3" class="clip" data-start="60.333" data-duration="0.57" data-track-index="71" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut4" class="clip" data-start="77.909" data-duration="0.57" data-track-index="72" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut5" class="clip" data-start="82.227" data-duration="0.57" data-track-index="73" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut6" class="clip" data-start="93.467" data-duration="0.57" data-track-index="74" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut7" class="clip" data-start="154.121" data-duration="0.57" data-track-index="75" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-cut8" class="clip" data-start="177.715" data-duration="0.57" data-track-index="76" src="assets/sfx/whoosh.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-emo16.6" class="clip" data-start="11.703" data-duration="1.2" data-track-index="77" src="assets/sfx/whoosh-cinematic.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-emo113.0" class="clip" data-start="78.591" data-duration="2.5" data-track-index="78" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-emo135.3" class="clip" data-start="84.979" data-duration="1.2" data-track-index="79" src="assets/sfx/whoosh-cinematic.mp3" data-volume="0.14"></audio>
+      <audio id="sfx-emo235.5" class="clip" data-start="182.685" data-duration="2.5" data-track-index="80" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-emo242.2" class="clip" data-start="186.103" data-duration="2.5" data-track-index="81" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-emo250.5" class="clip" data-start="191.37" data-duration="2.5" data-track-index="82" src="assets/sfx/chime.mp3" data-volume="0.16"></audio>
+      <audio id="sfx-modul-paper" class="clip" data-start="24.454" data-duration="1.6" data-media-start="3.0" data-track-index="83" src="assets/sfx/using_thick_paper.mp3" data-volume="0.35" data-fade-in="0.2" data-fade-out="0.2"></audio>
+      <audio id="sfx-buku-paper" class="clip" data-start="141.812" data-duration="1.4" data-media-start="8.0" data-track-index="84" src="assets/sfx/using_thick_paper.mp3" data-volume="0.3" data-fade-in="0.2" data-fade-out="0.2"></audio>
+      <audio id="sfx-rungkai-pen" class="clip" data-start="94.042" data-duration="2.2" data-media-start="4.0" data-track-index="85" src="assets/sfx/drawing_on_paper_with_pencil.mp3" data-volume="0.3" data-fade-in="0.3" data-fade-out="0.3"></audio>
+      <audio id="sfx-teori-pen" class="clip" data-start="104.867" data-duration="1.6" data-media-start="10.0" data-track-index="86" src="assets/sfx/drawing_on_paper_with_pencil.mp3" data-volume="0.18" data-fade-in="0.3" data-fade-out="0.3"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
@@ -395,15 +390,15 @@
       tl.to("#a4911", {opacity:0, y:-12, duration:0.25, ease:"power2.in"}, 131.217);
       tl.fromTo("#a3652", {opacity:0, y:40}, {opacity:1, y:0, duration:0.45, ease:"power3.out"}, 163.8);
       tl.to("#a3652", {opacity:0, y:-12, duration:0.25, ease:"power2.in"}, 172.85);
-      tl.fromTo("#chip0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 0.0);
-      tl.fromTo("#chip1", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 12.733);
-      tl.fromTo("#chip2", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 21.533);
-      tl.fromTo("#chip3", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 31.945);
-      tl.fromTo("#chip4", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 58.6);
-      tl.fromTo("#chip5", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 89.6);
-      tl.fromTo("#chip6", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 131.767);
-      tl.fromTo("#chip7", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 173.4);
-      tl.fromTo("#chip8", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 193.767);
+      tl.fromTo("#chip0_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 0.0);
+      tl.fromTo("#chip1_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 12.733);
+      tl.fromTo("#chip2_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 21.533);
+      tl.fromTo("#chip3_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 31.945);
+      tl.fromTo("#chip4_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 58.6);
+      tl.fromTo("#chip5_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 89.6);
+      tl.fromTo("#chip6_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 131.767);
+      tl.fromTo("#chip7_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 173.4);
+      tl.fromTo("#chip8_0", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 193.767);
       tl.fromTo("#ca6714", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 45.5);
       tl.fromTo("#ca181", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 110.067);
       tl.fromTo("#ca4911", {opacity:0, y:-14}, {opacity:1, y:0, duration:0.35, ease:"power3.out"}, 120.267);
@@ -412,7 +407,6 @@
       tl.fromTo("#card0 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 0.295);
       tl.to("#card0", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 4.468);
       tl.fromTo("#card1", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 7.618);
-      tl.fromTo("#card1 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 7.868);
       tl.to("#card1", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 9.783);
       tl.fromTo("#card2", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 21.624);
       tl.fromTo("#card2 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 21.874);
@@ -424,7 +418,6 @@
       tl.fromTo("#card4 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 58.895);
       tl.to("#card4", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 60.077);
       tl.fromTo("#card5", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 65.827);
-      tl.fromTo("#card5 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 66.077);
       tl.to("#card5", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 67.486);
       tl.fromTo("#card6", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 89.646);
       tl.fromTo("#card6 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 89.896);
@@ -439,7 +432,6 @@
       tl.fromTo("#card9 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 147.632);
       tl.to("#card9", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 147.983);
       tl.fromTo("#card10", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 150.052);
-      tl.fromTo("#card10 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 150.302);
       tl.to("#card10", {opacity:0, y:-10, duration:0.25, ease:"power2.in"}, 150.883);
       tl.fromTo("#card11", {opacity:0, y:30, scale:0.97}, {opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}, 174.052);
       tl.fromTo("#card11 i", {opacity:0, x:-10}, {opacity:1, x:0, duration:0.4, ease:"power2.out"}, 174.302);
@@ -522,132 +514,126 @@
       tl.fromTo("#cap17", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 18.873);
       tl.fromTo("#cap18", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 19.927);
       tl.fromTo("#cap19", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 20.964);
-      tl.fromTo("#cap20", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 21.545);
-      tl.fromTo("#cap21", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 22.0);
-      tl.fromTo("#cap22", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 23.182);
-      tl.fromTo("#cap23", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 25.1);
-      tl.fromTo("#cap24", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 25.655);
-      tl.fromTo("#cap25", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 27.218);
-      tl.fromTo("#cap26", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 28.767);
-      tl.fromTo("#cap27", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 30.333);
-      tl.fromTo("#cap28", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 31.933);
-      tl.fromTo("#cap29", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 32.633);
-      tl.fromTo("#cap30", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 33.782);
-      tl.fromTo("#cap31", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 35.367);
-      tl.fromTo("#cap32", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 36.291);
-      tl.fromTo("#cap33", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 37.018);
-      tl.fromTo("#cap34", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 38.167);
-      tl.fromTo("#cap35", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 39.433);
-      tl.fromTo("#cap36", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 40.133);
-      tl.fromTo("#cap37", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 40.8);
-      tl.fromTo("#cap38", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 41.945);
-      tl.fromTo("#cap39", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 42.745);
-      tl.fromTo("#cap40", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 43.9);
-      tl.fromTo("#cap41", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 58.6);
-      tl.fromTo("#cap42", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 60.333);
-      tl.fromTo("#cap43", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 62.155);
-      tl.fromTo("#cap44", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 63.027);
-      tl.fromTo("#cap45", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 63.767);
-      tl.fromTo("#cap46", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 65.791);
-      tl.fromTo("#cap47", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 67.767);
-      tl.fromTo("#cap48", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 69.391);
-      tl.fromTo("#cap49", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 70.827);
-      tl.fromTo("#cap50", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 72.264);
-      tl.fromTo("#cap51", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 73.409);
-      tl.fromTo("#cap52", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 75.918);
-      tl.fromTo("#cap53", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 77.367);
-      tl.fromTo("#cap54", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 78.973);
-      tl.fromTo("#cap55", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 80.318);
-      tl.fromTo("#cap56", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 80.9);
-      tl.fromTo("#cap57", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 82.167);
-      tl.fromTo("#cap58", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 83.7);
-      tl.fromTo("#cap59", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 84.536);
-      tl.fromTo("#cap60", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 85.645);
-      tl.fromTo("#cap61", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 86.155);
-      tl.fromTo("#cap62", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 87.118);
-      tl.fromTo("#cap63", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 88.264);
-      tl.fromTo("#cap64", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 89.536);
-      tl.fromTo("#cap65", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 90.3);
-      tl.fromTo("#cap66", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 92.259);
-      tl.fromTo("#cap67", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 93.391);
-      tl.fromTo("#cap68", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 93.573);
-      tl.fromTo("#cap69", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 94.5);
-      tl.fromTo("#cap70", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 95.173);
-      tl.fromTo("#cap71", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 95.773);
-      tl.fromTo("#cap72", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 96.367);
-      tl.fromTo("#cap73", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 96.718);
-      tl.fromTo("#cap74", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 99.067);
-      tl.fromTo("#cap75", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 100.991);
-      tl.fromTo("#cap76", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 102.7);
-      tl.fromTo("#cap77", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 103.445);
-      tl.fromTo("#cap78", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 104.827);
-      tl.fromTo("#cap79", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 105.707);
-      tl.fromTo("#cap80", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 110.147);
-      tl.fromTo("#cap81", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 113.827);
-      tl.fromTo("#cap82", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 114.307);
-      tl.fromTo("#cap83", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 115.927);
-      tl.fromTo("#cap84", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 116.787);
-      tl.fromTo("#cap85", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 117.667);
-      tl.fromTo("#cap86", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 118.667);
-      tl.fromTo("#cap87", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 120.387);
-      tl.fromTo("#cap88", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 121.147);
-      tl.fromTo("#cap89", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 123.427);
-      tl.fromTo("#cap90", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 124.587);
-      tl.fromTo("#cap91", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 127.167);
-      tl.fromTo("#cap92", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 127.947);
-      tl.fromTo("#cap93", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 129.287);
-      tl.fromTo("#cap94", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 131.767);
-      tl.fromTo("#cap95", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 132.491);
-      tl.fromTo("#cap96", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 133.867);
-      tl.fromTo("#cap97", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 134.764);
-      tl.fromTo("#cap98", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 135.567);
-      tl.fromTo("#cap99", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 136.433);
-      tl.fromTo("#cap100", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 137.745);
-      tl.fromTo("#cap101", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 139.927);
-      tl.fromTo("#cap102", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 141.255);
-      tl.fromTo("#cap103", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 142.764);
-      tl.fromTo("#cap104", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 143.967);
-      tl.fromTo("#cap105", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 145.2);
-      tl.fromTo("#cap106", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 146.523);
-      tl.fromTo("#cap107", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 147.45);
-      tl.fromTo("#cap108", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 148.182);
-      tl.fromTo("#cap109", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 149.236);
-      tl.fromTo("#cap110", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 151.133);
-      tl.fromTo("#cap111", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 151.382);
-      tl.fromTo("#cap112", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 152.4);
-      tl.fromTo("#cap113", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 153.345);
-      tl.fromTo("#cap114", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 154.818);
-      tl.fromTo("#cap115", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 156.564);
-      tl.fromTo("#cap116", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 158.0);
-      tl.fromTo("#cap117", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 159.127);
-      tl.fromTo("#cap118", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 159.909);
-      tl.fromTo("#cap119", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 160.567);
-      tl.fromTo("#cap120", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 161.436);
-      tl.fromTo("#cap121", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 173.4);
-      tl.fromTo("#cap122", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 173.645);
-      tl.fromTo("#cap123", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 174.7);
-      tl.fromTo("#cap124", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 175.733);
-      tl.fromTo("#cap125", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 176.955);
-      tl.fromTo("#cap126", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 177.7);
-      tl.fromTo("#cap127", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 179.136);
-      tl.fromTo("#cap128", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 180.3);
-      tl.fromTo("#cap129", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 181.2);
-      tl.fromTo("#cap130", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 182.1);
-      tl.fromTo("#cap131", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 183.373);
-      tl.fromTo("#cap132", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 184.434);
-      tl.fromTo("#cap133", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 185.133);
-      tl.fromTo("#cap134", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 185.645);
-      tl.fromTo("#cap135", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 186.7);
-      tl.fromTo("#cap136", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 187.934);
-      tl.fromTo("#cap137", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 188.791);
-      tl.fromTo("#cap138", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 190.173);
-      tl.fromTo("#cap139", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 190.955);
-      tl.fromTo("#cap140", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 191.867);
-      tl.fromTo("#cap141", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 193.264);
-      tl.fromTo("#cap142", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 193.773);
-      tl.fromTo("#cap143", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 195.267);
-      tl.fromTo("#cap144", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 197.034);
-      tl.fromTo("#cap145", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 198.591);
+      tl.fromTo("#cap20", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 22.0);
+      tl.fromTo("#cap21", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 23.182);
+      tl.fromTo("#cap22", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 25.1);
+      tl.fromTo("#cap23", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 25.655);
+      tl.fromTo("#cap24", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 27.218);
+      tl.fromTo("#cap25", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 28.767);
+      tl.fromTo("#cap26", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 30.333);
+      tl.fromTo("#cap27", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 31.933);
+      tl.fromTo("#cap28", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 32.633);
+      tl.fromTo("#cap29", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 33.782);
+      tl.fromTo("#cap30", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 35.367);
+      tl.fromTo("#cap31", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 36.291);
+      tl.fromTo("#cap32", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 37.018);
+      tl.fromTo("#cap33", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 38.167);
+      tl.fromTo("#cap34", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 39.433);
+      tl.fromTo("#cap35", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 40.133);
+      tl.fromTo("#cap36", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 40.8);
+      tl.fromTo("#cap37", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 41.945);
+      tl.fromTo("#cap38", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 42.745);
+      tl.fromTo("#cap39", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 43.9);
+      tl.fromTo("#cap40", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 58.6);
+      tl.fromTo("#cap41", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 60.333);
+      tl.fromTo("#cap42", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 62.155);
+      tl.fromTo("#cap43", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 63.027);
+      tl.fromTo("#cap44", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 63.767);
+      tl.fromTo("#cap45", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 65.791);
+      tl.fromTo("#cap46", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 67.767);
+      tl.fromTo("#cap47", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 69.391);
+      tl.fromTo("#cap48", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 70.827);
+      tl.fromTo("#cap49", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 72.264);
+      tl.fromTo("#cap50", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 73.409);
+      tl.fromTo("#cap51", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 75.918);
+      tl.fromTo("#cap52", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 77.367);
+      tl.fromTo("#cap53", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 78.973);
+      tl.fromTo("#cap54", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 80.318);
+      tl.fromTo("#cap55", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 80.9);
+      tl.fromTo("#cap56", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 82.167);
+      tl.fromTo("#cap57", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 83.7);
+      tl.fromTo("#cap58", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 84.536);
+      tl.fromTo("#cap59", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 85.645);
+      tl.fromTo("#cap60", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 86.155);
+      tl.fromTo("#cap61", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 87.118);
+      tl.fromTo("#cap62", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 88.264);
+      tl.fromTo("#cap63", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 89.536);
+      tl.fromTo("#cap64", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 90.3);
+      tl.fromTo("#cap65", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 92.259);
+      tl.fromTo("#cap66", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 93.391);
+      tl.fromTo("#cap67", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 94.5);
+      tl.fromTo("#cap68", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 95.173);
+      tl.fromTo("#cap69", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 95.773);
+      tl.fromTo("#cap70", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 96.718);
+      tl.fromTo("#cap71", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 99.067);
+      tl.fromTo("#cap72", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 100.991);
+      tl.fromTo("#cap73", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 102.7);
+      tl.fromTo("#cap74", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 103.445);
+      tl.fromTo("#cap75", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 104.827);
+      tl.fromTo("#cap76", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 105.707);
+      tl.fromTo("#cap77", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 110.147);
+      tl.fromTo("#cap78", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 113.827);
+      tl.fromTo("#cap79", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 114.307);
+      tl.fromTo("#cap80", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 115.927);
+      tl.fromTo("#cap81", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 116.787);
+      tl.fromTo("#cap82", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 117.667);
+      tl.fromTo("#cap83", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 118.667);
+      tl.fromTo("#cap84", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 120.387);
+      tl.fromTo("#cap85", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 121.147);
+      tl.fromTo("#cap86", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 123.427);
+      tl.fromTo("#cap87", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 124.587);
+      tl.fromTo("#cap88", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 127.167);
+      tl.fromTo("#cap89", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 129.287);
+      tl.fromTo("#cap90", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 131.767);
+      tl.fromTo("#cap91", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 132.491);
+      tl.fromTo("#cap92", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 133.867);
+      tl.fromTo("#cap93", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 134.764);
+      tl.fromTo("#cap94", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 135.567);
+      tl.fromTo("#cap95", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 136.433);
+      tl.fromTo("#cap96", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 137.745);
+      tl.fromTo("#cap97", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 139.927);
+      tl.fromTo("#cap98", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 141.255);
+      tl.fromTo("#cap99", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 142.764);
+      tl.fromTo("#cap100", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 143.967);
+      tl.fromTo("#cap101", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 145.2);
+      tl.fromTo("#cap102", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 146.523);
+      tl.fromTo("#cap103", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 147.45);
+      tl.fromTo("#cap104", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 148.182);
+      tl.fromTo("#cap105", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 149.236);
+      tl.fromTo("#cap106", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 151.133);
+      tl.fromTo("#cap107", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 152.4);
+      tl.fromTo("#cap108", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 153.345);
+      tl.fromTo("#cap109", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 154.818);
+      tl.fromTo("#cap110", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 156.564);
+      tl.fromTo("#cap111", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 158.0);
+      tl.fromTo("#cap112", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 159.127);
+      tl.fromTo("#cap113", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 159.909);
+      tl.fromTo("#cap114", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 160.567);
+      tl.fromTo("#cap115", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 161.436);
+      tl.fromTo("#cap116", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 173.4);
+      tl.fromTo("#cap117", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 174.7);
+      tl.fromTo("#cap118", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 175.733);
+      tl.fromTo("#cap119", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 176.955);
+      tl.fromTo("#cap120", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 177.7);
+      tl.fromTo("#cap121", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 179.136);
+      tl.fromTo("#cap122", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 180.3);
+      tl.fromTo("#cap123", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 181.2);
+      tl.fromTo("#cap124", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 182.1);
+      tl.fromTo("#cap125", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 183.373);
+      tl.fromTo("#cap126", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 184.434);
+      tl.fromTo("#cap127", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 185.133);
+      tl.fromTo("#cap128", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 185.645);
+      tl.fromTo("#cap129", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 186.7);
+      tl.fromTo("#cap130", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 187.934);
+      tl.fromTo("#cap131", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 188.791);
+      tl.fromTo("#cap132", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 190.173);
+      tl.fromTo("#cap133", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 190.955);
+      tl.fromTo("#cap134", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 191.867);
+      tl.fromTo("#cap135", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 193.264);
+      tl.fromTo("#cap136", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 193.773);
+      tl.fromTo("#cap137", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 195.267);
+      tl.fromTo("#cap138", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 197.034);
+      tl.fromTo("#cap139", {opacity:0, y:6}, {opacity:1, y:0, duration:0.1, ease:"power1.out"}, 198.591);
       tl.fromTo("#punch", {scale:1.06}, {scale:1, duration:0.4, ease:"power3.out", immediateRender:false}, 11.703);
       tl.fromTo("#fx-glow", {opacity:0}, {opacity:0.8, duration:0.4, ease:"sine.out", immediateRender:false}, 78.591).to("#fx-glow", {opacity:0, duration:1.2, ease:"sine.in"}, 79.491);
       tl.fromTo("#punch", {scale:1.06}, {scale:1, duration:0.4, ease:"power3.out", immediateRender:false}, 84.979);

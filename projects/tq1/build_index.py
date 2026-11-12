@@ -136,6 +136,16 @@ for p in g:
         if all(len(x) <= 5 and L(x) <= MAXC for x in parts) or k >= n: break
         k += 1
     chunks += parts
+# merge a chunk shown < 1.0 s into its neighbour while the line stays <= 5 words / one line
+changed = True
+while changed:
+    changed = False
+    for i in range(len(chunks) - 1):
+        c, n = chunks[i], chunks[i + 1]
+        dur = n[0]["start"] - c[0]["start"]
+        if dur < 1.0 and len(c) + len(n) <= 5 and L(c + n) <= MAXC and n[0]["start"] - c[-1]["end"] < 0.5 \
+           and not any(c[0]["start"] < h0 <= n[0]["start"] for h0, hd in HOLDS):
+            chunks[i] = c + n; del chunks[i + 1]; changed = True; break
 CAP = []
 for i, c in enumerate(chunks):
     a = c[0]["start"]; nxt = chunks[i + 1][0]["start"] if i + 1 < len(chunks) else END
@@ -150,7 +160,15 @@ def chip_html():
     times = [M(t) if t else 0.0 for t, _ in CHIPS]
     for n, ((t, lab), a) in enumerate(zip(CHIPS, times)):
         b = times[n + 1] if n + 1 < len(times) else END
-        out.append((f'<div class="chip" id="chip{n}"><span class="ic"></span>{html.escape(lab)}</div>', a, b))
+        wins = [(a, b)]
+        for h0, hd in HOLDS:                      # inserts carry their own chip
+            nw = []
+            for x, y in wins:
+                if x < h0 < y: nw += [(x, h0), (h0 + hd, y)]
+                else: nw.append((x, y))
+            wins = [(x, y) for x, y in nw if y - x > 0.3]
+        for m, (x, y) in enumerate(wins):
+            out.append((f'<div class="chip" id="chip{n}_{m}"><span class="ic"></span>{html.escape(lab)}</div>', x, y))
     return out
 chips = chip_html()
 cards = [(f'<div class="card" id="card{n}"><div class="lab">{lab}</div><div class="ttl">{ttl}</div></div>', M(a), M(b))
@@ -167,13 +185,13 @@ body, js = [], []
 for n, (a, b, f, ms, mode) in enumerate(CUTS):
     s, e = M(a), M(b); d = round(e - s, 3)
     if mode == "full":
-        body.append(f'<div class="cut clip" id="cut{n}" data-start="{s}" data-duration="{d}" data-track-index="3">'
+        body.append(f'<div class="cut" id="cut{n}">'
                     f'<video id="cutv{n}" class="clip" data-start="{s}" data-duration="{d}" data-media-start="{ms}" data-track-index="4" src="assets/video/{f}.mp4" muted playsinline></video><div class="shade"></div></div>')
         js.append(f'tl.fromTo("#cut{n}", {{opacity:0}}, {{opacity:1, duration:0.25, ease:"power2.out"}}, {s});')
         js.append(f'tl.fromTo("#cutv{n}", {{scale:1.06}}, {{scale:1.0, duration:{d}, ease:"none"}}, {s});')
         js.append(f'tl.to("#cut{n}", {{opacity:0, duration:0.2, ease:"power2.in"}}, {round(e - 0.2, 3)});')
     else:
-        body.append(f'<div class="cut clip" id="cut{n}" data-start="{s}" data-duration="{d}" data-track-index="3">'
+        body.append(f'<div class="cut" id="cut{n}">'
                     f'<video id="cutb{n}" class="clip bg" data-start="{s}" data-duration="{d}" data-media-start="{ms}" data-track-index="4" src="assets/video/{f}_blur.mp4" muted playsinline></video>'
                     f'<div class="vcard" id="vcard{n}"><video id="cutv{n}" class="clip" data-start="{s}" data-duration="{d}" data-media-start="{ms}" data-track-index="5" src="assets/video/{f}.mp4" muted playsinline></video></div></div>')
         js.append(f'tl.fromTo("#cut{n}", {{opacity:0}}, {{opacity:1, duration:0.3, ease:"power2.out"}}, {s});')
@@ -182,20 +200,20 @@ for n, (a, b, f, ms, mode) in enumerate(CUTS):
 
 # b-roll inserts WITH their own audio (talk is frozen+silent underneath)
 for f, t, d in BROLL_AUDIO:
-    body.append(f'<div class="cut clip" id="ins-{f}" data-start="{t}" data-duration="{d}" data-track-index="3">'
+    body.append(f'<div class="cut" id="ins-{f}">'
                 f'<video id="insv-{f}" class="clip" data-start="{t}" data-duration="{d}" data-track-index="6" src="assets/video/{f}.mp4" data-has-audio="true" data-volume="1" playsinline></video><div class="shade"></div></div>')
     js.append(f'tl.fromTo("#ins-{f}", {{opacity:0}}, {{opacity:1, duration:0.3, ease:"power2.out"}}, {t});')
     js.append(f'tl.to("#ins-{f}", {{opacity:0, duration:0.25, ease:"power2.in"}}, {round(t + d - 0.25, 3)});')
 
 # ayat cards (inside the inserts): (id, start, end, chip, ref, arabic_html, note, top)
-AYAT = [("a6714", TQ_T + 0.4, TQ_T + TQ_D - 0.3, "Talaqi · guru baca, pelajar ikut", "AL-MULK · 67:14", A_6714, "Guru baca dulu, kemudian pelajar ikut bacaan yang sama.", 900),
-        ("a181", TE_T + 5.4, TE_T + 15.5, "Saktah · sin kecil ( ۜ )", "AL-KAHF · 18:1", A_181, "Berhenti seketika pada ۜ tanpa ambil nafas baru.", 820),
-        ("a4911", TE_T + 15.6, TE_T + TE_D - 0.3, "Naql · pindah baris", "AL-HUJURAT · 49:11", A_4911, "Satu-satunya tempat naql dalam riwayat Hafs.", 820),
-        ("a3652", PR_T + 1.7, PR_T + PR_D - 0.3, "Praktikal · baca ikut group", "YĀ SĪN · 36:52", A_3652, "Saktah pada مَّرۡقَدِنَاۜ — berhenti seketika, tanpa nafas.", 860)]
+AYAT = [("a6714", TQ_T + 0.4, TQ_T + TQ_D - 0.3, "Talaqi · guru baca, pelajar ikut", "AL-MULK · 67:14", A_6714, "Guru baca dulu, kemudian pelajar ikut bacaan yang sama.", 430),
+        ("a181", TE_T + 5.4, TE_T + 15.5, "Saktah · sin kecil ( ۜ )", "AL-KAHF · 18:1", A_181, "Berhenti seketika pada tanda ۜ tanpa ambil nafas baru.", 880),
+        ("a4911", TE_T + 15.6, TE_T + TE_D - 0.3, "Naql · pindah baris", "AL-HUJURAT · 49:11", A_4911, "Satu-satunya tempat naql dalam riwayat Hafs.", 880),
+        ("a3652", PR_T + 1.7, PR_T + PR_D - 0.3, "Praktikal · baca ikut group", "YĀ SĪN · 36:52", A_3652, "Saktah pada مَّرۡقَدِنَاۜ — berhenti seketika, tanpa nafas.", 980)]
 for aid, a, b, chip, ref, ar, note, top in AYAT:
     a, b = round(a, 3), round(b, 3)
     body.append(f'<div class="ayat clip" id="{aid}" data-start="{a}" data-duration="{round(b - a, 3)}" data-track-index="7" style="top:{top}px">'
-                f'<div class="aref">{ref}</div><div class="ar" dir="rtl" lang="ar">{ar}</div><div class="anote">{html.escape(note)}</div></div>')
+                f'<div class="aref">{ref}</div><div class="ar" dir="rtl" lang="ar">{ar}</div><div class="anote">{re.sub(r"([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+)", r'<span class="arn" dir="rtl">\1</span>', html.escape(note))}</div></div>')
     js.append(f'tl.fromTo("#{aid}", {{opacity:0, y:40}}, {{opacity:1, y:0, duration:0.45, ease:"power3.out"}}, {a});')
     js.append(f'tl.to("#{aid}", {{opacity:0, y:-12, duration:0.25, ease:"power2.in"}}, {round(b - 0.25, 3)});')
     chips.append((f'<div class="chip" id="c{aid}"><span class="ic"></span>{html.escape(chip)}</div>', a, b))
@@ -209,7 +227,7 @@ for n, (h, a, b) in enumerate(chips):
 for n, (h, a, b) in enumerate(cards):
     body.append(h.replace('class="card"', f'class="card clip" data-start="{a}" data-duration="{round(b - a, 3)}" data-track-index="9"', 1))
     js.append(f'tl.fromTo("#card{n}", {{opacity:0, y:30, scale:0.97}}, {{opacity:1, y:0, scale:1, duration:0.4, ease:"power3.out"}}, {a});')
-    js.append(f'tl.fromTo("#card{n} i", {{opacity:0, x:-10}}, {{opacity:1, x:0, duration:0.4, ease:"power2.out"}}, {round(a + 0.25, 3)});')
+    if "<i>" in h: js.append(f'tl.fromTo("#card{n} i", {{opacity:0, x:-10}}, {{opacity:1, x:0, duration:0.4, ease:"power2.out"}}, {round(a + 0.25, 3)});')
     js.append(f'tl.to("#card{n}", {{opacity:0, y:-10, duration:0.25, ease:"power2.in"}}, {round(b - 0.25, 3)});')
 for h, a, b, mk in pills:
     pid = re.search(r'id="([^"]+)"', h).group(1)
@@ -234,7 +252,7 @@ for t, kind in EMO:
 AUD = []
 def sfx(i, t, f, d, v, ms=0, fade=0):
     AUD.append(f'<audio id="sfx-{i}" class="clip" data-start="{round(t, 3)}" data-duration="{d}"' + (f' data-media-start="{ms}"' if ms else "") +
-               f' data-track-index="{20 + len(AUD) % 3}" src="assets/sfx/{f}.mp3" data-volume="{v}"' +
+               f' data-track-index="{20 + len(AUD)}" src="assets/sfx/{f}.mp3" data-volume="{v}"' +
                (f' data-fade-in="{fade}" data-fade-out="{fade}"' if fade else "") + '></audio>')
 REC = [(TQ_T, TQ_T + TQ_D), (PR_T, PR_T + PR_D)]           # Quran recitation: no music, no sfx
 def free(t): return not any(a - 0.4 <= t <= b + 0.2 for a, b in REC)
@@ -286,7 +304,7 @@ html_out = f'''<!doctype html>
         background:radial-gradient(ellipse at 50% 35%, rgba(255,214,150,.75) 0%, rgba(215,180,106,.25) 45%, rgba(215,180,106,0) 75%); }}
       #bottomshade {{ position:absolute; left:0; right:0; top:1120px; height:420px; z-index:3; pointer-events:none;
         background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,.28) 70%, rgba(0,0,0,0) 100%); }}
-      .cut {{ position:absolute; inset:0; z-index:4; overflow:hidden; background:#101012; }}
+      .cut {{ position:absolute; inset:0; z-index:4; overflow:hidden; background:#101012; opacity:0; }}
       .cut video {{ position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }}
       .cut .shade {{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 52%, rgba(0,0,0,.55) 78%, rgba(0,0,0,.35) 100%); }}
       .cut video.bg {{ opacity:.9; }}
@@ -301,7 +319,7 @@ html_out = f'''<!doctype html>
       .card {{ position:absolute; left:50%; top:930px; transform:translateX(-50%); z-index:13; text-align:center; white-space:nowrap;
         padding:26px 56px 30px; border-radius:26px; background:var(--glass); border:1px solid var(--line);
         backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }}
-      .card .lab {{ color:var(--gold); font-weight:700; font-size:22px; letter-spacing:7px; margin-bottom:6px; }}
+      .card .lab {{ color:var(--gold); font-weight:700; font-size:28px; letter-spacing:7px; margin-bottom:6px; }}
       .card .ttl {{ color:#fff; font-family:"Playfair Display", serif; font-weight:700; font-size:84px; line-height:1.05; }}
       .card .ttl i {{ display:inline-block; color:var(--gold); font-style:italic; font-weight:600; }}
       .card .dot, .card .amp {{ color:rgba(255,255,255,.55); }}
@@ -313,9 +331,10 @@ html_out = f'''<!doctype html>
       .pill .mk.x {{ color:#fff; background:rgba(255,255,255,.18); }}
       .ayat {{ position:absolute; left:60px; width:960px; z-index:14; padding:30px 40px 30px; border-radius:28px; text-align:center;
         background:rgba(14,14,16,.78); border:1px solid rgba(215,180,106,.35); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }}
-      .ayat .aref {{ color:var(--gold); font-weight:700; font-size:22px; letter-spacing:6px; }}
+      .ayat .aref {{ color:var(--gold); font-weight:700; font-size:28px; letter-spacing:6px; }}
       .ayat .ar {{ font-family:"UthmanicHafs", serif; color:#fff; font-size:60px; line-height:1.85; margin:10px 0 8px; }}
       .ayat .ar .g {{ color:var(--gold); }}
+      .ayat .anote .arn {{ font-family:"UthmanicHafs", serif; color:var(--gold); font-size:34px; }}
       .ayat .anote {{ color:rgba(255,255,255,.78); font-weight:500; font-size:26px; }}
       .cap {{ position:absolute; left:0; right:0; top:1268px; z-index:15; text-align:center; white-space:nowrap;
         color:#fff; font-weight:800; font-size:46px; letter-spacing:.2px;
