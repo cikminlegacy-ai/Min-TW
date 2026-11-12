@@ -16,7 +16,7 @@ Input can be footage (do the full edit), or only a script/idea (then deliver the
 2. `design-log.md` — what past videos looked like. Rule 9: the new design must differ (≥5 of 8 dimensions vs the last video, no repeated combination). Add an entry after rendering.
 3. `theme.md` — the "TikTok awareness / naik followers" series brief (45–50 s, educate only, never sell, honest close-up ending). Apply when the video is that kind of content or the user mentions it. Its blue/yellow palette was AW1's design — do NOT reuse it by default (rule 9 wins).
 
-**DEFAULT STYLE (user approved 2026-11-12): `projects/tq1`** — copy its build_index.py system for every new video (rules.md §13). Older reference build: `projects/aw1` (+ `EDIT-NOTES.md`) — reuse its *mechanics* (camera punch per jump cut, scene-per-beat, caption generator, honest blur), not its look.
+**DEFAULT STYLE (user approved 2026-11-12): `projects/tq1`** — copy its build_index.py system for every new video (rules.md §13). What changes per video is ONLY music, SFX, colour grade and transitions, chosen per emotion beat from the mood map (rules.md §15). Older reference build: `projects/aw1` (+ `EDIT-NOTES.md`) — reuse its *mechanics* (camera punch per jump cut, scene-per-beat, caption generator, honest blur), not its look.
 
 ## 0. Tools (installed by the Default environment's setup script)
 

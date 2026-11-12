@@ -165,3 +165,39 @@ JANGAN tukar sistem/struktur yang user dah suka.
 - Semak setiap ayat (surah:ayat) dengan sumber + dengan bahan B-roll/gambar yang user sediakan; nyatakan rujukan surah:ayat di bawah ayat.
 - Highlight hukum tajwid (cth warna pada huruf ghunnah/mad) hanya kalau tepat — kalau ragu, jangan warnakan.
 - Jangan ubah urutan/flow video yang user bagi.
+
+## 15. PETA MOOD — SFX, MUZIK, WARNA & TRANSITION IKUT EMOSI (user 2026-11-12) — WAJIB setiap video
+**Gaya/struktur TQ1 KEKAL** (§13). Yang BERUBAH ikut emosi jalan cerita cuma 4 benda:
+**SFX, muzik latar, warna/grade video, transition.** Semua versi profesional dan halus: tak berlebihan, suara tetap raja, tiada SFX/muzik masa bacaan Quran.
+
+Cara kerja: baca transcript, tandakan emosi setiap beat (emosi boleh bertukar dalam satu video), tulis jadual
+"masa → emosi → muzik → SFX → grade → transition" dalam DESIGN.md dan mesej preview.
+
+| Emosi | Muzik latar | SFX | Warna / grade (halus, 10–25%) | Transition / gerak |
+|---|---|---|---|---|
+| Gembira / happy | Ukulele, acoustic, pop ringan, major | chime, sparkle, pop ceria | Lebih hangat & cerah, saturasi +10% | Pop/bounce kecil, glow hangat, slide lembut |
+| Lega / syukur | Piano/pad lembut major, strings naik | soft chime, nafas lega, swell | Hangat keemasan, highlight lembut | Slow push-in, fade cahaya |
+| Kelakar | Pizzicato, bassoon, ukulele quirky, beat berhenti | boing, record-scratch, cartoon pop, "ding" timing lawak | Normal / sedikit terang | Zoom-snap pantas ke muka, freeze-frame 0.3 s, teks pop condong |
+| Teruja / semangat | Upbeat, drum, synth naik, tempo laju | riser, whoosh, impact | Kontras +, saturasi + | Whip pan, punch-in berturut, cut ikut beat |
+| Marah / geram | Drum berat, bass distort, tension | sub boom, hit keras, deruman | Kontras tinggi, sedikit merah/panas, shadow gelap | Punch-in keras, shake ringan 2–3 frame, flash merah nipis |
+| Merajuk | Piano minor perlahan, solo string | "hmph" lembut, angin kecil, jam berdetik | Desaturate sikit, sejuk | Slow zoom-out, fade, ruang kosong |
+| Masam muka / bosan / kecewa | Muzik mati atau drone rendah, tempo lambat | dengung, tick-tock, "wah-wah" lembut | Pudar/flat, desaturate 20%, sejuk | Hard cut tanpa animasi, hold 0.3 s, zoom perlahan ke muka |
+| Sedih | Piano minor, cello, ambient sunyi | low hit lembut, reverse swell, hujan | Sejuk biru, desaturate, gelap sikit | Slow push, cross-dissolve, vignette lembut |
+| Panik / cemas | Ostinato laju, ticking, strings staccato | degupan jantung, jam laju, nafas laju | Kontras tinggi, sejuk/hijau, sedikit grain | Jump cut laju, micro-shake, zoom keluar-masuk |
+| Gelabah / kalut | Tempo kucar, pizzicato laju | barang jatuh, langkah tergesa, whoosh rapat | Normal, sedikit terang | Cut rapat, whip kecil, teks muncul laju bertindan |
+| Terkejut / twist | Muzik berhenti tiba-tiba (silence 0.3 s) → hit | whoosh + impact, record-scratch, stinger | Flash putih 2 frame | Zoom-snap ke muka, teks besar pop |
+| Takut / seram | Drone, dissonant, sunyi | heartbeat, creak, glitch, sub boom | Gelap, sejuk, desaturate, vignette | Flash, glitch ringkas, shake (§3C) |
+| Suspens / misteri | Pulse rendah, ticking, pad gelap | riser perlahan, tick, nafas | Gelap sedikit, kontras lembut | Slow push-in panjang, reveal lambat |
+| Malu / segan | Ukulele lembut / piano comel | pop kecil, "awkward" cricket | Hangat lembut | Zoom-out kecil, teks kecil senget |
+| Keliru | Nada bertanya, pizzicato terhenti | "huh?" boop, question ding | Normal | Tilt kecil, teks "?" halus |
+| Kagum / bangga | Strings/brass naik, cinematic | swell, shimmer, impact lembut | Hangat, highlight naik | Slow push-in, glow |
+| Tenang / spiritual (Quran, nasihat) | Pad ambient tanpa beat — **senyap penuh masa bacaan** | sangat minimum | Neutral bersih, hangat sikit | Fade, slide perlahan |
+| Rindu / nostalgia | Piano + reverb, music box | vinyl crackle, angin | Hangat pudar, grain halus, kontras rendah | Cross-dissolve, slow drift |
+
+**Pertukaran emosi (transition antara mood):**
+- Muzik: cross-fade 0.8–1.5 s ke cue mood baru. Untuk terkejut/twist: potong mati 0.3 s, kemudian hit.
+- Warna: blend grade 0.5–1 s, kecuali terkejut/marah/takut, yang boleh tukar serta-merta pada cut.
+- Letak satu "penanda" pada titik tukar: whoosh/swell/impact ikut mood baru, serentak dengan visual.
+- Jangan ulang pasangan SFX+transition yang sama berturut-turut. Satu video = palet mood yang konsisten, bukan rojak setiap 2 saat.
+- Grade guna `npx hyperframes media-treatment` (bukan CSS filter). Untuk mood berubah dalam satu talk clip, pecahkan kepada klip bergred berbeza (macam PB1 past/present) atau overlay tint lembut `mix-blend-mode`.
+- Sumber muzik: Openverse → Jamendo (CC BY, kredit dalam caption). SFX: Google Sound Library + bundled Pixabay (§3B).
