@@ -6,3 +6,4 @@ projects/*/.hyperframes/
 node_modules/
 *.MOV
 preview/
+projects/*/talk.log
