@@ -24,3 +24,11 @@ Baca sebelum design video baru. Tambah entri selepas setiap render. Jangan ulang
 - Speed 1.3× (penyampaian slow) → 4:24.
 - Emotion FX baru: scare = flash + vignette merah + shake ↔ glitch/impact; surprise = zoom-snap ↔ whoosh; happy = glow + bounce ↔ chime/sparkle.
 - Final: HEVC hvc1 1080x1920, 93.2 MB, -14.4 LUFS.
+
+## TQ1 (2026-11-12) — 5 Cara Belajar Tajwid & Talaqi
+- Gaya ikut REFERENCE.mov (rules.md §13): chip topik atas, kad serif Playfair + aksen emas italic, pill glass bertindan ✓/✕, cutaway B-roll kelas, kad video atas latar blur.
+- Subtitle baru (rules.md §12): Inter 800 46 px putih + bayang hitam, satu baris 3–5 perkataan, tetap paras dada/perut, fade 0.1 s.
+- Ayat Quran: QPC Hafs (Quran.com API) + font KFGQPC Uthmanic Hafs v18; kad Al-Mulk 67:14, Al-Kahf 18:1, Al-Hujurat 49:11, Yasin 36:52.
+- 3 B-roll dengan audio asal diselit (talaqi, teori saktah/naql, praktikal); muzik & SFX senyap semasa bacaan.
+- Palet neutral + emas mushaf #D7B46A; muzik "Ambient" Alexander Blu (CC BY); speed 1.1×; 3:20.
+- Final: HEVC hvc1 1080x1920, 92.7 MB, −15.0 LUFS.
