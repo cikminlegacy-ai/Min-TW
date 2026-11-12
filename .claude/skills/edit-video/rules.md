@@ -84,11 +84,12 @@ Selepas cut: pastikan tiada perkataan hilang — banding transcript asal vs cuts
 Durasi funnel (funnels.md) = panduan susunan & hook sahaja, BUKAN sebab untuk buang isi.
 Funnel 2 & 4: jeda dramatik dulu 1–1.5 s — kini MAKSIMUM 0.4 s (user tak suka scene delay).
 
-## 6B. SPEED 1.2–1.3 (user 2026-11-12) — WAJIB setiap video
-- Laju talking-head ikut cara percakapan user: dengar/ukur kadar cakap (perkataan sesaat selepas potong, tanpa jeda).
-  - Lambat / meleret sampai membosankan (≲ 2.6 perkataan/s) → **1.3×**.
-  - Dah laju, risiko audiens hilang info (≳ 3.2 perkataan/s) → **1.2×**. Antara → 1.25×.
-- Cara: `SPEED=1.3 plan_cuts.py ...` (cuts.json simpan `speed`; build_talk guna setpts + atempo — pic suara kekal). Semua masa nota/SFX ikut cuts.json/timemap.
+## 6B. SPEED 1.1–1.2 (user 2026-11-12, DIRESET — 1.3 terlalu laju, JANGAN guna lagi) — WAJIB
+- **Maksimum 1.2×, minimum 1.1×.** Ukur kelancaran user (selepas potong filler/pause):
+  - Cakap **kurang lancar** / tersekat-sekat / meleret → **1.2×**.
+  - Cakap **dah lancar** → **1.1×**.
+  - Jangan sekali-kali 1.25/1.3 (PB1 v3 1.3× → user kata terlalu laju).
+- Cara: `SPEED=1.1 plan_cuts.py ...` (cuts.json simpan `speed`; build_talk guna setpts + atempo — pic suara kekal). Semua masa nota/SFX ikut cuts.json/timemap.
 - Nyatakan speed yang dipilih + sebab dalam mesej preview.
 
 ## 7. HOOK
@@ -130,3 +131,31 @@ Funnel 2 & 4: jeda dramatik dulu 1–1.5 s — kini MAKSIMUM 0.4 s (user tak suk
 - Encode HEVC slow ambil masa (≈10–15 min seminit video bila CPU kosong). Tugasan background tool dibunuh selepas 2 jam: **jangan gabungkan render + deliver dalam satu tugasan** untuk video panjang. Jalankan deliver berasingan dan detached:
   `setsid nohup scripts/deliver.sh in.mp4 out.mp4 > out/deliver.log 2>&1 < /dev/null & disown`, kemudian pantau `out.mp4` dengan until-loop.
 - Hantar fail INI sahaja (SendUserFile, display "attach"); render asal kekal dalam `out/`.
+
+## 12. SUBTITLE PROFESIONAL (user 2026-11-12) — WAJIB, ganti semua gaya subtitle lama
+User tegur: subtitle lama "kebudak-budakan" — terlalu banyak warna, lompat sana-sini, transition merapu, terlalu laju, crowded sampai orang tak tahu nak tengok muka atau subtitle.
+- **Warna: hitam-putih SAHAJA.** Teks putih + bayang/outline hitam lembut (atau sebaliknya). Tiada highlight warna, tiada karaoke warna, tiada pill berwarna.
+- **Saiz kecil ("size 10")**: kecil & kemas — ~44–50 px pada kanvas 1080 lebar, weight 700–800, sans bersih (Inter / Montserrat / SF-style).
+- **3–5 perkataan satu kali, SATU BARIS sahaja.** Jangan pecah jadi 2 baris. Chunk ikut frasa (berhenti pada koma/noktah), min 3 max 5 perkataan (kecuali ayat memang 1–2 perkataan).
+- **Kedudukan: bawah — paras dada/perut.** Bukan atas kepala, bukan di muka. Kalau framing kepala→dada, letak sedikit bawah dada. Kekal di satu kedudukan tetap (tak lompat).
+- **Transition: tenang** — fade/rise kecil ≤ 0.12 s, tiada bounce/scale/pop/goyang/huruf menari. Chunk kekal di skrin sepanjang frasa (tak berkelip laju).
+- Tiada emoji dalam subtitle.
+
+## 13. GAYA EDIT PROFESIONAL — IKUT REFERENCE (user 2026-11-12) — WAJIB
+- Kalau user bagi **REFERENCE video** (cth `BAHAN/REFERENCE.mov`): tiru gaya dia sebiji — susunan poin, jenis grafik, kedudukan, rentak, transition. Reference > design-log variasi (rule 9 hanya untuk elemen yang reference tak tentukan).
+- Gaya rujukan yang user suka (REFERENCE PB1-Quran, @andikaputeraa): 
+  - **Chip topik** kecil di atas (pill gelap translucent + ikon kecil + label 3–5 perkataan) — tukar ikut bahagian cerita.
+  - **Senarai poin bertindan** (pill gelap glass, teks putih kecil) muncul satu-satu bila poin disebut, di sisi/dada — tak tutup muka; ✓/✗ / coretan untuk perbandingan.
+  - **Kad angka/fakta**: panel gelap glass, label kecil huruf besar jarak lebar + angka/perkataan besar serif elegan; aksen italic serif emas untuk satu perkataan kunci.
+  - **Cutaway kad**: latar video sama di-blur + gelap, kad imej/screenshot di tengah dengan tajuk chip di atas.
+  - Teks hantu (ghost text) serif besar jarak lebar di belakang subjek untuk perkataan kunci — sekali-sekala.
+  - Palet: gelap translucent + putih + satu aksen (emas/ikut tone video). Tiada warna-warni.
+- **Tidak kebudak-budakan:** tiada sticker/emoji besar, tiada teks melompat, animasi ringkas (slide/fade 0.2–0.35 s ease-out), satu elemen baru pada satu masa, ruang kosong cukup. Warna mesti ikut tone/grade video.
+- Kesan (SFX ikut emosi §3C, grade, camera punch) dikekalkan — user kata efek dah cantik — tapi versi halus/profesional.
+
+## 14. AYAT AL-QURAN (user 2026-11-12) — WAJIB bila video ada ayat Quran / tajwid
+- Teks ayat MESTI **Rasm Uthmani** (mushaf Rasm Uthmani, riwayat Hafs) — ambil dari sumber sahih (API Quran.com `text_uthmani` / Tanzil Uthmani), JANGAN taip sendiri / jangan teks "imla'i" biasa.
+- Font: **KFGQPC Uthmanic Script HAFS** (Kompleks Raja Fahd) atau **Amiri Quran** — sokong tanda waqaf & harakat penuh. Render RTL, saiz cukup besar supaya baris tajwid jelas.
+- Semak setiap ayat (surah:ayat) dengan sumber + dengan bahan B-roll/gambar yang user sediakan; nyatakan rujukan surah:ayat di bawah ayat.
+- Highlight hukum tajwid (cth warna pada huruf ghunnah/mad) hanya kalau tepat — kalau ragu, jangan warnakan.
+- Jangan ubah urutan/flow video yang user bagi.

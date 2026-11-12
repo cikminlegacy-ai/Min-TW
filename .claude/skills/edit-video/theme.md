@@ -19,7 +19,7 @@ BUANG habis (HANYA ini — isi cerita lain KEKAL):
 WAJIB tetapkan hook yang paling capture 3 saat pertama. Jangan ikut intro asal kalau intro lemah.
 
 ## STYLE
-- **Speed 1.2–1.3×** ikut cara percakapan (lambat → 1.3, laju → 1.2) — rules.md §6B.
+- **Speed 1.1–1.2×** (kurang lancar → 1.2, lancar → 1.1; maks 1.2) — rules.md §6B.
 - **SFX seiring transition ikut emosi** (jump scare / terkejut / poin best gembira) — rules.md §3C.
 - Format 9:16 (1080x1920).
 - **Font** sesuai dengan vibe jalan cerita (rules.md §10).
