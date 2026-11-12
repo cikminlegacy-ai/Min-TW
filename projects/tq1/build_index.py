@@ -103,8 +103,11 @@ for a, b in T:                       # teacher speech inside the teori insert
             m = (w["s"] + w["e"]) / 2
             if a <= m < b: tw.append({"text": w["w"].strip(), "start": round(TE_T + off + w["s"] - a, 3), "end": round(TE_T + off + w["e"] - a, 3)})
     off += b - a
+tw2 = []
 for w in tw:
-    w["text"] = {"hujurat": "Hujurat"}.get(w["text"], w["text"])
+    if w["text"].startswith("-") and tw2: tw2[-1]["text"] += w["text"]; tw2[-1]["end"] = w["end"]
+    else: tw2.append(w)
+tw = tw2
 words = sorted(words + tw, key=lambda w: w["start"])
 words = [w for w in words if not (TQ_T <= w["start"] < TQ_T + TQ_D or PR_T <= w["start"] < PR_T + PR_D)]
 
@@ -137,6 +140,8 @@ CAP = []
 for i, c in enumerate(chunks):
     a = c[0]["start"]; nxt = chunks[i + 1][0]["start"] if i + 1 < len(chunks) else END
     b = min(nxt, c[-1]["end"] + 0.6)
+    for h0, hd in HOLDS:                       # never run a talk caption into a b-roll insert
+        if a < h0 < b: b = h0
     CAP.append((round(a, 3), round(max(b, a + 0.4), 3), " ".join(x["text"] for x in c)))
 
 # ---------------- helpers to emit HTML
