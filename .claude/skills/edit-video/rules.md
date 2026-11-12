@@ -142,6 +142,12 @@ User tegur: subtitle lama "kebudak-budakan" — terlalu banyak warna, lompat san
 - Tiada emoji dalam subtitle.
 
 ## 13. GAYA EDIT PROFESIONAL — IKUT REFERENCE (user 2026-11-12) — WAJIB
+**STANDARD TETAP (user 2026-11-12, lepas TQ1: "betul-betul nampak profesional, next time aku nak yang macamni"):**
+`projects/tq1` ialah gaya default untuk SEMUA video seterusnya. Mula dari `projects/tq1/build_index.py`
+(+ `mk_capwords.py`, `DESIGN.md`). Kekalkan sistemnya: chip topik atas, kad serif + aksen italic, pill glass ✓/✕,
+cutaway B-roll / kad video atas blur, subtitle §12, B-roll beraudio diselit pada "tengok video ni", kad ayat §14,
+SFX halus, muzik senyap masa bacaan. Rule 9 (design beza) kini hanya untuk palet aksen, muzik, ikon & label —
+JANGAN tukar sistem/struktur yang user dah suka.
 - Kalau user bagi **REFERENCE video** (cth `BAHAN/REFERENCE.mov`): tiru gaya dia sebiji — susunan poin, jenis grafik, kedudukan, rentak, transition. Reference > design-log variasi (rule 9 hanya untuk elemen yang reference tak tentukan).
 - Gaya rujukan yang user suka (REFERENCE PB1-Quran, @andikaputeraa): 
   - **Chip topik** kecil di atas (pill gelap translucent + ikon kecil + label 3–5 perkataan) — tukar ikut bahagian cerita.
