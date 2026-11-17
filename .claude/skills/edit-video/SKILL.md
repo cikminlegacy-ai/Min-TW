@@ -5,8 +5,11 @@ description: Editor + script doctor + strategist for Muhaimin (B40 KL audience, 
 
 # /edit-video — Muhaimin short-form editor
 
-The user sends `/edit-video <link>` (+ maybe hook / script / notes). Do the whole edit and **stop at a preview**.
-Never render until the user says "render"/"ok". Reply in Bahasa Melayu (casual, "aku/kau").
+The user sends `/edit-video <link>` (+ maybe hook / script / notes).
+**WORKFLOW TETAP (user 2026-11-17) — 3 hentian, tunggu arahan user setiap satu:**
+1. Download + transcribe, kemudian **STOP: bagi 3 pilihan hook terbaik** (rules.md §7). Jangan mula edit sampai user pilih (atau HOOK LOCK sudah diberi).
+2. Lepas user pilih → buat edit penuh + check + snapshot. **STOP: mesej pendek "dah siap, nak preview?"** — JANGAN hantar contact sheet / Studio preview sampai user minta.
+3. User minta preview → hantar preview penuh. **STOP: tunggu "render"/"ok"**. Jangan render sebelum itu. Reply in Bahasa Melayu (casual, "aku/kau").
 Do not ask the user to repeat their requirements — they are saved here. Do not ask many questions: make the most logical assumption and continue.
 Input can be footage (do the full edit), or only a script/idea (then deliver the funnels.md written output — detect funnel, 3 hooks, second-by-second timeline, exact on-screen text, music/SFX/B-roll, caption + 5 hashtags, What's Next CTA — no build).
 

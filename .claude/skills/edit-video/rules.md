@@ -93,11 +93,15 @@ Funnel 2 & 4: jeda dramatik dulu 1–1.5 s — kini MAKSIMUM 0.4 s (user tak suk
 - Nyatakan speed yang dipilih + sebab dalam mesej preview.
 
 ## 7. HOOK
+- **WAJIB SEBELUM EDIT (user 2026-11-17):** lepas transcribe, hantar **3 pilihan hook terbaik** dan TUNGGU user pilih. Untuk setiap pilihan:
+  ayat hook (dari footage + saat sumber, atau "perlu rakam tambah"), teks on-screen 3–5 perkataan, visual 0–3 s + emosi, kenapa ia killer.
+  Tandakan ⭐ pilihan aku. Formula ikut /hook skill (soalan mengejut, nombor, kontra/mitos, cerita, janji hasil) — 3 formula berbeza.
 - Cari ayat PALING KUAT dalam transcript (soalan mengejut, nombor besar, kontra, janji hasil). Kalau bukan di awal, pindahkan ke depan (cold open) — 0–3 s.
 - 0–3 s: punch-in muka + teks hook besar + SFX kuat. Frame pertama = thumbnail: muka + teks, jangan hitam.
 - Kalau user bagi HOOK LOCK, guna itu.
 
 ## 8. PREVIEW
+- **Tunggu arahan (user 2026-11-17):** lepas edit siap, hantar mesej pendek je ("dah siap, nak preview?"). Hantar contact sheet / Studio bila user minta. Render hanya bila user cakap "render"/"ok".
 - JANGAN render dulu. Tunjuk: storyboard contact sheets (snapshot setiap beat) + Studio preview (`preview --background`, report port) + jadual beat (masa / ayat / visual).
 - Render hanya bila user cakap "render"/"ok".
 
