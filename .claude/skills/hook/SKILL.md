@@ -27,7 +27,7 @@ Untuk setiap hook bagi 3 benda:
 - **Visual 0–3 s** — apa nampak di frame pertama (punch-in muka / B-roll / kad nombor) + emosi (rujuk mood map rules.md §15).
 
 Akhir: **⭐ Pilihan aku: Hook #N** + satu ayat kenapa (paling kuat untuk audiens & funnel ni).
-Kalau footage dah ada: tandakan hook mana yang **boleh guna ayat sedia ada** (cold open dari transcript, nyatakan saat) vs yang **perlu rakam tambah**.
+Kalau footage dah ada: **semua hook mesti dari ayat sedia ada** dalam transcript (nyatakan saat mula–tamat) — user tak rakam tambah; potongan dipilih akan di-copy ke 0–3 s sebagai cold open.
 
 ## Peraturan
 - Formula asas funnels.md: Isu Malaysia + Sakit B40 + Rasa ingin tahu. Bahasa orang biasa, analogi Malaysia.
